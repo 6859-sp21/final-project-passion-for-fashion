@@ -13,30 +13,30 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      state: states.introduction,
+      pageState: states.introduction,
     }
   }
 
-  getView(state) {
-    if (state === state.introduction) {
+  getView(page) {
+    if (page === states.introduction) {
       return <Intro/>;
-    } else if (state === state.narrative) {
+    } else if (page === states.narrative) {
       return <Narrative/>;
     } else {
       return <Visualization/>; // default value if state transitions ever mess up
     }
   }
 
-  updateState(newState) {
+  updateState(newPagetate) {
     this.setState({
-      state: newState
+      pageState: newPageState
     });
   }
 
   render(viewState) {
     return (
       <div>
-        {this.getView(this.state)}
+        {this.getView(this.state.pageState)}
       </div>
     );
   }
