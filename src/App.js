@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import states from './constants/states';
 // import './constants/fonts.css';
 import Intro from './Introduction/Intro';
@@ -19,18 +19,25 @@ class App extends Component {
 
   getView(page) {
     if (page === states.introduction) {
-      return <Intro/>;
+      return <Intro
+        updateState = {this.updateState}
+        />;
     } else if (page === states.narrative) {
-      return <Narrative/>;
+      return <Narrative
+        updateState = {this.updateState}
+        />;
     } else {
-      return <Visualization/>; // default value if state transitions ever mess up
+      // default value if state transitions ever mess up
+      return <Visualization
+        updateState = {this.updateState}
+        />;
     }
   }
 
-  updateState(newPageState) {
+  updateState = (newPageState) => {
     this.setState({
       pageState: newPageState
-    });
+    })
   }
 
   render(viewState) {
