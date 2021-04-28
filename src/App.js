@@ -1,25 +1,46 @@
+import React, {Component} from 'react';
+
 import logo from './logo.svg';
+import states from './constants/states';
+// import './constants/fonts.css';
+import Intro from './Introduction/Intro';
+import Narrative from './Narrative/Narrative';
+import Visualization from './Visualization/Visualization';
+
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      state: states.introduction,
+    }
+  }
+
+  getView(state) {
+    if (state === state.introduction) {
+      return <Intro/>;
+    } else if (state === state.narrative) {
+      return <Narrative/>;
+    } else {
+      return <Visualization/>; // default value if state transitions ever mess up
+    }
+  }
+
+  updateState(newState) {
+    this.setState({
+      state: newState
+    });
+  }
+
+  render(viewState) {
+    return (
+      <div>
+        {this.getView(this.state)}
+      </div>
+    );
+  }
+
 }
 
 export default App;
