@@ -27,7 +27,7 @@ class App extends Component {
     }
   }
 
-  updateState(newPagetate) {
+  updateState(newPageState) {
     this.setState({
       pageState: newPageState
     });
