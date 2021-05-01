@@ -4,6 +4,8 @@ import Button from '@material-ui/core/Button';
 import colors from './../constants/colors';
 import states from './../constants/states';
 
+import Scroll from './Scroll';
+
 class Narrative extends Component {
 
     constructor(props) {
@@ -17,6 +19,7 @@ class Narrative extends Component {
     render() {
         return (
             <div>
+                <Scroll/>
                 <h2 style={{color: colors.black}}>Welcome to the Narrative</h2>
                 <Button variant="contained" onClick={this.onSubmit} style={{
                 color: colors.medium_grey,
