@@ -36,8 +36,8 @@ const nicole = "Nicole Ho, via her blog";
 // styles used
 const style = {
     marginTop: '20px',
-    marginLeft: '20px',
-    marginRight: '20px',
+    marginLeft: '40px',
+    marginRight: '40px',
     marginBottom: '20px',
 }
 
@@ -67,26 +67,24 @@ const scrollItemCenterImageOnly = (image, source) => (
 
 const scrollItemCenterTextOnly = (text, source) => (
     <div style={{margin: 'auto', width:'50%'}}>
-        <div style={{marginTop: '20px'}}>
-            <div>
-                "{text}" 
-            </div>
-            <i style={{marginLeft: '20px'}}>
-                - {source}
-            </i>
+        <div>
+            "{text}" 
         </div>
+        <i style={{marginLeft: '20px'}}>
+            - {source}
+        </i>
     </div>
 );
 
 const scrollItemLTRImageOnly = (image1, image2, imageSource1, imageSource2) => (
     <div style={{display: 'flex', width:'100%'}}>
-        <div style={{ width:'50%'}}>
+        <div style={{ width:'50%', marginRight: '10px'}}>
             <img src={image1} width="100%" height="100%" /> 
             <i style={{marginLeft: '50px'}}>
                 - {imageSource1}
             </i>
         </div>
-        <div style={{ width:'50%'}}>
+        <div style={{ width:'50%', marginLeft: '10px'}}>
             <img src={image2} width="100%" height="100%" /> 
             <i style={{marginLeft: '50px'}}>
                 - {imageSource2}
@@ -97,13 +95,13 @@ const scrollItemLTRImageOnly = (image1, image2, imageSource1, imageSource2) => (
 
 const scrollItemLTR = (image, text, imageSource, textSource) => (
     <div style={{display: 'flex', width:'100%'}}>
-        <div style={{ width:'50%'}}>
+        <div style={{ width:'50%', marginRight: '10px'}}>
             <img src={image} width="100%" height="100%" /> 
             <i style={{marginLeft: '50px'}}>
                 - {imageSource}
             </i>
         </div>
-        <div style={{ width:'50%', marginTop: '8%'}}>
+        <div style={{ width:'50%', marginTop: '8%', marginLeft: '10px'}}>
             <div>
                 "{text}" 
             </div>
@@ -117,7 +115,7 @@ const scrollItemLTR = (image, text, imageSource, textSource) => (
 
 const scrollItemRTL = (image, text, imageSource, textSource) => (
     <div style={{display: 'flex', width:'100%'}}>
-        <div style={{ width:'50%', marginTop: '8%'}}>
+        <div style={{ width:'50%', marginTop: '8%', marginRight: '10px'}}>
             <div>
                 "{text}" 
             </div>
@@ -125,7 +123,7 @@ const scrollItemRTL = (image, text, imageSource, textSource) => (
                 - {textSource}
             </i> 
         </div>
-        <div style={{ width:'50%'}}>
+        <div style={{ width:'50%', marginLeft: '10px'}}>
             <img src={image} width="100%" height="100%" /> 
             <i style={{marginLeft: '50px'}}>
                 - {imageSource}
@@ -136,8 +134,8 @@ const scrollItemRTL = (image, text, imageSource, textSource) => (
 );
 
 const scrollItemRTLTextOnly = (text1, text2, textSource1, textSource2) => (
-    <div style={{display: 'flex', width:'100%'}}>
-        <div style={{ width:'50%', marginTop: '8%'}}>
+    <div style={{ display: 'flex', width:'100%'}}>
+        <div style={{ width:'50%', marginRight: '10px'}}>
             <div>
                 "{text1}" 
             </div>
@@ -145,7 +143,7 @@ const scrollItemRTLTextOnly = (text1, text2, textSource1, textSource2) => (
                 - {textSource1}
             </i> 
         </div>
-        <div style={{ width:'50%', marginTop: '8%'}}>
+        <div style={{ width:'50%', marginLeft: '10px'}}>
             <div>
                 "{text2}" 
             </div>
@@ -153,7 +151,6 @@ const scrollItemRTLTextOnly = (text1, text2, textSource1, textSource2) => (
                 - {textSource2}
             </i> 
         </div>
-        
     </div>
 );
 
