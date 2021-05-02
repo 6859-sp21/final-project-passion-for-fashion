@@ -1,16 +1,15 @@
 import React, {Component} from 'react';
 import { ParallaxProvider } from 'react-scroll-parallax';
-import { Parallax, ParallaxBanner } from 'react-scroll-parallax';
+import { Parallax} from 'react-scroll-parallax';
+import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
+import { IconButton } from '@material-ui/core';
 
-import Button from '@material-ui/core/Button';
 import colors from './../constants/colors';
 import states from './../constants/states';
 
 import intro from './Images/Everlane/everlane_about_intro.jpeg';
-
 import about from './Images/Everlane/everlane_about_factory.jpeg';
 import promise from './Images/Everlane/everlane_promises.jpeg';
-
 // import factory from './Images/Everlane/everlane_ethical_approach_intro.jpeg';
 import plastic from './Images/Everlane/everlane_no_new_plastic.jpeg';
 
@@ -33,18 +32,11 @@ const nyt = "the New York Times";
 const remake = "Remake";
 const nicole = "Nicole Ho, via her blog";
 
-// styles used
-const style = {
-    marginTop: '20px',
-    marginLeft: '40px',
-    marginRight: '40px',
-    marginBottom: '400px',
-}
 
 // various containers for showcasing text and images together and separately 
 const scrollItemCenter = (image, text, source) => (
     <div style={{margin: 'auto', width:'50%'}}>
-       <img src={image} width="100%" height="100%" /> 
+       <img alt="" src={image} width="100%" height="100%" /> 
         <div style={{marginTop: '20px'}}>
             <div>
                 "{text}" 
@@ -58,7 +50,7 @@ const scrollItemCenter = (image, text, source) => (
 
 const scrollItemCenterImageOnly = (image, source) => (
     <div style={{margin: 'auto', width:'50%'}}>
-        <img src={image} width="100%" height="100%" /> 
+        <img alt="" src={image} width="100%" height="100%" /> 
         <i style={{marginLeft: '50px'}}>
                 - {source}
         </i>
@@ -76,27 +68,27 @@ const scrollItemCenterTextOnly = (text, source) => (
     </div>
 );
 
-const scrollItemLTRImageOnly = (image1, image2, imageSource1, imageSource2) => (
-    <div style={{display: 'flex', width:'100%'}}>
-        <div style={{ width:'50%', marginRight: '10px'}}>
-            <img src={image1} width="100%" height="100%" /> 
-            <i style={{marginLeft: '50px'}}>
-                - {imageSource1}
-            </i>
-        </div>
-        <div style={{ width:'50%', marginLeft: '10px'}}>
-            <img src={image2} width="100%" height="100%" /> 
-            <i style={{marginLeft: '50px'}}>
-                - {imageSource2}
-            </i>
-        </div>
-    </div>
-);
+// const scrollItemLTRImageOnly = (image1, image2, imageSource1, imageSource2) => (
+//     <div style={{display: 'flex', width:'100%'}}>
+//         <div style={{ width:'50%', marginRight: '10px'}}>
+//             <img src={image1} width="100%" height="100%" /> 
+//             <i style={{marginLeft: '50px'}}>
+//                 - {imageSource1}
+//             </i>
+//         </div>
+//         <div style={{ width:'50%', marginLeft: '10px'}}>
+//             <img src={image2} width="100%" height="100%" /> 
+//             <i style={{marginLeft: '50px'}}>
+//                 - {imageSource2}
+//             </i>
+//         </div>
+//     </div>
+// );
 
 const scrollItemLTR = (image, text, imageSource, textSource) => (
     <div style={{display: 'flex', width:'100%'}}>
         <div style={{ width:'50%', marginRight: '10px'}}>
-            <img src={image} width="100%" height="100%" /> 
+            <img alt="" src={image} width="100%" height="100%" /> 
             <i style={{marginLeft: '50px'}}>
                 - {imageSource}
             </i>
@@ -124,7 +116,7 @@ const scrollItemRTL = (image, text, imageSource, textSource) => (
             </i> 
         </div>
         <div style={{ width:'50%', marginLeft: '10px'}}>
-            <img src={image} width="100%" height="100%" /> 
+            <img alt="" src={image} width="100%" height="100%" /> 
             <i style={{marginLeft: '50px'}}>
                 - {imageSource}
             </i>
@@ -229,14 +221,20 @@ class Narrative extends Component {
                 <Parallax y={['50px', '-50px']}>
                     <div style={{marginTop:'450px', marginLeft:'40px', marginRight:'40px', marginBottom:'100px'}}>
                         <div style = {{margin:'auto', width:'50%', display: 'flex'}}>
-                            <p>
+                            <h2>
                                 Learn more ... 
-                            </p>
-                            <Button variant="contained" onClick={this.onSubmit} style={{
-                            color: colors.medium_grey,
-                            size: "small",
-                            backgroundColor: colors.soft_blue,
-                            }}>Head to Visualization</Button>
+                            </h2>
+                            <IconButton
+                            children={<ArrowForwardIosIcon/>}
+                            color="primary"
+                            variant="contained" 
+                            onClick={this.onSubmit} 
+                            style={{
+                                color: colors.soft_green,
+                                size: "small",
+                                backgroundColor: "transparent",
+                            }}
+                            />
                         </div>
                     </div>
                 </Parallax>
