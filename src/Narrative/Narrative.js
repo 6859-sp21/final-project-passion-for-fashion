@@ -11,7 +11,7 @@ import intro from './Images/Everlane/everlane_about_intro.jpeg';
 import about from './Images/Everlane/everlane_about_factory.jpeg';
 import promise from './Images/Everlane/everlane_promises.jpeg';
 
-import factory from './Images/Everlane/everlane_ethical_approach_intro.jpeg';
+// import factory from './Images/Everlane/everlane_ethical_approach_intro.jpeg';
 import plastic from './Images/Everlane/everlane_no_new_plastic.jpeg';
 
 // all of the text blurbs
@@ -167,51 +167,80 @@ class Narrative extends Component {
     render() {
         
         return (
-            <div>
-                <div style={{marginTop:'150px'}}>
-                    <h2 style={{color: colors.black, textAlign: "center"}}>Everlane</h2>
-                    {scrollItemCenter(intro, introText, everlane)}
-                </div>
-                {/* Factory Conditions and Worker Conditions */}
-                <div style={{marginTop:'450px', marginLeft:'40px', marginRight:'40px'}}>
-                    {scrollItemLTR(promise, customerPraise, everlane, nicole)}
-                </div>
-                <div style={{marginTop:'450px', marginLeft:'40px', marginRight:'40px'}}>
-                    {scrollItemRTL(about, factoryText, everlane, everlane)}
-                </div>
-                <div style={{marginTop:'450px', marginLeft:'40px', marginRight:'40px'}}>
-                    {scrollItemCenterTextOnly(workerControversy, nyt)}
-                </div>
-                <div style={{marginTop:'450px', marginLeft:'40px', marginRight:'40px'}}>
-                    {scrollItemCenterTextOnly(workerControversy2, nyt)}
-                </div>
-                {/* Environemntal Initiatives */}
-                <div style={{marginTop:'450px', marginLeft:'40px', marginRight:'40px'}}>
-                    {scrollItemCenterImageOnly(plastic, everlane)}
-                </div>
-                <div style={{marginTop:'450px', marginLeft:'40px', marginRight:'40px'}}>
-                    {scrollItemRTLTextOnly(cotton, cottonControversy, everlane, eco)}
-                </div>
-                <div style={{marginTop:'20px', marginLeft:'40px', marginRight:'40px'}}>
-                    {scrollItemCenterTextOnly(sustainability, eco)}
-                </div>
-                {/* Concluding Statement */}
-                <div style={{marginTop:'450px', marginLeft:'40px', marginRight:'40px', marginBottom:'450px'}}>
-                    {scrollItemCenterTextOnly(wagesControversy, remake)}
-                </div>
-                <div style={{marginTop:'50px', marginLeft:'40px', marginRight:'40px', marginBottom:'100px'}}>
-                    <div style = {{margin:'auto', width:'50%', display: 'flex'}}>
-                        <p>
-                            Learn more ... 
-                        </p>
-                        <Button variant="contained" onClick={this.onSubmit} style={{
-                        color: colors.medium_grey,
-                        size: "small",
-                        backgroundColor: colors.soft_blue,
-                        }}>Head to Visualization</Button>
+            <ParallaxProvider>
+                <Parallax
+                     y={['0px', '-200px']}
+                >
+                    <div style={{marginTop:'250px'}}>
+                        <h2 style={{color: colors.black, textAlign: "center"}}>Everlane</h2>
+                        {scrollItemCenter(intro, introText, everlane)}
                     </div>
-                </div>
-            </div>
+                </Parallax>
+                {/* Factory Conditions and Worker Conditions */}
+                <Parallax
+                    y={['-100px', '0px']}
+                >
+                    <div style={{marginTop:'150px', marginLeft:'40px', marginRight:'40px'}}>
+                        {scrollItemLTR(promise, customerPraise, everlane, nicole)}
+                    </div>
+                </Parallax>
+                <Parallax y={['100px', '-100px']}>
+                    <div style={{marginTop:'250px', marginLeft:'40px', marginRight:'40px'}}>
+                        {scrollItemRTL(about, factoryText, everlane, everlane)}
+                    </div>
+                </Parallax>
+                <Parallax y={['-100px', '0px']}>
+                    <div style={{marginTop:'150px', marginLeft:'40px', marginRight:'40px'}}>
+                        {scrollItemCenterTextOnly(workerControversy, nyt)}
+                    </div>
+                </Parallax>
+                <Parallax y={['100px', '0px']}>
+                    <div style={{marginTop:'50px', marginLeft:'40px', marginRight:'40px'}}>
+                        {scrollItemCenterTextOnly(workerControversy2, nyt)}
+                    </div>
+                </Parallax>
+                <Parallax y={['-100px', '100px']}>
+                    <div style={{marginTop:'250px', marginLeft:'40px', marginRight:'40px'}}>
+                        {scrollItemCenterTextOnly(makerWellBeing, eco)}
+                    </div>
+                </Parallax>
+                {/* Environmental Initiatives */}
+                <Parallax y={['100px', '-250px']}>
+                    <div style={{marginTop:'550px', marginLeft:'40px', marginRight:'40px'}}>
+                        {scrollItemCenterImageOnly(plastic, everlane)}
+                    </div>
+                </Parallax>
+                <Parallax y={['-100px', '0px']}>
+                    <div style={{marginTop:'0px', marginLeft:'40px', marginRight:'40px'}}>
+                        {scrollItemRTLTextOnly(cotton, cottonControversy, everlane, eco)}
+                    </div>
+                </Parallax>
+                <Parallax y={['200px', '0px']}>
+                    <div style={{marginTop:'100px', marginLeft:'40px', marginRight:'40px'}}>
+                        {scrollItemCenterTextOnly(sustainability, eco)}
+                    </div>
+                </Parallax>
+                {/* Concluding Statement */}
+                <Parallax  y={['-300px', '100px']}>
+                    <div style={{marginTop:'200px', marginLeft:'40px', marginRight:'40px', marginBottom:'350px'}}>
+                        {scrollItemCenterTextOnly(wagesControversy, remake)}
+                    </div>
+                </Parallax>
+                <Parallax y={['50px', '-50px']}>
+                    <div style={{marginTop:'450px', marginLeft:'40px', marginRight:'40px', marginBottom:'100px'}}>
+                        <div style = {{margin:'auto', width:'50%', display: 'flex'}}>
+                            <p>
+                                Learn more ... 
+                            </p>
+                            <Button variant="contained" onClick={this.onSubmit} style={{
+                            color: colors.medium_grey,
+                            size: "small",
+                            backgroundColor: colors.soft_blue,
+                            }}>Head to Visualization</Button>
+                        </div>
+                    </div>
+                </Parallax>
+            </ParallaxProvider>
         );
     }
 
