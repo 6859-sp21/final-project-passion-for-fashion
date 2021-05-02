@@ -38,7 +38,7 @@ const style = {
     marginTop: '20px',
     marginLeft: '40px',
     marginRight: '40px',
-    marginBottom: '20px',
+    marginBottom: '400px',
 }
 
 // various containers for showcasing text and images together and separately 
@@ -168,46 +168,48 @@ class Narrative extends Component {
         
         return (
             <div>
-                <h2 style={{color: colors.black, textAlign: "center"}}>Everlane</h2>
-                <div style={style}>
+                <div style={{marginTop:'150px'}}>
+                    <h2 style={{color: colors.black, textAlign: "center"}}>Everlane</h2>
                     {scrollItemCenter(intro, introText, everlane)}
                 </div>
                 {/* Factory Conditions and Worker Conditions */}
-                <div style={style}>
+                <div style={{marginTop:'450px', marginLeft:'40px', marginRight:'40px'}}>
                     {scrollItemLTR(promise, customerPraise, everlane, nicole)}
                 </div>
-                <div style={style}>
+                <div style={{marginTop:'450px', marginLeft:'40px', marginRight:'40px'}}>
                     {scrollItemRTL(about, factoryText, everlane, everlane)}
                 </div>
-                <div style={style}>
+                <div style={{marginTop:'450px', marginLeft:'40px', marginRight:'40px'}}>
                     {scrollItemCenterTextOnly(workerControversy, nyt)}
                 </div>
-                <div style={style}>
+                <div style={{marginTop:'450px', marginLeft:'40px', marginRight:'40px'}}>
                     {scrollItemCenterTextOnly(workerControversy2, nyt)}
                 </div>
                 {/* Environemntal Initiatives */}
-                <div style={style}>
+                <div style={{marginTop:'450px', marginLeft:'40px', marginRight:'40px'}}>
                     {scrollItemCenterImageOnly(plastic, everlane)}
                 </div>
-                <div style={style}>
+                <div style={{marginTop:'450px', marginLeft:'40px', marginRight:'40px'}}>
                     {scrollItemRTLTextOnly(cotton, cottonControversy, everlane, eco)}
                 </div>
-                <div style={style}>
+                <div style={{marginTop:'20px', marginLeft:'40px', marginRight:'40px'}}>
                     {scrollItemCenterTextOnly(sustainability, eco)}
                 </div>
                 {/* Concluding Statement */}
-                <div style={style}>
+                <div style={{marginTop:'450px', marginLeft:'40px', marginRight:'40px', marginBottom:'450px'}}>
                     {scrollItemCenterTextOnly(wagesControversy, remake)}
                 </div>
-                <div style = {{margin:'auto', width:'50%', display: 'flex'}}>
-                    <p>
-                        Learn more ... 
-                    </p>
-                    <Button variant="contained" onClick={this.onSubmit} style={{
-                    color: colors.medium_grey,
-                    size: "small",
-                    backgroundColor: colors.soft_blue,
-                    }}>Head to Visualization</Button>
+                <div style={{marginTop:'50px', marginLeft:'40px', marginRight:'40px', marginBottom:'100px'}}>
+                    <div style = {{margin:'auto', width:'50%', display: 'flex'}}>
+                        <p>
+                            Learn more ... 
+                        </p>
+                        <Button variant="contained" onClick={this.onSubmit} style={{
+                        color: colors.medium_grey,
+                        size: "small",
+                        backgroundColor: colors.soft_blue,
+                        }}>Head to Visualization</Button>
+                    </div>
                 </div>
             </div>
         );
