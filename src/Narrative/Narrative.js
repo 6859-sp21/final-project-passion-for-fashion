@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import { ParallaxProvider } from 'react-scroll-parallax';
 import { Parallax} from 'react-scroll-parallax';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
+import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import { IconButton } from '@material-ui/core';
 
 import colors from './../constants/colors';
@@ -152,8 +153,12 @@ class Narrative extends Component {
         super(props);
     }
 
-    onSubmit = () => {
+    onVisualizationSubmit = () => {
         this.props.updateState(states.visualization);
+    }
+
+    onIntroductionSubmit = () => {
+        this.props.updateState(states.introduction);
     }
 
     render() {
@@ -228,13 +233,29 @@ class Narrative extends Component {
                             children={<ArrowForwardIosIcon/>}
                             color="primary"
                             variant="contained" 
-                            onClick={this.onSubmit} 
+                            onClick={this.onVisualizationSubmit} 
                             style={{
                                 color: colors.soft_blue,
                                 size: "small",
                                 backgroundColor: "transparent",
                             }}
                             />
+                        </div>
+                        <div style = {{margin:'auto', width:'50%', display: 'flex'}}>
+                            <IconButton
+                            children={<ArrowBackIosIcon/>}
+                            color="primary"
+                            variant="contained" 
+                            onClick={this.onIntroductionSubmit} 
+                            style={{
+                                color: colors.soft_purple,
+                                size: "small",
+                                backgroundColor: "transparent",
+                            }}
+                            />
+                            <div style = {{fontSize:'24px', marginTop: '8px', color: colors.soft_purple}}>
+                                Take Me Back to the Beginning
+                            </div>
                         </div>
                     </div>
                 </Parallax>
