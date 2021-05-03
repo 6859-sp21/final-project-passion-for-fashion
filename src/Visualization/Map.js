@@ -4,6 +4,7 @@ import countries from "i18n-iso-countries";
 import { WorldMap } from "react-svg-worldmap"
 import brandData from './brand_page_info.json';
 import {countryNameMap} from './../constants/maps';
+import colors from './../constants/colors';
 
 class Map extends React.Component {
     constructor(props) {
@@ -54,7 +55,7 @@ class Map extends React.Component {
         console.log(data);
         return (
             <div>
-                <WorldMap color="red" title="Top 10 Populous Countries" value-suffix="people" size="lg" data={data} />
+                <WorldMap color={colors.bold_blue} title="Top 10 Populous Countries" value-suffix="people" size="lg" data={data} />
             </div>
         );
     }
