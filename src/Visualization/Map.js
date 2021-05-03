@@ -1,5 +1,6 @@
 import React from "react";
 import countries from "i18n-iso-countries";
+import { Paper } from '@material-ui/core';
 
 import { WorldMap } from "react-svg-worldmap"
 import {countryNameMap} from './../constants/maps';
@@ -39,7 +40,6 @@ class Map extends React.Component {
             }
 
             let locationCode = countries.getAlpha2Code(location, "en");
-            console.log(location, locationCode);
             if (locationCode != null) {
                 countryData.push({country: locationCode, value: numByCountry[countryName]});
             }
@@ -53,9 +53,9 @@ class Map extends React.Component {
         const mapData = this.getData();
 
         return (
-            <div>
+            <Paper variant="outlined" style={{overflow: "auto"}}>
                 <WorldMap color={colors.bold_blue} value-suffix="people" size="responsive" data={mapData} />
-            </div>
+            </Paper>
         );
     }
 }

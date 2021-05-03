@@ -1,7 +1,7 @@
 import React from "react";
 import countries from "i18n-iso-countries";
 
-import {Paper, Card, CardActions, CardContent, Typography, Button} from '@material-ui/core';
+import {Paper, Container, Card, CardActions, CardContent, Typography, Button} from '@material-ui/core';
 import colors from './../constants/colors';
 
 class BrandList extends React.Component {
@@ -16,20 +16,28 @@ class BrandList extends React.Component {
     getBrandCards = () => {
         return this.props.filteredData.map((brandObj) => {
             return (
-                <Card style={{margin: "1vh"}}>
+                <Card style={{margin: "0vh 2vh 2vh 2vh"}}>
                     <CardContent>
                         <Typography variant="h4">
                             {brandObj.name}
                         </Typography>
                         <Typography variant="subtitle1">
-                            {brandObj.location}
+                            {brandObj.types}
                         </Typography>
                         <Typography variant="h6">
                             {brandObj.rating}
                         </Typography>
                     </CardContent>
                     <CardActions>
-                        <Button size="small" onClick={() => this.props.showBrandInfo(brandObj)}>Learn More</Button>
+                        <Button size="small"> 
+                            <a 
+                                style={{
+                                    color: "inherit", /* blue colors for links too */
+                                    textDecoration: "inherit", /* no underline */
+                                }}
+                                href={brandObj.brand_url} 
+                                target="_blank">Learn More</a>
+                        </Button>
                     </CardActions>
               </Card>
 
@@ -40,7 +48,7 @@ class BrandList extends React.Component {
     render() {
 
         return (
-            <div style={{display: "flex", overflow: "auto", height: "60vh"}}>
+            <div style={{display: "flex", overflow: "auto", height:"70vh"}}>
                 <Paper>
                     {this.getBrandCards()}
                 </Paper>
