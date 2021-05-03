@@ -129,29 +129,30 @@ class Visualization extends Component {
                 <div style={{margin: "0vh 4vh", display: "flex", flexDirection: "column", justifyContent: "space-between"}}>
                     <h2 style={{color: colors.black}}>Welcome to the Visualization</h2>
                     <i style={{fontSize: '18px', color: colors.medium_grey}}>
-                        Hover over a country to see how many fashion companies listed by GoodonYou are headquarted there. Then, click to delve into the data and discover more. You can also filter by [], or search for a specific company.
+                        Hover over a country to see how many fashion companies listed by GoodonYou are headquarted there. Then, click to delve into the data and discover more. You can also search for a specific company by name!
                     </i>
                     <br/>
-                    <div style={{display: "flex", alignItems: "center", justifyContent: "left", height:"5vh"}}>
+                    <div style={{ alignItems: "center", justifyContent: "left", height:"13vh"}}>
+                        <h3>Search by Brand</h3>
                         <BrandSearchBar filterByName={this.handleFilterByName}/>
                     </div>
-                    <div style={{display: "flex", alignItems: "center", justifyContent: "left", height:"60vh"}}>
-                        <div style={{flexGrow: 1, float: 'right', height:"60vh"}}>
-                            <h3>Explore Company Headquarter Count</h3>
-                            <Map
-                                filteredData={filteredData}
-                                updateFilters={this.handleUpdateFilters}
-                            />
-                        </div>
-                        <div style={{flexGrow: 1, float: 'right', height: "60vh"}}>
+                    <div style={{display: "flex", alignItems: "center", justifyContent: "left", height:"50vh"}}>
+                        <div style={{flexGrow: 1, float: 'right', height: "50vh"}}>
                             <h3>Explore Brand Ratings</h3>
                             <BrandList
                                 filteredData={filteredData}
                                 showBrandInfo={this.showBrandInfo}
                             />
                         </div>
+                        <div style={{flexGrow: 1, float: 'right', height:"50vh"}}>
+                            <h3>Explore Brand Locations</h3>
+                            <Map
+                                filteredData={filteredData}
+                                updateFilters={this.handleUpdateFilters}
+                            />
+                        </div>
                     </div>
-                    <div style={{display: "flex"}}>
+                    <div style={{display: "flex", marginLeft: "20px", marginBottom: '5px', position: "absolute", bottom:"0", left:"0", height:"4vh"}}>
                         <IconButton
                             children={<ArrowBackIosIcon/>}
                             color="primary"
