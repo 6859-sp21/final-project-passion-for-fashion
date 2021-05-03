@@ -4,6 +4,8 @@ import Button from '@material-ui/core/Button';
 import colors from './../constants/colors';
 import states from './../constants/states';
 
+import Map from './Map';
+
 class Visualization extends Component {
 
     onSubmit = () => {
@@ -19,6 +21,7 @@ class Visualization extends Component {
                 size: "small",
                 backgroundColor: colors.soft_yellow,
                 }}>Head to Introduction</Button>
+                <Map/>
             </div>
         );
     }
