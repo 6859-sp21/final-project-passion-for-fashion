@@ -51,20 +51,21 @@ class Visualization extends Component {
                     Hover over a country to see how many fashion companies listed by GoodonYou are headquarted there. Then, click to delve into the data and discover more. You can also filter by [], or search for a specific company.
                 </i>
                 <div style={{display: "flex", alignItems: "center", justifyContent: "left"}}>
-                    <div style={{flexGrow: 2, height:"60vh"}}>
+                    <div style={{flexGrow: 2, height:"60vh", float: 'right', marginRight: '5vh'}}>
+                        <h3>Explore Company Headquarter Count</h3>
                         <Map
                             filteredData={this.state.filteredData}
                             updateFilters={this.handleUpdateFilters}
                         />
                     </div>
                     <div style={{flexGrow: 1, height: "60vh", overflow: "auto"}}>
+                        <h3>Explore Brand Ratings</h3>
                         <BrandList
                             filteredData={this.state.filteredData}
                             showBrandInfo={this.showBrandInfo}
                         />
                     </div>
                 </div>
-                
                 <div style={{display: 'flex',}}>
                     <IconButton
                         children={<ArrowBackIosIcon/>}
