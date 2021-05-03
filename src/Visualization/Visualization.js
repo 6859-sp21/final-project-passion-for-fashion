@@ -34,7 +34,7 @@ class Visualization extends Component {
                         size: "small",
                         backgroundColor: "transparent",}}
                     />
-                    <div style={{fontSize:'24px', marginTop: '8px', color: colors.soft_purple}}>Take Me Back to the Beginning</div>
+                    <div style={{fontSize:'20px', marginTop: '10px', color: colors.soft_purple}}>Take Me Back to the Beginning</div>
                 </div>    
             </div>
         );

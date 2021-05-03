@@ -30,7 +30,7 @@ class Intro extends Component {
         <div>
             <h1 style={{fontSize:'48px', margin: ['20px','0px','20px','0px'], textAlign: 'center', color: colors.black}}>Passion for Fashion</h1>
             <div style={{ marginLeft:'20px', marginRight:'20px', textAlign: 'center'}}>
-                <i style={{fontSize:'24px', color: colors.black}}>
+                <i style={{fontSize:'20px', color: colors.medium_grey}}>
                     {summary}
                     <a href={goodOnYouURL} style={{color:colors.bold_blue}} rel="noreferrer">good on you</a>
                     <a>.</a>
@@ -39,7 +39,7 @@ class Intro extends Component {
             <div style={{ marginLeft:'40px'}} >
                 <h2>Narrative Experiences</h2>
                 <div style={{display: 'flex'}}>
-                <div style={{fontSize:'24px', marginTop: '8px', color: colors.soft_green}}>Everlane</div>
+                <div style={{fontSize:'20px', marginTop: '10px', color: colors.soft_green}}>Everlane</div>
                 <IconButton
                 children={<ArrowForwardIosIcon/>}
                 color="primary"
@@ -52,7 +52,7 @@ class Intro extends Component {
                 />
                 </div>
                 <div style={{display: 'flex'}}>
-                    <div style={{fontSize:'24px', marginTop: '8px', color: colors.soft_blue}}>No Thanks, Take Me to the Main Visualization</div>
+                    <div style={{fontSize:'20px', marginTop: '10px', color: colors.soft_blue}}>No Thanks, Take Me to the Main Visualization</div>
                     <IconButton
                     children={<ArrowForwardIosIcon/>}
                     color="primary"
