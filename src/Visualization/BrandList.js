@@ -48,7 +48,7 @@ class BrandList extends React.Component {
     render() {
 
         return (
-            <div style={{display: "flex", overflow: "auto", height:"70vh"}}>
+            <div style={{overflow: "auto", height:"60vh"}}>
                 <Paper>
                     {this.getBrandCards()}
                 </Paper>
