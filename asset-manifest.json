@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/final-project-passion-for-fashion/static/css/main.9d5b29c0.chunk.css",
+    "main.js": "/final-project-passion-for-fashion/static/js/main.1e14764e.chunk.js",
+    "main.js.map": "/final-project-passion-for-fashion/static/js/main.1e14764e.chunk.js.map",
+    "runtime-main.js": "/final-project-passion-for-fashion/static/js/runtime-main.787d8ce0.js",
+    "runtime-main.js.map": "/final-project-passion-for-fashion/static/js/runtime-main.787d8ce0.js.map",
+    "static/js/2.c338bb11.chunk.js": "/final-project-passion-for-fashion/static/js/2.c338bb11.chunk.js",
+    "static/js/2.c338bb11.chunk.js.map": "/final-project-passion-for-fashion/static/js/2.c338bb11.chunk.js.map",
+    "static/js/3.1d8681c8.chunk.js": "/final-project-passion-for-fashion/static/js/3.1d8681c8.chunk.js",
+    "static/js/3.1d8681c8.chunk.js.map": "/final-project-passion-for-fashion/static/js/3.1d8681c8.chunk.js.map",
+    "index.html": "/final-project-passion-for-fashion/index.html",
+    "static/css/main.9d5b29c0.chunk.css.map": "/final-project-passion-for-fashion/static/css/main.9d5b29c0.chunk.css.map",
+    "static/js/2.c338bb11.chunk.js.LICENSE.txt": "/final-project-passion-for-fashion/static/js/2.c338bb11.chunk.js.LICENSE.txt",
+    "static/media/everlane_about_factory.777ba48b.jpeg": "/final-project-passion-for-fashion/static/media/everlane_about_factory.777ba48b.jpeg",
+    "static/media/everlane_about_intro.beeebe37.jpeg": "/final-project-passion-for-fashion/static/media/everlane_about_intro.beeebe37.jpeg",
+    "static/media/everlane_no_new_plastic.3c5bddde.jpeg": "/final-project-passion-for-fashion/static/media/everlane_no_new_plastic.3c5bddde.jpeg",
+    "static/media/everlane_promises.56a21063.jpeg": "/final-project-passion-for-fashion/static/media/everlane_promises.56a21063.jpeg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.787d8ce0.js",
+    "static/js/2.c338bb11.chunk.js",
+    "static/css/main.9d5b29c0.chunk.css",
+    "static/js/main.1e14764e.chunk.js"
+  ]
+}
