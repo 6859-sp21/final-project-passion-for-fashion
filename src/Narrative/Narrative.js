@@ -227,7 +227,7 @@ class Narrative extends Component {
                     <div style={{marginTop:'450px', marginLeft:'40px', marginRight:'40px', marginBottom:'100px'}}>
                         <div style = {{margin:'auto', width:'50%', display: 'flex'}}>
                             <div style = {{fontSize:'20px', marginTop: '10px', color: colors.soft_blue}}>
-                                Head to the Main Visualization
+                                Let's Explore
                             </div>
                             <IconButton
                             children={<ArrowForwardIosIcon/>}
@@ -254,7 +254,7 @@ class Narrative extends Component {
                             }}
                             />
                             <div style = {{fontSize:'20px', marginTop: '10px', color: colors.soft_purple}}>
-                                Take Me Back to the Beginning
+                                Back Home
                             </div>
                         </div>
                     </div>

@@ -2,7 +2,6 @@ import React from "react";
 import countries from "i18n-iso-countries";
 
 import { WorldMap } from "react-svg-worldmap"
-import brandData from './brand_page_info.json';
 import {countryNameMap} from './../constants/maps';
 import colors from './../constants/colors';
 
@@ -11,8 +10,8 @@ class Map extends React.Component {
         super(props);
         countries.registerLocale(require("i18n-iso-countries/langs/en.json"));
         this.state = {
-            data: [],
-            field: "location"
+            field: "location",
+            filteredData: [],
         }
     }
 
@@ -20,7 +19,7 @@ class Map extends React.Component {
         var numByCountry = {};
 
         // get totals
-        for (const brandObj of brandData) {
+        for (const brandObj of this.props.filteredData) {
             let location = brandObj.location;
             if (location in numByCountry) {
                 numByCountry[location] += 1;
@@ -51,11 +50,11 @@ class Map extends React.Component {
 
 
     render() {
-        const data = this.getData();
-        console.log(data);
+        const mapData = this.getData();
+
         return (
             <div>
-                <WorldMap color={colors.bold_blue} title="Top 10 Populous Countries" value-suffix="people" size="lg" data={data} />
+                <WorldMap color={colors.bold_blue} title="By Brand Location" value-suffix="people" size="lg" data={mapData} />
             </div>
         );
     }

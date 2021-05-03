@@ -52,7 +52,9 @@ class Intro extends Component {
                 />
                 </div>
                 <div style={{display: 'flex'}}>
-                    <div style={{fontSize:'20px', marginTop: '10px', color: colors.soft_blue}}>No Thanks, Take Me to the Main Visualization</div>
+                    <div style={{fontSize:'20px', marginTop: '10px', color: colors.soft_blue}}>
+                        No Thanks, Let's Explore
+                    </div>
                     <IconButton
                     children={<ArrowForwardIosIcon/>}
                     color="primary"
