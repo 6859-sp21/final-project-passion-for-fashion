@@ -1,4 +1,5 @@
 {
+  "homepage": "https://6859-sp21.github.io/final-project-passion-for-fashion/",
   "name": "passion-for-fashion",
   "version": "0.1.0",
   "private": true,
@@ -9,6 +10,7 @@
     "@testing-library/react": "^11.2.6",
     "@testing-library/user-event": "^12.8.3",
     "d3": "^6.7.0",
+    "gh-pages": "^3.1.0",
     "i18n-iso-countries": "^6.7.0",
     "material-ui": "^0.20.2",
     "material-ui-search-bar": "^1.0.0",
@@ -26,7 +28,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
