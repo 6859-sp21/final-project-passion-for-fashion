@@ -221,16 +221,16 @@ class Narrative extends Component {
                 <Parallax y={['50px', '-50px']}>
                     <div style={{marginTop:'450px', marginLeft:'40px', marginRight:'40px', marginBottom:'100px'}}>
                         <div style = {{margin:'auto', width:'50%', display: 'flex'}}>
-                            <h2>
-                                Learn more ... 
-                            </h2>
+                            <div style = {{fontSize:'24px', marginTop: '8px', color: colors.soft_blue}}>
+                                Head to the Main Visualization
+                            </div>
                             <IconButton
                             children={<ArrowForwardIosIcon/>}
                             color="primary"
                             variant="contained" 
                             onClick={this.onSubmit} 
                             style={{
-                                color: colors.soft_green,
+                                color: colors.soft_blue,
                                 size: "small",
                                 backgroundColor: "transparent",
                             }}
