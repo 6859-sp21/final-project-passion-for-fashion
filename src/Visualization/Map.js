@@ -54,7 +54,7 @@ class Map extends React.Component {
 
         return (
             <div>
-                <WorldMap color={colors.bold_blue} title="By Brand Location" value-suffix="people" size="lg" data={mapData} />
+                <WorldMap color={colors.bold_blue} value-suffix="people" size="responsive" data={mapData} />
             </div>
         );
     }

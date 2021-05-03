@@ -9,6 +9,7 @@ import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 
 import Map from './Map';
+import BrandList from './BrandList';
 
 class Visualization extends Component {
 
@@ -18,6 +19,8 @@ class Visualization extends Component {
             filters: {},
             data: brandData,
             filteredData: JSON.parse(JSON.stringify(brandData)),
+            showModal: false,
+            currentBrand: {},
         }
     }
 
@@ -33,6 +36,13 @@ class Visualization extends Component {
         })
     }
 
+    showBrandInfo = (brandObj) => {
+        this.setState({
+            showModal: true,
+            currentBrand: brandObj
+        })
+    }
+
     render() {
         return (
             <div style={{marginLeft: '40px'}}>
@@ -40,11 +50,22 @@ class Visualization extends Component {
                 <i style={{fontSize: '18px', color: colors.medium_grey}}>
                     Hover over a country to see how many fashion companies listed by GoodonYou are headquarted there. Then, click to delve into the data and discover more. You can also filter by [], or search for a specific company.
                 </i>
-                <Map
-                    filteredData={this.state.filteredData}
-                    updateFilters={this.handleUpdateFilters}
-                />
-                <div style={{display: 'flex'}}>
+                <div style={{display: "flex", alignItems: "center", justifyContent: "left"}}>
+                    <div style={{flexGrow: 2, height:"60vh"}}>
+                        <Map
+                            filteredData={this.state.filteredData}
+                            updateFilters={this.handleUpdateFilters}
+                        />
+                    </div>
+                    <div style={{flexGrow: 1, height: "60vh", overflow: "auto"}}>
+                        <BrandList
+                            filteredData={this.state.filteredData}
+                            showBrandInfo={this.showBrandInfo}
+                        />
+                    </div>
+                </div>
+                
+                <div style={{display: 'flex',}}>
                     <IconButton
                         children={<ArrowBackIosIcon/>}
                         color="primary"
