@@ -226,7 +226,7 @@ class Narrative extends Component {
                 <Parallax y={['50px', '-50px']}>
                     <div style={{marginTop:'450px', marginLeft:'40px', marginRight:'40px', marginBottom:'100px'}}>
                         <div style = {{margin:'auto', width:'50%', display: 'flex'}}>
-                            <div style = {{fontSize:'24px', marginTop: '8px', color: colors.soft_blue}}>
+                            <div style = {{fontSize:'20px', marginTop: '10px', color: colors.soft_blue}}>
                                 Head to the Main Visualization
                             </div>
                             <IconButton
@@ -253,7 +253,7 @@ class Narrative extends Component {
                                 backgroundColor: "transparent",
                             }}
                             />
-                            <div style = {{fontSize:'24px', marginTop: '8px', color: colors.soft_purple}}>
+                            <div style = {{fontSize:'20px', marginTop: '10px', color: colors.soft_purple}}>
                                 Take Me Back to the Beginning
                             </div>
                         </div>

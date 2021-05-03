@@ -1,10 +1,12 @@
 import React, {Component} from 'react';
 
-import Button from '@material-ui/core/Button';
+import { IconButton } from '@material-ui/core';
 import colors from './../constants/colors';
 import states from './../constants/states';
 
 import brandData from './brand_page_info.json';
+import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
+import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 
 import Map from './Map';
 
@@ -33,22 +35,28 @@ class Visualization extends Component {
 
     render() {
         return (
-            <div>
+            <div style={{marginLeft: '40px'}}>
                 <h2 style={{color: colors.black}}>Welcome to the Visualization</h2>
-                <Button 
-                    variant="contained" 
-                    onClick={this.onSubmit} 
-                    style={{
-                        color: colors.medium_grey,
-                        size: "small",
-                        backgroundColor: colors.soft_yellow,
-                }}>
-                    Head to Introduction
-                </Button>
+                <i style={{fontSize: '18px', color: colors.medium_grey}}>
+                    Hover over a country to see how many clothing companies are headquarted there. Then, click to delve into the data and discover more. You can also filter by [], or search for a specific company.
+                </i>
                 <Map
                     filteredData={this.state.filteredData}
                     updateFilters={this.handleUpdateFilters}
                 />
+                <div style={{display: 'flex'}}>
+                    <IconButton
+                    children={<ArrowBackIosIcon/>}
+                    color="primary"
+                    variant="contained" 
+                    onClick={this.onSubmit} 
+                    style={{
+                        color: colors.soft_purple,
+                        size: "small",
+                        backgroundColor: "transparent",}}
+                    />
+                    <div style={{fontSize:'20px', marginTop: '10px', color: colors.soft_purple}}>Take Me Back to the Beginning</div>
+                </div>    
             </div>
         );
     }
