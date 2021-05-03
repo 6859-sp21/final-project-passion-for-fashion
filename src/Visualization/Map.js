@@ -13,6 +13,7 @@ class Map extends React.Component {
         this.state = {
             field: "location",
             filteredData: [],
+            country: null,
         }
     }
 
@@ -48,13 +49,30 @@ class Map extends React.Component {
         return countryData;
     }
 
+    clickAction = (event, countryName) => {
+        if (this.state.country != null && countryName != this.state.country) {
+            this.props.filterByCountry(null);
+            return;
+        }
+
+        console.log("clicked");
+        this.props.filterByCountry(countryName);
+        this.setState({
+            country: countryName,
+        })
+    }
 
     render() {
         const mapData = this.getData();
 
         return (
             <Paper variant="outlined" style={{overflow: "auto"}}>
-                <WorldMap color={colors.bold_blue} value-suffix="people" size="responsive" data={mapData} />
+                <WorldMap 
+                    color={colors.bold_blue} 
+                    size="responsive" 
+                    onClickFunction={this.clickAction}
+                    data={mapData} 
+                />
             </Paper>
         );
     }

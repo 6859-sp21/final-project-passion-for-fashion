@@ -24,6 +24,7 @@ class BrandSearchBar extends React.Component {
                         searchText: "",
                     });
                     this.props.filterByName("");
+                    this.props.filterByCountry(null);
                 }}
                 placeholder="press enter to search by brand name"
                 style={{width: "98%"}}

@@ -35,6 +35,7 @@ class Visualization extends Component {
     }
 
     handleFilterByCountry = (countryName) => {
+        console.log("country");
         let {filters} = this.state;
         filters.searchCountry = countryName;
         this.setState({
@@ -54,7 +55,6 @@ class Visualization extends Component {
     getFilteredData = () => {
         let {filters} = this.state
         let {searchName, searchCountry} = filters;
-        console.log(filters);
 
         let newFilteredData = this.state.data.filter(
             brandObj => {
@@ -70,17 +70,9 @@ class Visualization extends Component {
                     return false;
                 }
 
-                var shouldKeep = false;
+                var shouldKeep = (searchCountry == null || searchCountry == brandObj.location);
 
-                if (searchCountry != null && searchCountry == brandObj.location) {
-                    shouldKeep = true;
-                }
-
-                if (searchName != "" && brandObj.name.toLowerCase().startsWith(searchName.toLowerCase())){
-                    shouldKeep = true;
-                }
-
-
+                shouldKeep = shouldKeep && (searchName == "" || brandObj.name.toLowerCase().startsWith(searchName.toLowerCase()));
 
                 return shouldKeep;
             }
@@ -89,33 +81,6 @@ class Visualization extends Component {
         return newFilteredData;
     }
 
-    // showBrandInfo = (brandObj) => {
-    //     this.setState({
-    //         showModal: true,
-    //         currentBrand: brandObj
-    //     })
-    // }
-
-    // handleProfileClose = () => {
-    //     this.setState({
-    //         showModal: false,
-    //     })
-    // }
-
-    // handleFilterByName = (searchText) => {
-    //     let newFilteredData = this.state.data.filter(
-    //         brandObj => {
-    //             if (brandObj.name == null) {
-    //                 return false;
-    //             }
-    //             return (brandObj.name.toLowerCase().startsWith(searchText.toLowerCase()));
-    //         }
-    //     )
-
-    //     this.setState({
-    //         filteredData: newFilteredData,
-    //     })
-    // }
 
     getBrandNames = (brandData) => {
         return brandData.map((brandObj) => {return brandObj.name});
@@ -127,14 +92,14 @@ class Visualization extends Component {
         return (
             <div>
                 <div style={{margin: "0vh 4vh", display: "flex", flexDirection: "column", justifyContent: "space-between"}}>
-                    <h2 style={{color: colors.black}}>Welcome to the Visualization</h2>
+                    <h2 style={{color: colors.black}}>Explore</h2>
                     <i style={{fontSize: '18px', color: colors.medium_grey}}>
                         Hover over a country to see how many fashion companies listed by GoodonYou are headquarted there. Then, click to delve into the data and discover more. You can also search for a specific company by name!
                     </i>
                     <br/>
                     <div style={{ alignItems: "center", justifyContent: "left", height:"13vh"}}>
                         <h3>Search by Brand</h3>
-                        <BrandSearchBar filterByName={this.handleFilterByName}/>
+                        <BrandSearchBar filterByName={this.handleFilterByName} filterByCountry={this.handleFilterByCountry}/>
                     </div>
                     <div style={{display: "flex", alignItems: "center", justifyContent: "left", height:"50vh"}}>
                         <div style={{flexGrow: 1, float: 'right', height: "50vh"}}>
@@ -148,7 +113,7 @@ class Visualization extends Component {
                             <h3>Explore Brand Locations</h3>
                             <Map
                                 filteredData={filteredData}
-                                updateFilters={this.handleUpdateFilters}
+                                filterByCountry={this.handleFilterByCountry}
                             />
                         </div>
                     </div>
@@ -166,11 +131,6 @@ class Visualization extends Component {
                         <div style={{fontSize:'20px', marginTop: '10px', color: colors.soft_purple}}>Back to Home</div>
                     </div>    
                 </div>
-                {/* <BrandProfile
-                    showModal={this.state.showModal}
-                    currentBrand={this.state.currentBrand}
-                    handleProfileClose={this.handleProfileClose}
-                /> */}
             </div>
         );
     }

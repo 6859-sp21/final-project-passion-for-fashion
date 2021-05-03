@@ -17,7 +17,7 @@ class BrandList extends React.Component {
         return this.props.filteredData.map((brandObj) => {
             return (
                 <Card style={{margin: "0vh 2vh 2vh 0.5vh"}}>
-                    <CardContent>
+                    <CardContent style={{wordWrap: "normal", maxWidth: "40vw"}}>
                         <Typography variant="h4" style={{color: colors.bold_blue}}>
                             {brandObj.name}
                         </Typography>
