@@ -1,17 +1,17 @@
 import React, {Component} from 'react';
 import { ParallaxProvider } from 'react-scroll-parallax';
-import { Parallax, ParallaxBanner } from 'react-scroll-parallax';
+import { Parallax} from 'react-scroll-parallax';
+import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
+import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
+import { IconButton } from '@material-ui/core';
 
-import Button from '@material-ui/core/Button';
 import colors from './../constants/colors';
 import states from './../constants/states';
 
 import intro from './Images/Everlane/everlane_about_intro.jpeg';
-
 import about from './Images/Everlane/everlane_about_factory.jpeg';
 import promise from './Images/Everlane/everlane_promises.jpeg';
-
-import factory from './Images/Everlane/everlane_ethical_approach_intro.jpeg';
+// import factory from './Images/Everlane/everlane_ethical_approach_intro.jpeg';
 import plastic from './Images/Everlane/everlane_no_new_plastic.jpeg';
 
 // all of the text blurbs
@@ -33,18 +33,11 @@ const nyt = "the New York Times";
 const remake = "Remake";
 const nicole = "Nicole Ho, via her blog";
 
-// styles used
-const style = {
-    marginTop: '20px',
-    marginLeft: '40px',
-    marginRight: '40px',
-    marginBottom: '400px',
-}
 
 // various containers for showcasing text and images together and separately 
 const scrollItemCenter = (image, text, source) => (
     <div style={{margin: 'auto', width:'50%'}}>
-       <img src={image} width="100%" height="100%" /> 
+       <img alt="" src={image} width="100%" height="100%" /> 
         <div style={{marginTop: '20px'}}>
             <div>
                 "{text}" 
@@ -58,7 +51,7 @@ const scrollItemCenter = (image, text, source) => (
 
 const scrollItemCenterImageOnly = (image, source) => (
     <div style={{margin: 'auto', width:'50%'}}>
-        <img src={image} width="100%" height="100%" /> 
+        <img alt="" src={image} width="100%" height="100%" /> 
         <i style={{marginLeft: '50px'}}>
                 - {source}
         </i>
@@ -76,27 +69,27 @@ const scrollItemCenterTextOnly = (text, source) => (
     </div>
 );
 
-const scrollItemLTRImageOnly = (image1, image2, imageSource1, imageSource2) => (
-    <div style={{display: 'flex', width:'100%'}}>
-        <div style={{ width:'50%', marginRight: '10px'}}>
-            <img src={image1} width="100%" height="100%" /> 
-            <i style={{marginLeft: '50px'}}>
-                - {imageSource1}
-            </i>
-        </div>
-        <div style={{ width:'50%', marginLeft: '10px'}}>
-            <img src={image2} width="100%" height="100%" /> 
-            <i style={{marginLeft: '50px'}}>
-                - {imageSource2}
-            </i>
-        </div>
-    </div>
-);
+// const scrollItemLTRImageOnly = (image1, image2, imageSource1, imageSource2) => (
+//     <div style={{display: 'flex', width:'100%'}}>
+//         <div style={{ width:'50%', marginRight: '10px'}}>
+//             <img src={image1} width="100%" height="100%" /> 
+//             <i style={{marginLeft: '50px'}}>
+//                 - {imageSource1}
+//             </i>
+//         </div>
+//         <div style={{ width:'50%', marginLeft: '10px'}}>
+//             <img src={image2} width="100%" height="100%" /> 
+//             <i style={{marginLeft: '50px'}}>
+//                 - {imageSource2}
+//             </i>
+//         </div>
+//     </div>
+// );
 
 const scrollItemLTR = (image, text, imageSource, textSource) => (
     <div style={{display: 'flex', width:'100%'}}>
         <div style={{ width:'50%', marginRight: '10px'}}>
-            <img src={image} width="100%" height="100%" /> 
+            <img alt="" src={image} width="100%" height="100%" /> 
             <i style={{marginLeft: '50px'}}>
                 - {imageSource}
             </i>
@@ -124,7 +117,7 @@ const scrollItemRTL = (image, text, imageSource, textSource) => (
             </i> 
         </div>
         <div style={{ width:'50%', marginLeft: '10px'}}>
-            <img src={image} width="100%" height="100%" /> 
+            <img alt="" src={image} width="100%" height="100%" /> 
             <i style={{marginLeft: '50px'}}>
                 - {imageSource}
             </i>
@@ -160,58 +153,113 @@ class Narrative extends Component {
         super(props);
     }
 
-    onSubmit = () => {
+    onVisualizationSubmit = () => {
         this.props.updateState(states.visualization);
+    }
+
+    onIntroductionSubmit = () => {
+        this.props.updateState(states.introduction);
     }
 
     render() {
         
         return (
-            <div>
-                <div style={{marginTop:'150px'}}>
-                    <h2 style={{color: colors.black, textAlign: "center"}}>Everlane</h2>
-                    {scrollItemCenter(intro, introText, everlane)}
-                </div>
-                {/* Factory Conditions and Worker Conditions */}
-                <div style={{marginTop:'450px', marginLeft:'40px', marginRight:'40px'}}>
-                    {scrollItemLTR(promise, customerPraise, everlane, nicole)}
-                </div>
-                <div style={{marginTop:'450px', marginLeft:'40px', marginRight:'40px'}}>
-                    {scrollItemRTL(about, factoryText, everlane, everlane)}
-                </div>
-                <div style={{marginTop:'450px', marginLeft:'40px', marginRight:'40px'}}>
-                    {scrollItemCenterTextOnly(workerControversy, nyt)}
-                </div>
-                <div style={{marginTop:'450px', marginLeft:'40px', marginRight:'40px'}}>
-                    {scrollItemCenterTextOnly(workerControversy2, nyt)}
-                </div>
-                {/* Environemntal Initiatives */}
-                <div style={{marginTop:'450px', marginLeft:'40px', marginRight:'40px'}}>
-                    {scrollItemCenterImageOnly(plastic, everlane)}
-                </div>
-                <div style={{marginTop:'450px', marginLeft:'40px', marginRight:'40px'}}>
-                    {scrollItemRTLTextOnly(cotton, cottonControversy, everlane, eco)}
-                </div>
-                <div style={{marginTop:'20px', marginLeft:'40px', marginRight:'40px'}}>
-                    {scrollItemCenterTextOnly(sustainability, eco)}
-                </div>
-                {/* Concluding Statement */}
-                <div style={{marginTop:'450px', marginLeft:'40px', marginRight:'40px', marginBottom:'450px'}}>
-                    {scrollItemCenterTextOnly(wagesControversy, remake)}
-                </div>
-                <div style={{marginTop:'50px', marginLeft:'40px', marginRight:'40px', marginBottom:'100px'}}>
-                    <div style = {{margin:'auto', width:'50%', display: 'flex'}}>
-                        <p>
-                            Learn more ... 
-                        </p>
-                        <Button variant="contained" onClick={this.onSubmit} style={{
-                        color: colors.medium_grey,
-                        size: "small",
-                        backgroundColor: colors.soft_blue,
-                        }}>Head to Visualization</Button>
+            <ParallaxProvider>
+                <Parallax
+                     y={['0px', '-200px']}
+                >
+                    <div style={{marginTop:'250px'}}>
+                        <h2 style={{color: colors.black, textAlign: "center"}}>Everlane</h2>
+                        {scrollItemCenter(intro, introText, everlane)}
                     </div>
-                </div>
-            </div>
+                </Parallax>
+                {/* Factory Conditions and Worker Conditions */}
+                <Parallax
+                    y={['-100px', '0px']}
+                >
+                    <div style={{marginTop:'150px', marginLeft:'40px', marginRight:'40px'}}>
+                        {scrollItemLTR(promise, customerPraise, everlane, nicole)}
+                    </div>
+                </Parallax>
+                <Parallax y={['100px', '-100px']}>
+                    <div style={{marginTop:'250px', marginLeft:'40px', marginRight:'40px'}}>
+                        {scrollItemRTL(about, factoryText, everlane, everlane)}
+                    </div>
+                </Parallax>
+                <Parallax y={['-100px', '0px']}>
+                    <div style={{marginTop:'150px', marginLeft:'40px', marginRight:'40px'}}>
+                        {scrollItemCenterTextOnly(workerControversy, nyt)}
+                    </div>
+                </Parallax>
+                <Parallax y={['100px', '0px']}>
+                    <div style={{marginTop:'50px', marginLeft:'40px', marginRight:'40px'}}>
+                        {scrollItemCenterTextOnly(workerControversy2, nyt)}
+                    </div>
+                </Parallax>
+                <Parallax y={['-100px', '100px']}>
+                    <div style={{marginTop:'250px', marginLeft:'40px', marginRight:'40px'}}>
+                        {scrollItemCenterTextOnly(makerWellBeing, eco)}
+                    </div>
+                </Parallax>
+                {/* Environmental Initiatives */}
+                <Parallax y={['100px', '-250px']}>
+                    <div style={{marginTop:'550px', marginLeft:'40px', marginRight:'40px'}}>
+                        {scrollItemCenterImageOnly(plastic, everlane)}
+                    </div>
+                </Parallax>
+                <Parallax y={['-100px', '0px']}>
+                    <div style={{marginTop:'0px', marginLeft:'40px', marginRight:'40px'}}>
+                        {scrollItemRTLTextOnly(cotton, cottonControversy, everlane, eco)}
+                    </div>
+                </Parallax>
+                <Parallax y={['200px', '0px']}>
+                    <div style={{marginTop:'100px', marginLeft:'40px', marginRight:'40px'}}>
+                        {scrollItemCenterTextOnly(sustainability, eco)}
+                    </div>
+                </Parallax>
+                {/* Concluding Statement */}
+                <Parallax  y={['-300px', '100px']}>
+                    <div style={{marginTop:'200px', marginLeft:'40px', marginRight:'40px', marginBottom:'350px'}}>
+                        {scrollItemCenterTextOnly(wagesControversy, remake)}
+                    </div>
+                </Parallax>
+                <Parallax y={['50px', '-50px']}>
+                    <div style={{marginTop:'450px', marginLeft:'40px', marginRight:'40px', marginBottom:'100px'}}>
+                        <div style = {{margin:'auto', width:'50%', display: 'flex'}}>
+                            <div style = {{fontSize:'24px', marginTop: '8px', color: colors.soft_blue}}>
+                                Head to the Main Visualization
+                            </div>
+                            <IconButton
+                            children={<ArrowForwardIosIcon/>}
+                            color="primary"
+                            variant="contained" 
+                            onClick={this.onVisualizationSubmit} 
+                            style={{
+                                color: colors.soft_blue,
+                                size: "small",
+                                backgroundColor: "transparent",
+                            }}
+                            />
+                        </div>
+                        <div style = {{margin:'auto', width:'50%', display: 'flex'}}>
+                            <IconButton
+                            children={<ArrowBackIosIcon/>}
+                            color="primary"
+                            variant="contained" 
+                            onClick={this.onIntroductionSubmit} 
+                            style={{
+                                color: colors.soft_purple,
+                                size: "small",
+                                backgroundColor: "transparent",
+                            }}
+                            />
+                            <div style = {{fontSize:'24px', marginTop: '8px', color: colors.soft_purple}}>
+                                Take Me Back to the Beginning
+                            </div>
+                        </div>
+                    </div>
+                </Parallax>
+            </ParallaxProvider>
         );
     }
 
