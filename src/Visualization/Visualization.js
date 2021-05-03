@@ -68,13 +68,15 @@ class Visualization extends Component {
                         Search Bar
                     </div>
                     <div style={{display: "flex", alignItems: "center", justifyContent: "left", height:"70vh"}}>
-                        <div style={{flexGrow: 2, height:"70vh"}}>
+                        <div style={{flexGrow: 1, float: 'right', height:"70vh"}}>
+                            <h3>Explore Company Headquarter Count</h3>
                             <Map
                                 filteredData={this.state.filteredData}
                                 updateFilters={this.handleUpdateFilters}
                             />
                         </div>
-                        <div style={{flexGrow: 1, height: "70vh", overflow: "auto"}}>
+                        <div style={{flexGrow: 1, float: 'right', height: "70vh"}}>
+                            <h3>Explore Brand Ratings</h3>
                             <BrandList
                                 filteredData={this.state.filteredData}
                                 showBrandInfo={this.showBrandInfo}
@@ -101,7 +103,6 @@ class Visualization extends Component {
                     handleProfileClose={this.handleProfileClose}
                 /> */}
             </div>
-
         );
     }
 

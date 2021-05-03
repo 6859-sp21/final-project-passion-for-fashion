@@ -18,7 +18,7 @@ class BrandList extends React.Component {
             return (
                 <Card style={{margin: "0vh 2vh 2vh 2vh"}}>
                     <CardContent>
-                        <Typography variant="h4">
+                        <Typography variant="h4" style={{color: colors.bold_blue}}>
                             {brandObj.name}
                         </Typography>
                         <Typography variant="subtitle1">
