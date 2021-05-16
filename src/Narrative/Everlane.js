@@ -1,13 +1,18 @@
-import React, {Component} from 'react';
+import React, {Component, Input} from 'react';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import { IconButton } from '@material-ui/core';
+// import { SwitchTransition, CSSTransition } from "react-transition-group";
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+// import ReactTransitionGroup from 'react-addons-transition-group'
+import ArrowKeysReact from 'arrow-keys-react';
 
 import FadeIn from 'react-fade-in';
 import { Fade } from '@material-ui/core';
 
 import colors from './../constants/colors';
 import states from './../constants/states';
+import keys from './../constants/keys';
 
 // all of the images
 import intro from './Images/Everlane/everlane_about_intro.jpeg';
@@ -207,11 +212,37 @@ class Everlane extends Component {
                 opacity: '0'
             },
             elemIndex: elemIndices.one,
+            elem: elemOne,
         }
+
+        // use this reference to autofocus on our container (and let us use arrow keys)
+        this.ref = React.createRef();
+
+        ArrowKeysReact.config({
+            left: () => {
+                console.log("left key pressed")
+                this.updateElemBackwards(this.state.elemIndex);
+            },
+            right: () => {
+                this.updateElemForward(this.state.elemIndex);
+            },
+            up: () => {
+                this.updateElemBackwards(this.state.elemIndex);
+            },
+            down: () => {
+                this.updateElemForward(this.state.elemIndex);
+            }
+        });
     }
 
     // could change the button to dissappear if moving forwards/backwards isn't an option
     // or just have it be unresponsive (first edition)
+
+    focusonMe() {
+        // Explicitly focus the input using the raw DOM API
+        // Note: we're accessing "current" to get the DOM node
+        this.ref.current.focus();
+    }
 
     getElem = (elemIndex) => {
         var elem = elemOne;
@@ -249,7 +280,9 @@ class Everlane extends Component {
                 break;
             case (elemIndices.eleven):
                 elem = elemEleven;
-                break;        
+                break; 
+            default:
+                break;       
         }
 
         return (
@@ -268,19 +301,19 @@ class Everlane extends Component {
 
         setTimeout(() => this.setState({
                 transitionStyle: {
-                    transition: 'opacity 1.8s',
+                    transition: 'opacity 2.5s',
                     opacity: '1'
                 }
-            }), 2);
+            }), 3);
     }
 
     componentDidMount() {
         this.handleTransition();
+        this.focusonMe();
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
         if (this.state.elemIndex !== prevState.elemIndex) {
-            console.log(prevState.elemIndex)
             this.handleTransition();
         }
     }
@@ -292,11 +325,11 @@ class Everlane extends Component {
         if (elemIndex < elemIndices.eleven){
             newIndex = elemIndex + 1;
         }
-        
-        this.setState({
-            elemIndex: newIndex
-        });
 
+        this.setState({
+            elemIndex: newIndex,
+            elem: this.getElem(newIndex),
+        });
     }
 
     updateElemBackwards = (elemIndex) => {
@@ -306,7 +339,8 @@ class Everlane extends Component {
         }
 
         this.setState({
-            elemIndex: newIndex
+            elemIndex: newIndex,
+            elem: this.getElem(newIndex),
         });
     }
 
@@ -329,69 +363,72 @@ class Everlane extends Component {
     render() {
         
         return (
-            <div style={{marginTop: '20px', marginLeft:'40px', marginRight:'40px', marginBottom:'20px'}}>
-                <div style={{marginTop: '100px', marginLeft:'20px', marginRight:'20px', display: 'flex', alignItems: 'center', justifyContent: 'center', height:'70vh', width: '88vw'}}>
-                    <div style={this.state.transitionStyle}>
-                        {this.getElem(this.state.elemIndex)}
-                    </div>
-                </div>   
-                <div style = {{display: 'flex', justifyContent: 'center'}}>
-                    <IconButton
-                        children={<ArrowBackIosIcon/>}
+            // remove gogole chromes highlight and allow for key commands
+            <div style={{outline: 'none'}} {...ArrowKeysReact.events} tabIndex="1" ref ={this.ref}>
+                <div style={{marginTop: '20px', marginLeft:'40px', marginRight:'40px', marginBottom:'20px'}}>
+                    <div style={{marginTop: '100px', marginLeft:'20px', marginRight:'20px', display: 'flex', alignItems: 'center', justifyContent: 'center', height:'70vh', width: '88vw'}}>
+                        <div style={this.state.transitionStyle} id="element">
+                            {this.state.elem}
+                        </div>
+                    </div>   
+                    <div style = {{display: 'flex', justifyContent: 'center'}}>
+                        <IconButton
+                            children={<ArrowBackIosIcon/>}
+                            color="primary"
+                            variant="contained" 
+                            onClick={this.onPreviousSubmit} 
+                            style={{
+                                color: colors.soft_green,
+                                size: "small",
+                                backgroundColor: "transparent",
+                            }}
+                            />
+                        <IconButton
+                        children={<ArrowForwardIosIcon/>}
                         color="primary"
                         variant="contained" 
-                        onClick={this.onPreviousSubmit} 
+                        onClick={this.onNextSubmit} 
                         style={{
                             color: colors.soft_green,
                             size: "small",
                             backgroundColor: "transparent",
                         }}
                         />
-                    <IconButton
-                    children={<ArrowForwardIosIcon/>}
-                    color="primary"
-                    variant="contained" 
-                    onClick={this.onNextSubmit} 
-                    style={{
-                        color: colors.soft_green,
-                        size: "small",
-                        backgroundColor: "transparent",
-                    }}
-                    />
-                </div>
-                <div style={{marginTop:'20px'}}>
-                    <div style = {{display: 'flex', justifyContent: 'space-between'}}>
-                        <div style = {{display: 'flex'}}>
-                            <IconButton
-                            children={<ArrowBackIosIcon/>}
-                            color="primary"
-                            variant="contained" 
-                            onClick={this.onHomeSubmit} 
-                            style={{
-                                color: colors.soft_purple,
-                                size: "small",
-                                backgroundColor: "transparent",
-                            }}
-                            />
-                            <div style = {{fontSize:'20px', marginTop: '10px', color: colors.soft_purple}}>
-                                Back Home
-                            </div>
-                        </div>
-                        <div style = {{display: 'flex'}}>
-                            <div style = {{fontSize:'20px', marginTop: '10px', color: colors.soft_blue}}>
-                                Let's Explore
-                            </div>
-                            <IconButton
-                                children={<ArrowForwardIosIcon/>}
+                    </div>
+                    <div style={{marginTop:'20px'}}>
+                        <div style = {{display: 'flex', justifyContent: 'space-between'}}>
+                            <div style = {{display: 'flex'}}>
+                                <IconButton
+                                children={<ArrowBackIosIcon/>}
                                 color="primary"
                                 variant="contained" 
-                                onClick={this.onSkipSubmit} 
+                                onClick={this.onHomeSubmit} 
                                 style={{
-                                    color: colors.soft_blue,
+                                    color: colors.soft_purple,
                                     size: "small",
                                     backgroundColor: "transparent",
                                 }}
-                            />
+                                />
+                                <div style = {{fontSize:'20px', marginTop: '10px', color: colors.soft_purple}}>
+                                    Back Home
+                                </div>
+                            </div>
+                            <div style = {{display: 'flex'}}>
+                                <div style = {{fontSize:'20px', marginTop: '10px', color: colors.soft_blue}}>
+                                    Let's Explore
+                                </div>
+                                <IconButton
+                                    children={<ArrowForwardIosIcon/>}
+                                    color="primary"
+                                    variant="contained" 
+                                    onClick={this.onSkipSubmit} 
+                                    style={{
+                                        color: colors.soft_blue,
+                                        size: "small",
+                                        backgroundColor: "transparent",
+                                    }}
+                                />
+                            </div>
                         </div>
                     </div>
                 </div>
