@@ -3,6 +3,9 @@ import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import { IconButton } from '@material-ui/core';
 
+import FadeIn from 'react-fade-in';
+import { Fade } from '@material-ui/core';
+
 import colors from './../constants/colors';
 import states from './../constants/states';
 
@@ -200,6 +203,9 @@ class Everlane extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            transitionStyle: {
+                opacity: '0'
+            },
             elemIndex: elemIndices.one,
         }
     }
@@ -208,73 +214,74 @@ class Everlane extends Component {
     // or just have it be unresponsive (first edition)
 
     getElem = (elemIndex) => {
+        var elem = elemOne;
+
         switch(elemIndex){
             case (elemIndices.one):
-                return (
-                    <div>
-                        {elemOne}
-                    </div>
-                );
+                elem = elemOne;
+                break;
             case (elemIndices.two):
-                return (
-                    <div>
-                        {elemTwo}
-                    </div>
-                );
+                elem = elemTwo;
+                break;
             case (elemIndices.three):
-                return (
-                    <div>
-                        {elemThree}
-                    </div>
-                );
+                elem = elemThree;
+                break;
             case (elemIndices.four):
-                return (
-                    <div>
-                        {elemFour}
-                    </div>
-                );   
+                elem = elemFour;
+                break; 
             case (elemIndices.five):
-                return (
-                    <div>
-                        {elemFive}
-                    </div>
-                );
+                elem = elemFive;
+                break;
             case (elemIndices.six):
-                return (
-                    <div>
-                        {elemSix}
-                    </div>
-                );
+                elem = elemSix;
+                break;
             case (elemIndices.seven):
-                return (
-                    <div>
-                        {elemSeven}
-                    </div>
-                );
+                elem = elemSeven;
+                break;
             case (elemIndices.eight):
-                return (
-                    <div>
-                        {elemEight}
-                    </div>
-                );
+                elem = elemEight;
+                break;
             case (elemIndices.nine):
-                return (
-                    <div>
-                        {elemNine}
-                    </div>
-                );   
+                elem = elemNine;
+                break;   
             case (elemIndices.ten):
-                return (
-                    <div>
-                        {elemTen}
-                    </div>
-                ); 
+                elem = elemTen;
+                break;
             case (elemIndices.eleven):
-                return (
-                    <div>
-                        {elemEleven}
-                    </div>
-                );         
+                elem = elemEleven;
+                break;        
+        }
+
+        return (
+            <div>
+                {elem}
+            </div>
+        );
+    }
+
+    handleTransition = () => {
+        this.setState({
+            transitionStyle: {
+                opacity: '0'
+            },
+        });
+
+        setTimeout(() => this.setState({
+                transitionStyle: {
+                    transition: 'opacity 1.8s',
+                    opacity: '1'
+                }
+            }), 2);
+    }
+
+    componentDidMount() {
+        this.handleTransition();
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if (this.state.elemIndex !== prevState.elemIndex) {
+            console.log(prevState.elemIndex)
+            this.handleTransition();
         }
     }
 
@@ -285,10 +292,11 @@ class Everlane extends Component {
         if (elemIndex < elemIndices.eleven){
             newIndex = elemIndex + 1;
         }
-
+        
         this.setState({
             elemIndex: newIndex
         });
+
     }
 
     updateElemBackwards = (elemIndex) => {
@@ -315,7 +323,7 @@ class Everlane extends Component {
     }
 
     onPreviousSubmit = () => {
-        this.updateElemBackwards(this.state.elemIndex, false);
+        this.updateElemBackwards(this.state.elemIndex);
     }
 
     render() {
@@ -323,7 +331,9 @@ class Everlane extends Component {
         return (
             <div style={{marginTop: '20px', marginLeft:'40px', marginRight:'40px', marginBottom:'20px'}}>
                 <div style={{marginTop: '100px', marginLeft:'20px', marginRight:'20px', display: 'flex', alignItems: 'center', justifyContent: 'center', height:'70vh', width: '88vw'}}>
+                    <div style={this.state.transitionStyle}>
                         {this.getElem(this.state.elemIndex)}
+                    </div>
                 </div>   
                 <div style = {{display: 'flex', justifyContent: 'center'}}>
                     <IconButton
