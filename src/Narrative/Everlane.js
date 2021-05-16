@@ -215,12 +215,11 @@ class Everlane extends Component {
             elem: elemOne,
         }
 
-        // use this reference to autofocus on our container (and let us use arrow keys)
+        // Use this reference to autofocus on our container (and let us use arrow keys)
         this.ref = React.createRef();
 
         ArrowKeysReact.config({
             left: () => {
-                console.log("left key pressed")
                 this.updateElemBackwards(this.state.elemIndex);
             },
             right: () => {
@@ -234,9 +233,6 @@ class Everlane extends Component {
             }
         });
     }
-
-    // could change the button to dissappear if moving forwards/backwards isn't an option
-    // or just have it be unresponsive (first edition)
 
     focusonMe() {
         // Explicitly focus the input using the raw DOM API
@@ -363,17 +359,21 @@ class Everlane extends Component {
     render() {
         
         return (
-            // remove gogole chromes highlight and allow for key commands
+            // remove google chrome's highlight and allows for key commands
             <div style={{outline: 'none'}} {...ArrowKeysReact.events} tabIndex="1" ref ={this.ref}>
                 <div style={{marginTop: '20px', marginLeft:'40px', marginRight:'40px', marginBottom:'20px'}}>
+                    {/* Viewbox that holds our narrative images (the current elem) */}
                     <div style={{marginTop: '100px', marginLeft:'20px', marginRight:'20px', display: 'flex', alignItems: 'center', justifyContent: 'center', height:'70vh', width: '88vw'}}>
                         <div style={this.state.transitionStyle} id="element">
                             {this.state.elem}
                         </div>
                     </div>   
+                    {/* We only show/enable the buttons if the user can continue in that direction */}
                     <div style = {{display: 'flex', justifyContent: 'center'}}>
-                        <IconButton
+                        {(this.state.elemIndex >= elemIndices.two) ? 
+                            <IconButton
                             children={<ArrowBackIosIcon/>}
+                            disabled={false}
                             color="primary"
                             variant="contained" 
                             onClick={this.onPreviousSubmit} 
@@ -382,19 +382,44 @@ class Everlane extends Component {
                                 size: "small",
                                 backgroundColor: "transparent",
                             }}
-                            />
-                        <IconButton
-                        children={<ArrowForwardIosIcon/>}
-                        color="primary"
-                        variant="contained" 
-                        onClick={this.onNextSubmit} 
-                        style={{
-                            color: colors.soft_green,
-                            size: "small",
-                            backgroundColor: "transparent",
-                        }}
-                        />
+                            /> :  <IconButton
+                            children={<ArrowBackIosIcon/>}
+                            disabled={true}
+                            color="primary"
+                            variant="contained" 
+                            onClick={this.onPreviousSubmit} 
+                            style={{
+                                color: "transparent",
+                                size: "small",
+                                backgroundColor: "transparent",
+                            }}
+                            />}
+                        {(this.state.elemIndex <= elemIndices.ten) ? 
+                            <IconButton
+                            children={<ArrowForwardIosIcon/>}
+                            disabled={false}
+                            color="primary"
+                            variant="contained" 
+                            onClick={this.onNextSubmit} 
+                            style={{
+                                color: colors.soft_green,
+                                size: "small",
+                                backgroundColor: "transparent",
+                            }}
+                            /> : <IconButton
+                            children={<ArrowForwardIosIcon/>}
+                            disabled={true}
+                            color="primary"
+                            variant="contained" 
+                            onClick={this.onNextSubmit} 
+                            style={{
+                                color: "transparent",
+                                size: "small",
+                                backgroundColor: "transparent",
+                            }}
+                            />}
                     </div>
+                    {/* Home and Visualization Buttons */}
                     <div style={{marginTop:'20px'}}>
                         <div style = {{display: 'flex', justifyContent: 'space-between'}}>
                             <div style = {{display: 'flex'}}>
