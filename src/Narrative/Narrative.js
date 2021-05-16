@@ -4,9 +4,11 @@ import { Parallax} from 'react-scroll-parallax';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import { IconButton } from '@material-ui/core';
+import Everlane from './Everlane';
 
 import colors from './../constants/colors';
 import states from './../constants/states';
+import narratives from './../constants/narratives';
 
 import intro from './Images/Everlane/everlane_about_intro.jpeg';
 import about from './Images/Everlane/everlane_about_factory.jpeg';
@@ -147,10 +149,26 @@ const scrollItemRTLTextOnly = (text1, text2, textSource1, textSource2) => (
     </div>
 );
 
+
 class Narrative extends Component {
 
     constructor(props) {
         super(props);
+    }
+
+    getNarrative = (narrative) => {
+        if (narrative === narratives.everlane) {
+            return <Everlane
+                    updateState = {this.props.updateState}
+                    />;
+        }
+        else {
+            return (
+                <div>
+                    Not a valid narrative
+                </div>
+            );
+        }
     }
 
     onVisualizationSubmit = () => {
@@ -161,107 +179,111 @@ class Narrative extends Component {
         this.props.updateState(states.introduction);
     }
 
-    render() {
-        
-        return (
-            <ParallaxProvider>
-                <Parallax
-                     y={['0px', '-200px']}
-                >
-                    <div style={{marginTop:'250px'}}>
-                        <h2 style={{color: colors.black, textAlign: "center"}}>Everlane</h2>
-                        {scrollItemCenter(intro, introText, everlane)}
-                    </div>
-                </Parallax>
-                {/* Factory Conditions and Worker Conditions */}
-                <Parallax
-                    y={['-100px', '0px']}
-                >
-                    <div style={{marginTop:'150px', marginLeft:'40px', marginRight:'40px'}}>
-                        {scrollItemLTR(promise, customerPraise, everlane, nicole)}
-                    </div>
-                </Parallax>
-                <Parallax y={['100px', '-100px']}>
-                    <div style={{marginTop:'250px', marginLeft:'40px', marginRight:'40px'}}>
-                        {scrollItemRTL(about, factoryText, everlane, everlane)}
-                    </div>
-                </Parallax>
-                <Parallax y={['-100px', '0px']}>
-                    <div style={{marginTop:'150px', marginLeft:'40px', marginRight:'40px'}}>
-                        {scrollItemCenterTextOnly(workerControversy, nyt)}
-                    </div>
-                </Parallax>
-                <Parallax y={['100px', '0px']}>
-                    <div style={{marginTop:'50px', marginLeft:'40px', marginRight:'40px'}}>
-                        {scrollItemCenterTextOnly(workerControversy2, nyt)}
-                    </div>
-                </Parallax>
-                <Parallax y={['-100px', '100px']}>
-                    <div style={{marginTop:'250px', marginLeft:'40px', marginRight:'40px'}}>
-                        {scrollItemCenterTextOnly(makerWellBeing, eco)}
-                    </div>
-                </Parallax>
-                {/* Environmental Initiatives */}
-                <Parallax y={['100px', '-250px']}>
-                    <div style={{marginTop:'550px', marginLeft:'40px', marginRight:'40px'}}>
-                        {scrollItemCenterImageOnly(plastic, everlane)}
-                    </div>
-                </Parallax>
-                <Parallax y={['-100px', '0px']}>
-                    <div style={{marginTop:'0px', marginLeft:'40px', marginRight:'40px'}}>
-                        {scrollItemRTLTextOnly(cotton, cottonControversy, everlane, eco)}
-                    </div>
-                </Parallax>
-                <Parallax y={['200px', '0px']}>
-                    <div style={{marginTop:'100px', marginLeft:'40px', marginRight:'40px'}}>
-                        {scrollItemCenterTextOnly(sustainability, eco)}
-                    </div>
-                </Parallax>
-                {/* Concluding Statement */}
-                <Parallax  y={['-300px', '100px']}>
-                    <div style={{marginTop:'200px', marginLeft:'40px', marginRight:'40px', marginBottom:'350px'}}>
-                        {scrollItemCenterTextOnly(wagesControversy, remake)}
-                    </div>
-                </Parallax>
-                <Parallax y={['50px', '-50px']}>
-                    <div style={{marginTop:'450px', marginLeft:'40px', marginRight:'40px', marginBottom:'100px'}}>
-                        <div style = {{margin:'auto', width:'50%', display: 'flex'}}>
-                            <div style = {{fontSize:'20px', marginTop: '10px', color: colors.soft_blue}}>
-                                Let's Explore
-                            </div>
-                            <IconButton
-                            children={<ArrowForwardIosIcon/>}
-                            color="primary"
-                            variant="contained" 
-                            onClick={this.onVisualizationSubmit} 
-                            style={{
-                                color: colors.soft_blue,
-                                size: "small",
-                                backgroundColor: "transparent",
-                            }}
-                            />
-                        </div>
-                        <div style = {{margin:'auto', width:'50%', display: 'flex'}}>
-                            <IconButton
-                            children={<ArrowBackIosIcon/>}
-                            color="primary"
-                            variant="contained" 
-                            onClick={this.onIntroductionSubmit} 
-                            style={{
-                                color: colors.soft_purple,
-                                size: "small",
-                                backgroundColor: "transparent",
-                            }}
-                            />
-                            <div style = {{fontSize:'20px', marginTop: '10px', color: colors.soft_purple}}>
-                                Back Home
-                            </div>
-                        </div>
-                    </div>
-                </Parallax>
-            </ParallaxProvider>
-        );
+    render () {
+        return this.getNarrative(this.props.narrative);
     }
+
+    // render() {
+    //     // based on prop passed in, return a certain visualization
+    //     return (
+    //         <ParallaxProvider>
+    //             <Parallax
+    //                  y={['0px', '-200px']}
+    //             >
+    //                 <div style={{marginTop:'250px'}}>
+    //                     <h2 style={{color: colors.black, textAlign: "center"}}>Everlane</h2>
+    //                     {scrollItemCenter(intro, introText, everlane)}
+    //                 </div>
+    //             </Parallax>
+    //             {/* Factory Conditions and Worker Conditions */}
+    //             <Parallax
+    //                 y={['-100px', '0px']}
+    //             >
+    //                 <div style={{marginTop:'150px', marginLeft:'40px', marginRight:'40px'}}>
+    //                     {scrollItemLTR(promise, customerPraise, everlane, nicole)}
+    //                 </div>
+    //             </Parallax>
+    //             <Parallax y={['100px', '-100px']}>
+    //                 <div style={{marginTop:'250px', marginLeft:'40px', marginRight:'40px'}}>
+    //                     {scrollItemRTL(about, factoryText, everlane, everlane)}
+    //                 </div>
+    //             </Parallax>
+    //             <Parallax y={['-100px', '0px']}>
+    //                 <div style={{marginTop:'150px', marginLeft:'40px', marginRight:'40px'}}>
+    //                     {scrollItemCenterTextOnly(workerControversy, nyt)}
+    //                 </div>
+    //             </Parallax>
+    //             <Parallax y={['100px', '0px']}>
+    //                 <div style={{marginTop:'50px', marginLeft:'40px', marginRight:'40px'}}>
+    //                     {scrollItemCenterTextOnly(workerControversy2, nyt)}
+    //                 </div>
+    //             </Parallax>
+    //             <Parallax y={['-100px', '100px']}>
+    //                 <div style={{marginTop:'250px', marginLeft:'40px', marginRight:'40px'}}>
+    //                     {scrollItemCenterTextOnly(makerWellBeing, eco)}
+    //                 </div>
+    //             </Parallax>
+    //             {/* Environmental Initiatives */}
+    //             <Parallax y={['100px', '-250px']}>
+    //                 <div style={{marginTop:'550px', marginLeft:'40px', marginRight:'40px'}}>
+    //                     {scrollItemCenterImageOnly(plastic, everlane)}
+    //                 </div>
+    //             </Parallax>
+    //             <Parallax y={['-100px', '0px']}>
+    //                 <div style={{marginTop:'0px', marginLeft:'40px', marginRight:'40px'}}>
+    //                     {scrollItemRTLTextOnly(cotton, cottonControversy, everlane, eco)}
+    //                 </div>
+    //             </Parallax>
+    //             <Parallax y={['200px', '0px']}>
+    //                 <div style={{marginTop:'100px', marginLeft:'40px', marginRight:'40px'}}>
+    //                     {scrollItemCenterTextOnly(sustainability, eco)}
+    //                 </div>
+    //             </Parallax>
+    //             {/* Concluding Statement */}
+    //             <Parallax  y={['-300px', '100px']}>
+    //                 <div style={{marginTop:'200px', marginLeft:'40px', marginRight:'40px', marginBottom:'350px'}}>
+    //                     {scrollItemCenterTextOnly(wagesControversy, remake)}
+    //                 </div>
+    //             </Parallax>
+    //             <Parallax y={['50px', '-50px']}>
+    //                 <div style={{marginTop:'450px', marginLeft:'40px', marginRight:'40px', marginBottom:'100px'}}>
+    //                     <div style = {{margin:'auto', width:'50%', display: 'flex'}}>
+    //                         <div style = {{fontSize:'20px', marginTop: '10px', color: colors.soft_blue}}>
+    //                             Let's Explore
+    //                         </div>
+    //                         <IconButton
+    //                         children={<ArrowForwardIosIcon/>}
+    //                         color="primary"
+    //                         variant="contained" 
+    //                         onClick={this.onVisualizationSubmit} 
+    //                         style={{
+    //                             color: colors.soft_blue,
+    //                             size: "small",
+    //                             backgroundColor: "transparent",
+    //                         }}
+    //                         />
+    //                     </div>
+    //                     <div style = {{margin:'auto', width:'50%', display: 'flex'}}>
+    //                         <IconButton
+    //                         children={<ArrowBackIosIcon/>}
+    //                         color="primary"
+    //                         variant="contained" 
+    //                         onClick={this.onIntroductionSubmit} 
+    //                         style={{
+    //                             color: colors.soft_purple,
+    //                             size: "small",
+    //                             backgroundColor: "transparent",
+    //                         }}
+    //                         />
+    //                         <div style = {{fontSize:'20px', marginTop: '10px', color: colors.soft_purple}}>
+    //                             Back Home
+    //                         </div>
+    //                     </div>
+    //                 </div>
+    //             </Parallax>
+    //         </ParallaxProvider>
+    //     );
+    // }
 
 }
 

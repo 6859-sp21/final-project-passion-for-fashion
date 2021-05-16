@@ -6,6 +6,7 @@ import { IconButton } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 import colors from './../constants/colors';
 import states from './../constants/states';
+import narratives from './../constants/narratives';
 
 
 const summary = "With the continually increasing popularity of \"fast-fashion\" companies, it is becoming more and more important to understand the social and ethical context in which such companies operate, as well as the influence they have on the planet, animals, and people. After a curated narrative experience, we invite you to explore the policies several clothing companies have with respect to animal welfare, environmental responsibility, and workers' rights, within a visualization containing data gathered from ";
@@ -17,8 +18,9 @@ class Intro extends Component {
         super(props);
     }
 
-    onNarrativeSubmit = () => {
+    onEverlaneSubmit = () => {
         this.props.updateState(states.narrative);
+        this.props.updateNarrative(narratives.everlane)
     }
 
     onVisualizationSubmit = () => {
@@ -44,7 +46,7 @@ class Intro extends Component {
                 children={<ArrowForwardIosIcon/>}
                 color="primary"
                 variant="contained" 
-                onClick={this.onNarrativeSubmit} 
+                onClick={this.onEverlaneSubmit} 
                 style={{
                     color: colors.soft_green,
                     size: "small",
