@@ -14,6 +14,8 @@ import promise from './Images/Everlane/everlane_promises.jpeg';
 import plastic from './Images/Everlane/everlane_no_new_plastic.jpeg';
 
 // all of the text blurbs
+const title = "Everlane";
+const subtitle = "Considering the Planet and People. [TBD]"
 const introText = 'At Everlane, we want the right choice to be as easy as putting on a great T-shirt. That’s why we partner with the best, ethical factories around the world. Source only the finest materials. And share those stories with you—down to the true cost of every product we make. It’s a new way of doing things. We call it Radical Transparency.';
 const customerPraise = 'Let me just say this. If you’re looking for a “no-frills” approach to clothing, look no further than Everlane ... As a customer, it finally feels like I’ve found my home and can see myself sticking around for a while. Here’s why. Initially I was looking for alternatives to fast fashion retailers (which comes with unethical fashion practices), and designer brands that carried too high of a price tag for what they’re selling. I was on the hunt for brands that believed in doing fashion ethically in addition to what they could offer their customers aesthetically. Everlane was one of those brands that stood out to me.';
 const cotton = 'Worldwide, cotton farming uses more toxic pesticides per acre than any other crop. These chemicals are harming our planet—stripping the land of nutrients, contaminating our water, and endangering the people who grow it. That’s why we’re moving all our cotton to certified organic by 2023.';
@@ -28,9 +30,9 @@ const sustainability = 'Most of their products offer no explanation for how or w
 // all of the sources
 const everlane = 'Everlane';
 const eco = "Eco-Stylist";
-const nyt = "the New York Times";
+const nyt = "The New York Times";
 const remake = "Remake";
-const nicole = "Nicole Ho, via her blog";
+const nicole = "Nicole Ho, fashion blogger";
 
 const elemIndices = {
     'one': 1,
@@ -78,6 +80,17 @@ const scrollItemCenterTextOnly = (text, source) => (
         <i style={{marginLeft: '20px'}}>
             - {source}
         </i>
+    </div>
+);
+
+const scrollItemCenterTitle = (titleText, subtitleText) => (
+    <div>
+        <div style = {{fontSize: '80px', fontFamily: 'sans-serif', textAlign: 'center'}}>
+            {titleText} 
+        </div>
+        <div style = {{fontSize: '20px', fontFamily: 'sans-serif', color: colors.medium_grey, textAlign: 'center'}} >
+            {subtitleText}
+        </div>
     </div>
 );
 
@@ -159,10 +172,7 @@ const scrollItemRTLTextOnly = (text1, text2, textSource1, textSource2) => (
 //         </div>
 // );
 
-const elemOne = 
-    ( 
-        <h2 style={{color: colors.black, textAlign: "center"}}>Everlane</h2>
-    );
+const elemOne = scrollItemCenterTitle(title, subtitle);
 
 const elemTwo = scrollItemCenter(intro, introText, everlane);
 
@@ -311,9 +321,11 @@ class Everlane extends Component {
     render() {
         
         return (
-            <div>
-                {this.getElem(this.state.elemIndex)}
-                <div style = {{margin:'auto', width:'50%', display: 'flex'}}>
+            <div style={{marginTop: '20px', marginLeft:'40px', marginRight:'40px', marginBottom:'20px'}}>
+                <div style={{marginTop: '100px', marginLeft:'20px', marginRight:'20px', display: 'flex', alignItems: 'center', justifyContent: 'center', height:'70vh', width: '88vw'}}>
+                        {this.getElem(this.state.elemIndex)}
+                </div>   
+                <div style = {{display: 'flex', justifyContent: 'center'}}>
                     <IconButton
                         children={<ArrowBackIosIcon/>}
                         color="primary"
@@ -337,37 +349,39 @@ class Everlane extends Component {
                     }}
                     />
                 </div>
-                <div style={{marginTop:'450px', marginLeft:'40px', marginRight:'40px', marginBottom:'100px'}}>
-                    <div style = {{margin:'auto', width:'50%', display: 'flex'}}>
-                        <div style = {{fontSize:'20px', marginTop: '10px', color: colors.soft_blue}}>
-                            Let's Explore
+                <div style={{marginTop:'20px'}}>
+                    <div style = {{display: 'flex', justifyContent: 'space-between'}}>
+                        <div style = {{display: 'flex'}}>
+                            <IconButton
+                            children={<ArrowBackIosIcon/>}
+                            color="primary"
+                            variant="contained" 
+                            onClick={this.onHomeSubmit} 
+                            style={{
+                                color: colors.soft_purple,
+                                size: "small",
+                                backgroundColor: "transparent",
+                            }}
+                            />
+                            <div style = {{fontSize:'20px', marginTop: '10px', color: colors.soft_purple}}>
+                                Back Home
+                            </div>
                         </div>
-                        <IconButton
-                        children={<ArrowForwardIosIcon/>}
-                        color="primary"
-                        variant="contained" 
-                        onClick={this.onSkipSubmit} 
-                        style={{
-                            color: colors.soft_blue,
-                            size: "small",
-                            backgroundColor: "transparent",
-                        }}
-                    />
-                    </div>
-                    <div style = {{margin:'auto', width:'50%', display: 'flex'}}>
-                        <IconButton
-                        children={<ArrowBackIosIcon/>}
-                        color="primary"
-                        variant="contained" 
-                        onClick={this.onHomeSubmit} 
-                        style={{
-                            color: colors.soft_purple,
-                            size: "small",
-                            backgroundColor: "transparent",
-                        }}
-                        />
-                        <div style = {{fontSize:'20px', marginTop: '10px', color: colors.soft_purple}}>
-                            Back Home
+                        <div style = {{display: 'flex'}}>
+                            <div style = {{fontSize:'20px', marginTop: '10px', color: colors.soft_blue}}>
+                                Let's Explore
+                            </div>
+                            <IconButton
+                                children={<ArrowForwardIosIcon/>}
+                                color="primary"
+                                variant="contained" 
+                                onClick={this.onSkipSubmit} 
+                                style={{
+                                    color: colors.soft_blue,
+                                    size: "small",
+                                    backgroundColor: "transparent",
+                                }}
+                            />
                         </div>
                     </div>
                 </div>
