@@ -16,8 +16,21 @@ import {
 import colors from './../constants/colors';
 import states from './../constants/states';
 
+// images
+import sweatshopIm from './Images/Nike/Nike_Thailand.jpeg';
+
+// labels
 const title = "Nike";
 const subtitle = "Considering the Planet and People. [TBD]"
+
+// text
+const sweatshop = "In 1991, American labour activist Jeffrey Ballinger published a report on Nike’s factory practices in Indonesia, exposing a scandal: below-minimum wages, child labour and appalling conditions likened to a sweatshop – a factory or workshop where employees work long hours for low money in conditions that are hazardous to health."
+const sweatshop2 = "Sweatshops are common in developing countries, including in Indonesia, India, Thailand, Bangladesh and Cambodia, where labour laws are rarely enforced. The factories, which are often housed in deteriorating buildings, are cramped with workers and pose fire dangers. Workers are also restricted access to the toilet and drinking water during the day. Companies such as Nike and Adidas will spruik the line that their factories have strict codes of conduct, but it is difficult to know if those codes are enforced in developing countries."
+const sweatshop3 = "In 2001, Leila Salazar, corporate accountability director for Global Exchange, told The Guardian: \"During the last three years, Nike has continued to treat the sweatshop issue as a public relations inconvenience rather than as a serious human rights matter.\"";
+
+
+// sources
+const newidea = "New Idea"
 
 const elemIndices = {
     'one': 1,
@@ -34,9 +47,9 @@ const elemIndices = {
 }
 
 const elemOne = scrollItemCenterTitle(title, subtitle);
-const elemTwo = null;
-const elemThree = null;
-const elemFour = null;
+const elemTwo = scrollItemCenterTextOnly(sweatshop, newidea);
+const elemThree = scrollItemLTR(sweatshopIm, sweatshop2, newidea, newidea);
+const elemFour = scrollItemCenterTextOnly(sweatshop3, newidea);
 const elemFive = null;
 const elemSix = null;
 const elemSeven = null;
