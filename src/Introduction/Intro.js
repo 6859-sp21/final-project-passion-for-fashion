@@ -44,7 +44,7 @@ class Intro extends Component {
             <div style={{ marginLeft:'20px', marginRight:'20px', textAlign: 'center'}}>
                 <i style={{fontSize:'20px', color: colors.medium_grey}}>
                     {summary}
-                    <a href={goodOnYouURL} style={{color:colors.bold_blue}} rel="noreferrer">good on you</a>
+                    <a href={goodOnYouURL} target="_blank" style={{color:colors.bold_blue}} rel="noreferrer">good on you</a>
                     <a>.</a>
                 </i>
             </div>
