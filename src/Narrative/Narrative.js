@@ -1,8 +1,12 @@
 import React, {Component} from 'react';
 
 import Everlane from './Everlane';
+import Nike from './Nike';
+import HM from './HM';
+
 
 import narratives from './../constants/narratives';
+import states from './../constants/states';
 
 class Narrative extends Component {
 
@@ -16,12 +20,20 @@ class Narrative extends Component {
                     updateState = {this.props.updateState}
                     />;
         }
+        else if (narrative === narratives.nike) {
+            return <Nike
+                updateState = {this.props.updateState}
+                />;
+        }
+        else if (narrative === narratives.hm) {
+            return <HM
+                updateState = {this.props.updateState}
+                />;
+        }
+        // Not a valid narrative, we'll just go to the visualization
         else {
-            return (
-                <div>
-                    Not a valid narrative
-                </div>
-            );
+            this.props.updateState(states.visualization);
+            return null;
         }
     }
 

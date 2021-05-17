@@ -23,6 +23,16 @@ class Intro extends Component {
         this.props.updateNarrative(narratives.everlane)
     }
 
+    onNikeSubmit = () => {
+        this.props.updateState(states.narrative);
+        this.props.updateNarrative(narratives.nike)
+    }
+
+    onHMSubmit = () => {
+        this.props.updateState(states.narrative);
+        this.props.updateNarrative(narratives.hm)
+    }
+
     onVisualizationSubmit = () => {
         this.props.updateState(states.visualization);
     }
@@ -41,17 +51,43 @@ class Intro extends Component {
             <div style={{ marginLeft:'40px'}} >
                 <h2>Narrative Experiences</h2>
                 <div style={{display: 'flex'}}>
-                <div style={{fontSize:'20px', marginTop: '10px', color: colors.soft_green}}>Everlane</div>
-                <IconButton
-                children={<ArrowForwardIosIcon/>}
-                color="primary"
-                variant="contained" 
-                onClick={this.onEverlaneSubmit} 
-                style={{
-                    color: colors.soft_green,
-                    size: "small",
-                    backgroundColor: "transparent",}}
-                />
+                    <div style={{fontSize:'20px', marginTop: '10px', color: colors.soft_green}}>Everlane</div>
+                    <IconButton
+                    children={<ArrowForwardIosIcon/>}
+                    color="primary"
+                    variant="contained" 
+                    onClick={this.onEverlaneSubmit} 
+                    style={{
+                        color: colors.soft_green,
+                        size: "small",
+                        backgroundColor: "transparent",}}
+                    />
+                </div>
+                <div style={{display: 'flex'}}>
+                    <div style={{fontSize:'20px', marginTop: '10px', color: colors.soft_pink}}>Nike</div>
+                    <IconButton
+                    children={<ArrowForwardIosIcon/>}
+                    color="primary"
+                    variant="contained" 
+                    onClick={this.onNikeSubmit} 
+                    style={{
+                        color: colors.soft_pink,
+                        size: "small",
+                        backgroundColor: "transparent",}}
+                    />
+                </div>
+                <div style={{display: 'flex'}}>
+                    <div style={{fontSize:'20px', marginTop: '10px', color: colors.soft_yellow}}>H&M</div>
+                    <IconButton
+                    children={<ArrowForwardIosIcon/>}
+                    color="primary"
+                    variant="contained" 
+                    onClick={this.onHMSubmit} 
+                    style={{
+                        color: colors.soft_yellow,
+                        size: "small",
+                        backgroundColor: "transparent",}}
+                    />
                 </div>
                 <div style={{display: 'flex'}}>
                     <div style={{fontSize:'20px', marginTop: '10px', color: colors.soft_blue}}>
