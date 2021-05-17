@@ -2,19 +2,32 @@
 import colors from './../constants/colors';
 
 // various containers for showcasing text and images together and separately 
-const scrollItemCenter = (image, text, source) => (
-    <div style={{margin: 'auto', width:'50%'}}>
-       <img alt="" src={image} width="100%" height="100%" /> 
-        <div style={{marginTop: '20px'}}>
-            <div>
-                "{text}" 
+const scrollItemCenter = (image, texts, mapping, source) => {
+    const items = []
+
+    for (const [index, value] of texts.entries()) {
+        if (mapping[index] == 'bold') {
+            items.push(<b key={index}>{value}</b>)
+        } else {
+            items.push(<a key={index}>{value}</a>)
+        }
+        
+    }
+  
+    return (
+        <div style={{margin: 'auto', width:'50%'}}>
+            <img alt="" src={image} width="100%" height="100%" /> 
+            <div style={{marginTop: '20px'}}>
+                <div display= 'flex' id='centerContainer'>
+                    {items}
+                </div>
+                <i style={{marginLeft: '20px'}}>
+                    - {source}
+                </i>
             </div>
-            <i style={{marginLeft: '20px'}}>
-                - {source}
-            </i>
         </div>
-    </div>
-);
+    );
+}
 
 const scrollItemCenterImageOnly = (image, source) => (
     <div style={{margin: 'auto', width:'50%'}}>

@@ -26,7 +26,11 @@ import plastic from './Images/Everlane/everlane_no_new_plastic.jpeg';
 // all of the text blurbs
 const title = "Everlane";
 const subtitle = "Considering the Planet and People. [TBD]"
-const introText = 'At Everlane, we want the right choice to be as easy as putting on a great T-shirt. That’s why we partner with the best, ethical factories around the world. Source only the finest materials. And share those stories with you—down to the true cost of every product we make. It’s a new way of doing things. We call it Radical Transparency.';
+const introText1 = '"At Everlane, we want the right choice to be as easy as putting on a great T-shirt. ';
+const introText2 = 'That’s why we partner with the best, ethical factories around the world. Source only the finest materials. And share those stories with you';
+const introText3 = '—down to the true cost of every product we make. It’s a new way of doing things. We call it ';
+const introText4 = 'Radical Transparency';
+const introText5 = '."';
 const customerPraise = 'Let me just say this. If you’re looking for a “no-frills” approach to clothing, look no further than Everlane ... As a customer, it finally feels like I’ve found my home and can see myself sticking around for a while. Here’s why. Initially I was looking for alternatives to fast fashion retailers (which comes with unethical fashion practices), and designer brands that carried too high of a price tag for what they’re selling. I was on the hunt for brands that believed in doing fashion ethically in addition to what they could offer their customers aesthetically. Everlane was one of those brands that stood out to me.';
 const cotton = 'Worldwide, cotton farming uses more toxic pesticides per acre than any other crop. These chemicals are harming our planet—stripping the land of nutrients, contaminating our water, and endangering the people who grow it. That’s why we’re moving all our cotton to certified organic by 2023.';
 const factoryText = 'To ensure the continued integrity of our factory partners, we develop strong relationships with the people at the facility and work with third-party auditors to evaluate factors like fair wages, labor conditions, reasonable hours, and a safe work environment.';
@@ -58,8 +62,13 @@ const elemIndices = {
     'eleven': 11,
 }
 
+const mappings = {
+    'bold': 'bold',
+    'reg': 'reg',
+}
+
 const elemOne = scrollItemCenterTitle(title, subtitle);
-const elemTwo = scrollItemCenter(intro, introText, everlane);
+const elemTwo = scrollItemCenter(intro, [introText1, introText2, introText3, introText4, introText5], [mappings.reg, mappings.bold, mappings.reg, mappings.bold, mappings.reg], everlane);
 const elemThree = scrollItemLTR(promise, customerPraise, everlane, nicole);
 const elemFour = scrollItemRTL(about, factoryText, everlane, everlane);
 const elemFive = scrollItemCenterTextOnly(workerControversy, nyt);
