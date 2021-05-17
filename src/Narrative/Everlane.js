@@ -150,28 +150,31 @@ class Everlane extends Component {
 
     // for invalid moves/incrementations, do nothing
     updateElemForward = (elemIndex) => {
-        var newIndex = elemIndex
-
         if (elemIndex < elemIndices.eleven){
-            newIndex = elemIndex + 1;
-        }
-
-        this.setState({
-            elemIndex: newIndex,
-            elem: elemMappings[newIndex],
-        });
+            var newIndex = elemIndex + 1;
+            this.setState({
+                elemIndex: newIndex,
+                elem: elemMappings[newIndex],
+            });
+        } 
+        // else {
+        //     // let's go into the visualization?
+        //     this.props.updateState(states.visualization)
+        // } 
     }
 
     updateElemBackwards = (elemIndex) => {
-        var newIndex = elemIndex
         if (elemIndex > elemIndices.one){
-            newIndex = elemIndex - 1;
-        }
-
-        this.setState({
-            elemIndex: newIndex,
-            elem: elemMappings[newIndex],
-        });
+            var newIndex = elemIndex - 1;
+            this.setState({
+                elemIndex: newIndex,
+                elem: elemMappings[newIndex],
+            });
+        } 
+        // else {
+        //     // let's go back to the intro?
+        //     this.props.updateState(states.introduction)
+        // }
     }
 
     onSkipSubmit = () => {

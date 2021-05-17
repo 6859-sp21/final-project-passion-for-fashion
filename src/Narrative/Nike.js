@@ -16,6 +16,9 @@ import {
 import colors from './../constants/colors';
 import states from './../constants/states';
 
+const title = "Nike";
+const subtitle = "Considering the Planet and People. [TBD]"
+
 const elemIndices = {
     'one': 1,
     'two': 2,
@@ -30,7 +33,7 @@ const elemIndices = {
     'eleven': 11,
 }
 
-const elemOne = null;
+const elemOne = scrollItemCenterTitle(title, subtitle);
 const elemTwo = null;
 const elemThree = null;
 const elemFour = null;
