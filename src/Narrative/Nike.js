@@ -11,8 +11,9 @@ import {
     scrollItemLTR,
     scrollItemRTL,
     scrollItemRTLTextOnly,
-} from './Scroll'
+} from './Scroll';
 
+import mappings from './../constants/textMappings';
 import colors from './../constants/colors';
 import states from './../constants/states';
 
@@ -47,9 +48,9 @@ const elemIndices = {
 }
 
 const elemOne = scrollItemCenterTitle(title, subtitle);
-const elemTwo = scrollItemCenterTextOnly(sweatshop, newidea);
-const elemThree = scrollItemLTR(sweatshopIm, sweatshop2, newidea, newidea);
-const elemFour = scrollItemCenterTextOnly(sweatshop3, newidea);
+const elemTwo = scrollItemCenterTextOnly([sweatshop], [mappings.reg], newidea);
+const elemThree = scrollItemLTR(sweatshopIm, [sweatshop2], [mappings.reg], newidea, newidea);
+const elemFour = scrollItemCenterTextOnly([sweatshop3], [mappings.reg], newidea);
 const elemFive = null;
 const elemSix = null;
 const elemSeven = null;
