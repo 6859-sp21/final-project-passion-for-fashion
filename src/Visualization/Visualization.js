@@ -9,9 +9,11 @@ import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 
 import Map from './Map';
-import BrandList from './BrandList';
-import BrandProfile from './BrandProfile';
-import BrandSearchBar from './BrandSearchBar';
+import BarChart from './BarChart';
+
+import BrandList from './Brand/BrandList';
+import BrandProfile from './Brand/BrandProfile';
+import BrandSearchBar from './Brand/BrandSearchBar';
 
 class Visualization extends Component {
 
@@ -111,10 +113,11 @@ class Visualization extends Component {
                         </div>
                         <div style={{flexGrow: 1, float: 'right', height:"50vh"}}>
                             <h3>Explore Brand Locations</h3>
-                            <Map
+                            {/* <Map
                                 filteredData={filteredData}
                                 filterByCountry={this.handleFilterByCountry}
-                            />
+                            /> */}
+                            <BarChart/>
                         </div>
                     </div>
                     <div style={{display: "flex", marginLeft: "20px", marginBottom: '5px', position: "absolute", bottom:"0", left:"0", height:"4vh"}}>
