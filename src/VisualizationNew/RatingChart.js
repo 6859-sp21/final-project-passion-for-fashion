@@ -57,7 +57,9 @@ export default class RatingChart extends Component {
     return (
       <Paper elevation={2} style={{margin: "2vw 2vw 2vw 1vw", width: "37vw", height:"50vh", display: 'flex', flexDirection: 'column', alignItems: 'left', justifyContent: 'flex-start'}}>
         <Typography variant="h4" style={{padding: "1vw"}}>Compare Sub-Ratings</Typography>
-        <div style={{padding: "1vw"}}>Select a maximum of 5 brands from the left</div>
+        <div style={{margin: "0vw 1vw 1vw"}}>
+          Select at most 5 brands on the left to compare their ratings across categories.
+        </div>
         <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
           <RadarChart
             data={DATA}

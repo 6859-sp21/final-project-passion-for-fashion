@@ -65,6 +65,7 @@ class BrandTable extends React.Component {
         const fixedBrandData = brandData.map((brandObj) => {
             brandObj.ratingFixed = ((RATINGS.indexOf(brandObj.rating) + 1).toString() + " (" + brandObj.rating + ")");
             brandObj.priceFixed = (brandObj.price == null) ? "N/A" : brandObj.price;
+            brandObj.locationFixed = (brandObj.location == null) ? "N/A" : brandObj.location;
             return brandObj;
         })
         
@@ -80,7 +81,7 @@ class BrandTable extends React.Component {
             <Paper elevation={2} style={{margin: "2vw 1vw 2vw 2vw", width: "57vw", maxHeight: "85vh", overflow: "auto"}}>
                 <Typography variant="h4" style={{padding: "1vw"}}>Explore All Brands</Typography>
                 <div style={{margin: "0vw 1vw 1vw"}}>
-                    Click on the arrow button next to each row to read a detailed evaluation of the brand's policies.
+                    Click on the arrow button next to each row to read Good On You's detailed evaluation of the brand's policies.
                 </div>
                 <MaterialTable
                     icons={tableIcons}
@@ -111,7 +112,7 @@ class BrandTable extends React.Component {
                         },
                         {
                             title: 'Location', 
-                            field: 'location',
+                            field: 'locationFixed',
                             width: "20%"
                         },
                     ]}
