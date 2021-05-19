@@ -7,7 +7,7 @@ const scrollItemCenter = (image, texts, mapping, source) => {
 
     for (const [index, value] of texts.entries()) {
         if (mapping[index] == 'bold') {
-            items.push(<b key={index}>{value}</b>)
+            items.push(<b style={{fontSize: '18px'}} key={index}>{value}</b>)
         } else {
             items.push(<a key={index}>{value}</a>)
         }
@@ -43,7 +43,7 @@ const scrollItemCenterTextOnly = (texts, mapping, source) => {
 
     for (const [index, value] of texts.entries()) {
         if (mapping[index] == 'bold') {
-            items.push(<b key={index}>{value}</b>)
+            items.push(<b style={{fontSize: '18px'}} key={index}>{value}</b>)
         } else {
             items.push(<a key={index}>{value}</a>)
         }
@@ -78,7 +78,7 @@ const scrollItemLTR = (image, texts, mapping, imageSource, textSource) => {
 
     for (const [index, value] of texts.entries()) {
         if (mapping[index] == 'bold') {
-            items.push(<b key={index}>{value}</b>)
+            items.push(<b style={{fontSize: '18px'}} key={index}>{value}</b>)
         } else {
             items.push(<a key={index}>{value}</a>)
         }
@@ -112,7 +112,7 @@ const scrollItemRTL = (image, texts, mapping, imageSource, textSource) => {
 
     for (const [index, value] of texts.entries()) {
         if (mapping[index] == 'bold') {
-            items.push(<b key={index}>{value}</b>)
+            items.push(<b style={{fontSize: '18px'}} key={index}>{value}</b>)
         } else {
             items.push(<a key={index}>{value}</a>)
         }
@@ -147,7 +147,7 @@ const scrollItemRTLTextOnly = (texts1, texts2, mapping1, mapping2, textSource1, 
 
     for (const [index, value] of texts1.entries()) {
         if (mapping1[index] == 'bold') {
-            items1.push(<b key={index}>{value}</b>)
+            items1.push(<b style={{fontSize: '18px'}} key={index}>{value}</b>)
         } else {
             items1.push(<a key={index}>{value}</a>)
         }
@@ -156,7 +156,7 @@ const scrollItemRTLTextOnly = (texts1, texts2, mapping1, mapping2, textSource1, 
 
     for (const [index, value] of texts2.entries()) {
         if (mapping2[index] == 'bold') {
-            items2.push(<b key={index}>{value}</b>)
+            items2.push(<b style={{fontSize: '18px'}} key={index}>{value}</b>)
         } else {
             items2.push(<a key={index}>{value}</a>)
         }
