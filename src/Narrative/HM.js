@@ -13,11 +13,38 @@ import {
     scrollItemRTLTextOnly,
 } from './Scroll'
 
+import mappings from './../constants/textMappings';
 import colors from './../constants/colors';
 import states from './../constants/states';
 
+// images
+import concious1 from './Images/HM/concioushm.jpeg'
+import concious2 from './Images/HM/conscious2hm.jpeg'
+import recycling from './Images/HM/recyclinghm.jpeg'
+import washing from './Images/HM/washhm.jpeg'
+
+// titles
 const title = "H&M";
 const subtitle = "Considering the Planet and People. [TBD]"
+
+// text
+const susEarth = "H&M has been criticised over its plans to start making clothes from Circulose, a sustainable fabric made from up-cycled clothing and fashion waste."
+const susEarth2 = "The clothes sold by H&M will comprise a Circulose/Viscose blend that uses 50 per cent Circulose sourced from upcycled cotton jeans fabric and 50 per cent viscose sourced from FSC-certified wood. "
+const susEarth3 = "“Circulose is an absolute box-ticker,” La Manna says. “Not only is it creating something from waste, it’s also vegan-friendly, non-toxic, durable and biodegradable. As a ‘new’ material, it’s much more planet friendly than a lot of the sustainable yarns that are already on the market."
+const susEarth4 = "“With this in mind, it’s a real shame to hear that Circulose chose to partner with H&M on such an exciting, circular and innovative yarn. Sustainable fashion absolutely needs to be as accessible for as many people as possible, but the fast fashion model will never reach that all important net zero target that we need to be aiming for.”"
+const susEarth5 = "“Ultimately, the sheer amount of product H&M produces is causing irreversible harm to both planet and people, and completely outweighs their sustainability efforts,” she explained. “Fashion this fast can never and will never be sustainable.”"
+
+const brand1 = "H&M has been trying to position itself as a brand that cares about the environment. It has done so with its Conscious Collection, a line of clothing within the brand, made of sustainably sourced materials, and in-store recycle bins. In these recycle bins, customers can drop off their old clothes and get a coupon that they can redeem when they next shop at the store. What H&M is doing is greenwashing to distance itself from its role in damaging the environment; H&M is a fast fashion brand and fast-fashion products are unsustainable."
+const brand2 = "The Conscious Collection and the goal of only using sustainably sourced cotton by 2020 are admirable, but it does little to address the harm fast-fashion causes. More to the point, the Conscious Collection and the push towards using sustainably-sourced cotton makes it is easier for H&M to lie through the use of half-truths. On its website, H&M states that their recycle bins are a way to ensure that customers’ textiles are reused and don’t end up in landfills. Nowhere does it state that it is only a percentage that is recycled."
+
+const covid1 = "After a spate of damning news reports out of Bangladesh, H&M was the first major brand to commit to paying for all of its orders already produced or in production, followed by Target, Marks & Spencer, Zara and PVH Corp. But as we reported last week, the exact details of when suppliers will get paid and how much is still being worked out; the lack of clarity leaves consumers and advocates alike unsure of whether to celebrate or criticise the few brands who are honouring their contracts."
+
+// sources
+const susfashion = "Sustainable Fasion"
+const brandingMag = "Branding Mag"
+const vogueB = "Vogue Business"
+const hm = "H&M"
+const hmgroup = "H&M Group"
 
 const elemIndices = {
     'one': 1,
@@ -34,15 +61,16 @@ const elemIndices = {
 }
 
 const elemOne = scrollItemCenterTitle(title, subtitle);
-const elemTwo = null;
-const elemThree = null;
-const elemFour = null;
-const elemFive = null;
-const elemSix = null;
-const elemSeven = null;
-const elemEight = null;
+const elemTwo = scrollItemCenterImageOnly(concious2, hm);
+const elemThree = scrollItemLTR(concious1, [susEarth2, susEarth3], [mappings.reg, mappings.reg], hm, susfashion);
+const elemFour = scrollItemCenterTextOnly([susEarth4], [mappings.reg], susfashion);
+const elemFive = scrollItemCenterTextOnly([susEarth5], [mappings.reg], susfashion);
+const elemSix = scrollItemCenterTextOnly([brand1], [mappings.reg], brandingMag);
+const elemSeven = scrollItemCenterImageOnly(recycling, hmgroup);
+const elemEight = scrollItemCenterTextOnly([brand2], [mappings.reg], brandingMag);
 const elemNine = null;
 const elemTen = null;
+// const elemTen = scrollItemCenterTextOnly([covid1], [mappings.reg], vogueB);
 const elemEleven = null;
 
 const elemMappings = {
