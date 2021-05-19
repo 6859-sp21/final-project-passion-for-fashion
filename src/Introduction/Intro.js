@@ -16,11 +16,11 @@ import nike from './Images/nike_logo2.png';
 import hm from './Images/hm_logo.png';
 
 const summary = "With the continually increasing popularity of \"fast-fashion\" companies, it is becoming more and more important to understand the social and ethical context in which such companies operate, as well as the influence they have on the planet, animals, and people. After a curated narrative experience, we invite you to explore the policies several clothing companies have with respect to animal welfare, environmental responsibility, and workers' rights, within a visualization containing data gathered from ";
-const goodOnYouURL = "https://goodonyou.eco/";
+const goodOnYouURL = "https://goodonyou.eco/about/";
 const githubURL = "https://github.com/6859-sp21/final-project-passion-for-fashion";
 const linkTreeURL = "https://linktr.ee/passionforfashion";
 
-const narrative_summary = "Click on a company's logo to learn more about their ethical fashion policies through a step-through narrative experience. You may navigate the narrative by clicking the left and right buttons or arrow keys. If you wish to skip ahead to the main visualization, click the \"No Thanks, Let's Explore\" button down below."
+const narrative_summary = "Click on a company's logo to learn more about their ethical fashion policies through a step-through narrative experience. You may navigate the narrative by clicking the left and right buttons or using arrow keys. If you wish to skip ahead to the main visualization, click the \"No Thanks, Let's Explore\" button down below."
 
 class Intro extends Component {
     constructor(props) {

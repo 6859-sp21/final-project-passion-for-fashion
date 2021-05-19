@@ -93,8 +93,8 @@ class VisualizationNew extends React.Component {
 
     render() {
         return (
-            <div style={{outline: 'none'}} {...ArrowKeysReact.events} tabIndex="1" >
-                <div ref ={this.ref} style={{ height: "100vh", width: "100vw", display: 'flex', flexDirection: 'column', justifyContent: 'space-between'}}>
+            <div style={{outline: 'none'}} {...ArrowKeysReact.events} tabIndex="0" >
+                <div ref ={this.ref} style={{ height: "100vh", width: "100vw", display: 'flex', flexDirection: 'column', justifyContent: 'flex-start'}}>
                     <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'left', alignContent: 'center'}}>
                         <BrandTable setSelectedBrands={this.setSelectedBrands}/>
                             {(this.state.vizIndex == 0) && (
@@ -110,43 +110,45 @@ class VisualizationNew extends React.Component {
                                 <Map/>
                             )}
                     </div>
-                    <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'flex-end', alignContent: 'center', margin: "0vw 16vw 0vw 0vw"}}>
-                        {(this.state.vizIndex >= 1) ? 
-                            <IconButton 
-                                className="click" 
-                                style={{fontSize:"20px", color:colors.soft_blue, backgroundColor: "transparent"}} 
-                                onClick={() => this.switchViz(this.state.vizIndex - 1)}>
-                                {this.previousButton("")}
-                            </IconButton> : 
-                            <IconButton 
-                                className="click" 
-                                disabled={true}
-                                style={{fontSize:"20px", color:"transparent", backgroundColor: "transparent"}} 
-                                onClick={() => this.switchViz(this.state.vizIndex - 1)}>
-                                {this.previousButton("")}
-                            </IconButton>}
-                        {(this.state.vizIndex <= 2) ? 
-                            <IconButton 
-                                className="click" 
-                                style={{fontSize:"20px", color:colors.soft_blue, backgroundColor: "transparent"}} 
-                                onClick={() => this.switchViz(this.state.vizIndex + 1)}>
-                                {this.nextButton("")}
-                            </IconButton> : 
-                            <IconButton 
-                                className="click" 
-                                disabled={true}
-                                style={{fontSize:"20px", color:"transparent", backgroundColor: "transparent"}} 
-                                onClick={() => this.switchViz(this.state.vizIndex + 1)}>
-                                {this.nextButton("")}
-                            </IconButton>}
-                    </div>
-                    <div style={{margin: '1vh 2vh', display: 'flex', flexDirection: 'row', justifyContent: 'left'}}>
-                            <IconButton 
-                                className="click" 
-                                style={{fontSize:"20px", color:colors.soft_purple, backgroundColor: "transparent"}} 
-                                onClick={this.onSubmit}>
-                                {this.previousButton("Return to Home")}
-                            </IconButton>
+                    <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between', }}>
+                        <div style={{margin: '1vh 2vh 1vh 4vh', display: 'flex', flexDirection: 'row', justifyContent: 'left'}}>
+                                <IconButton 
+                                    className="click" 
+                                    style={{fontSize:"20px", color:colors.soft_purple, backgroundColor: "transparent"}} 
+                                    onClick={this.onSubmit}>
+                                    {this.previousButton("Return to Home")}
+                                </IconButton>
+                        </div>
+                        <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'flex-end', alignContent: 'center', margin: "0vw 16vw 0vw 0vw"}}>
+                            {(this.state.vizIndex >= 1) ? 
+                                <IconButton 
+                                    className="click" 
+                                    style={{fontSize:"20px", color:colors.soft_blue, backgroundColor: "transparent"}} 
+                                    onClick={() => this.switchViz(this.state.vizIndex - 1)}>
+                                    {this.previousButton("")}
+                                </IconButton> : 
+                                <IconButton 
+                                    className="click" 
+                                    disabled={true}
+                                    style={{fontSize:"20px", color:"transparent", backgroundColor: "transparent"}} 
+                                    >
+                                    {this.previousButton("")}
+                                </IconButton>}
+                            {(this.state.vizIndex <= 2) ? 
+                                <IconButton 
+                                    className="click" 
+                                    style={{fontSize:"20px", color:colors.soft_blue, backgroundColor: "transparent"}} 
+                                    onClick={() => this.switchViz(this.state.vizIndex + 1)}>
+                                    {this.nextButton("")}
+                                </IconButton> : 
+                                <IconButton 
+                                    className="click" 
+                                    disabled={true}
+                                    style={{fontSize:"20px", color:"transparent", backgroundColor: "transparent"}} 
+                                    >
+                                    {this.nextButton("")}
+                                </IconButton>}
+                        </div>
                     </div>
                 </div>
             </div>
