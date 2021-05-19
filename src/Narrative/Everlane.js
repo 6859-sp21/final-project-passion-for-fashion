@@ -28,7 +28,7 @@ import plastic from './Images/Everlane/everlane_no_new_plastic.jpeg';
 
 // all of the text blurbs
 const title = "Everlane";
-const subtitle = "Lofty Goals and Unmet Promises"
+const subtitle = "Lofty Goals and Empty Promises"
 
 const introText1 = '"At Everlane, we want the right choice to be as easy as putting on a great T-shirt. ';
 const introText2 = 'That’s why we partner with the best, ethical factories around the world. Source only the finest materials. ';

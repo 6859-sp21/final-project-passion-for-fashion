@@ -11,6 +11,7 @@ import './../App.css';
 
 import BrandTable from "./BrandTable";
 import RatingChart from "./RatingChart";
+import BarChart from "./BarChart";
 
 const MAX_VIZ_INDEX = 3; // 4 total
 
@@ -71,7 +72,7 @@ class VisualizationNew extends React.Component {
                         <RatingChart selectedCompanies={this.state.selectedCompanies}/>
                     )}
                     {(this.state.vizIndex == 1) && (
-                        <div>vizIndex = 1</div>
+                        <BarChart/>
                     )}
                     {(this.state.vizIndex == 2) && (
                         <div>vizIndex = 2</div>

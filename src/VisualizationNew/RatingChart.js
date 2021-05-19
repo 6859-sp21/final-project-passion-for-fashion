@@ -3,6 +3,8 @@ import {Hint, RadarChart} from 'react-vis';
 import React, {Component} from 'react';
 import {format} from 'd3-format';
 
+import colors from './../constants/colors';
+
 import {Paper, Typography} from "@material-ui/core";
 
 const RATINGS = ['We avoid', 'Not good enough', 'It\'s a start', 'Good', 'Great'];
@@ -83,7 +85,7 @@ export default class RatingChart extends Component {
 
     return (
       <Paper elevation={2} style={{margin: "2vw 2vw 2vw 1vw", width: "37vw", maxHeight:"80vh", display: 'flex', flexDirection: 'column', alignItems: 'left', justifyContent: 'flex-start'}}>
-        <Typography variant="h4" style={{padding: "1vw"}}>Compare Sub-Ratings</Typography>
+        <Typography variant="h4" style={{padding: "1vw", color: colors.bold_blue}}>Sub-Ratings</Typography>
         <div style={{margin: "0vw 1vw 1vw"}}>
           Select at most 5 brands on the left to compare their ratings across categories.
           Hovering over: {hoveredCell.name}
@@ -95,7 +97,7 @@ export default class RatingChart extends Component {
                 <RadarChart
                   data={this.state.selected}
                   tickFormat={t => basicFormat(t)}
-                  startingAngle={1.2}
+                  startingAngle={0.8}
                   domains={[
                     {name: 'Rating', domain: [0, 5], getValue: d => d.ratingNum},
                     {name: 'People', domain: [0, 5], getValue: d => d.people},
@@ -110,13 +112,6 @@ export default class RatingChart extends Component {
                   onSeriesMouseOut={() => this.setState({hoveredCell: false})}
                   renderAxesOverPolygons={true}
                 >
-                  {/* {hoveredCell && (
-                    <Hint value={hoveredCell}>
-                      <div style={tipStyle}>
-                        {hoveredCell.name}
-                      </div>
-                    </Hint>
-                  )} */}
                 </RadarChart>
               </div>
 
