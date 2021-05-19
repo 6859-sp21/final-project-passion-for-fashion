@@ -3,7 +3,7 @@ import React from "react";
 import SearchBar from "material-ui-search-bar";
 
 import {Modal, Paper} from '@material-ui/core';
-import colors from '../constants/colors';
+import colors from './../../constants/colors';
 
 class BrandSearchBar extends React.Component {
     constructor(props) {

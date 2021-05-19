@@ -2,7 +2,7 @@ import React from "react";
 import countries from "i18n-iso-countries";
 
 import {Paper, Container, Card, CardActions, CardContent, Typography, Button} from '@material-ui/core';
-import colors from './../constants/colors';
+import colors from './../../constants/colors';
 
 class BrandList extends React.Component {
     constructor(props) {

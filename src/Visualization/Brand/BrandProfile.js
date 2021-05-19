@@ -3,7 +3,7 @@ import countries from "i18n-iso-countries";
 
 import { makeStyles } from '@material-ui/core/styles';
 import {Modal, Paper} from '@material-ui/core';
-import colors from './../constants/colors';
+import colors from './../../constants/colors';
 
 class BrandProfile extends React.Component {
     constructor(props) {

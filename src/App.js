@@ -6,7 +6,7 @@ import narratives from './constants/narratives';
 // import './constants/fonts.css';
 import Intro from './Introduction/Intro';
 import Narrative from './Narrative/Narrative';
-import Visualization from './Visualization/Visualization';
+import VisualizationNew from './VisualizationNew/VisualizationNew';
 
 import './App.css';
 
@@ -32,7 +32,7 @@ class App extends Component {
         />;
     } else {
       // default value if state transitions ever mess up
-      return <Visualization
+      return <VisualizationNew
         updateState = {this.updateState}
         />;
     }
