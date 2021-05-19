@@ -77,7 +77,7 @@ const basicFormat = format('.1r');
 const wideFormat = format('.3r');
 
 const WIDTH= document.documentElement.clientWidth * 0.30;
-const HEIGHT= document.documentElement.clientHeight * 0.40;
+const HEIGHT= document.documentElement.clientHeight * 0.38;
 
 
 export default class BarChart extends Component {
@@ -191,7 +191,7 @@ export default class BarChart extends Component {
             <DiscreteColorLegend 
               colors={[0, 1, 2, 3, 4, 5].map((index) => RATING_TO_COLOR[index])}
               width={WIDTH} 
-              height={HEIGHT*0.5} 
+              height={HEIGHT*0.4} 
               items={ITEMS.map((item) => {
                 return (
                   <div style={{color: item.color}}>
