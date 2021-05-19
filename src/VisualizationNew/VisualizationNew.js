@@ -86,48 +86,36 @@ class VisualizationNew extends React.Component {
                         {(this.state.vizIndex == 3) && (
                             <div>vizIndex = 3</div>
                         )}
-                        <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignContent: 'center'}}>
-                        {(this.state.vizIndex >= 1) ? 
-                            <IconButton 
-                                className="click" 
-                                style={{fontSize:"20px", color:colors.soft_green, backgroundColor: "transparent"}} 
-                                onClick={() => this.switchViz(this.state.vizIndex - 1)}>
-                                {this.previousButton("")}
-                            </IconButton> : 
-                            <IconButton 
-                                className="click" 
-                                disabled={true}
-                                style={{fontSize:"20px", color:"transparent", backgroundColor: "transparent"}} 
-                                onClick={() => this.switchViz(this.state.vizIndex - 1)}>
-                                {this.previousButton("")}
-                            </IconButton>}
-                        {(this.state.vizIndex <= 2) ? 
-                            <IconButton 
-                                className="click" 
-                                style={{fontSize:"20px", color:colors.soft_green, backgroundColor: "transparent"}} 
-                                onClick={() => this.switchViz(this.state.vizIndex + 1)}>
-                                {this.nextButton("")}
-                            </IconButton> : 
-                            <IconButton 
-                                className="click" 
-                                disabled={true}
-                                style={{fontSize:"20px", color:"transparent", backgroundColor: "transparent"}} 
-                                onClick={() => this.switchViz(this.state.vizIndex + 1)}>
-                                {this.nextButton("")}
-                            </IconButton>}
-                        </div>
-                    {/* {(this.state.vizIndex == 0) && (
-                        <RatingChart selectedCompanies={this.state.selectedCompanies}/>
-                    )}
-                    {(this.state.vizIndex == 1) && (
-                        <BarChart/>
-                    )}
-                    {(this.state.vizIndex == 2) && (
-                        <SankeyChart/>
-                    )}
-                    {(this.state.vizIndex == 3) && (
-                        <Map/>
-                    )} */}
+                </div>
+                <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'flex-end', alignContent: 'center', margin: "0vw 16vw 0vw 0vw"}}>
+                    {(this.state.vizIndex >= 1) ? 
+                        <IconButton 
+                            className="click" 
+                            style={{fontSize:"20px", color:colors.soft_blue, backgroundColor: "transparent"}} 
+                            onClick={() => this.switchViz(this.state.vizIndex - 1)}>
+                            {this.previousButton("")}
+                        </IconButton> : 
+                        <IconButton 
+                            className="click" 
+                            disabled={true}
+                            style={{fontSize:"20px", color:"transparent", backgroundColor: "transparent"}} 
+                            onClick={() => this.switchViz(this.state.vizIndex - 1)}>
+                            {this.previousButton("")}
+                        </IconButton>}
+                    {(this.state.vizIndex <= 2) ? 
+                        <IconButton 
+                            className="click" 
+                            style={{fontSize:"20px", color:colors.soft_blue, backgroundColor: "transparent"}} 
+                            onClick={() => this.switchViz(this.state.vizIndex + 1)}>
+                            {this.nextButton("")}
+                        </IconButton> : 
+                        <IconButton 
+                            className="click" 
+                            disabled={true}
+                            style={{fontSize:"20px", color:"transparent", backgroundColor: "transparent"}} 
+                            onClick={() => this.switchViz(this.state.vizIndex + 1)}>
+                            {this.nextButton("")}
+                        </IconButton>}
                 </div>
                 <div style={{margin: '1vh 2vh', display: 'flex', flexDirection: 'row', justifyContent: 'left'}}>
                         <IconButton 
@@ -136,36 +124,6 @@ class VisualizationNew extends React.Component {
                             onClick={this.onSubmit}>
                             {this.previousButton("Return to Home")}
                         </IconButton>
-                    {/* {(this.state.vizIndex == 0) ? (
-                        <IconButton 
-                            className="click" 
-                            style={{fontSize:"20px", color:colors.soft_purple, backgroundColor: "transparent"}} 
-                            onClick={this.onSubmit}>
-                            {this.previousButton("Return to Home")}
-                        </IconButton>
-                    ) : (
-                        <IconButton 
-                            className="click" 
-                            style={{fontSize:"20px", color:colors.soft_blue, backgroundColor: "transparent"}} 
-                            onClick={() => this.switchViz(this.state.vizIndex - 1)}>
-                            {this.previousButton("Previous Visualization")}
-                        </IconButton>
-                    )}
-                    {(this.state.vizIndex < MAX_VIZ_INDEX) ? (
-                        <IconButton 
-                            className="click" 
-                            style={{fontSize:"20px", color:colors.soft_blue, backgroundColor: "transparent"}} 
-                            onClick={() => this.switchViz(this.state.vizIndex + 1)}>
-                            {this.nextButton("Next Visualization")}
-                        </IconButton>
-                    ) : (
-                        <IconButton 
-                            className="click" 
-                            style={{fontSize:"20px", color:colors.soft_purple, backgroundColor: "transparent"}} 
-                            onClick={this.onSubmit}>
-                            {this.nextButton("Return to Home")}
-                        </IconButton>
-                    )} */}
                 </div>
             </div>
         );
