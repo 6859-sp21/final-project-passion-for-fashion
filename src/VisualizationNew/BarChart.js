@@ -165,6 +165,9 @@ export default class BarChart extends Component {
     return (
       <Paper elevation={2} style={{margin: "2vw 2vw 2vw 1vw", width: "37vw", height:"85vh", display: 'flex', flexDirection: 'column', alignItems: 'left', justifyContent: 'flex-start'}}>
         <Typography variant="h4" style={{padding: "1vw", color: colors.bold_blue}}>Apparel Types</Typography>
+        <div style={{margin: "0vw 1vw 1vw"}}>
+          Explore how each apparel type is typically rated for People, Planet and Animals (in ascending order per cluster) across all companies.
+        </div>
         {this.state.seriesData != null && (
           <div style={{padding: "0vh", display: 'flex', flexDirection: "column", alignItems: 'center', justifyContent: 'center'}}>
             <XYPlot

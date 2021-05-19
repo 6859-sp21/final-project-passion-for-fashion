@@ -126,7 +126,7 @@ class BrandTable extends React.Component {
                 <div style={{margin: "0vw 1vw 1vw"}}>
                     Click on the arrow button next to each row to read Good On You's detailed evaluation of the brand's policies. The initial order is randomized, and does not reflect any brand ranking.
                 </div>
-                <div style={{overflow: "auto", height: "65vh"}}>
+                <div style={{overflow: "auto", height: "69vh"}}>
                     <ThemeProvider theme={theme}>
                         <MaterialTable
                             tableRef={brandListRef}
