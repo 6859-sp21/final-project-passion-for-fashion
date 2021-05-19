@@ -17,6 +17,8 @@ import mappings from './../constants/textMappings';
 import colors from './../constants/colors';
 import states from './../constants/states';
 
+import './../App.css';
+
 // images
 import concious1 from './Images/HM/concioushm.jpeg'
 import concious2 from './Images/HM/conscious2hm.jpeg'
@@ -193,6 +195,24 @@ class HM extends Component {
         this.updateElemBackwards(this.state.elemIndex);
     }
 
+    buttonChildrenLTR = (text) => {
+        return (
+            <div style={{display: 'flex'}}>
+                <div style={{fontSize:'20px'}}>{text}</div>
+                <ArrowForwardIosIcon/>
+            </div>
+        );
+    } 
+
+    buttonChildrenRTL = (text) => {
+        return (
+            <div style={{display: 'flex'}}>
+                <ArrowBackIosIcon/>
+                <div style={{fontSize:'20px'}}>{text}</div>
+            </div>
+        );
+    }
+
     render() {
         
         return (
@@ -208,89 +228,53 @@ class HM extends Component {
                     </div>   
                     {/* Navigation Buttons */}
                     <div style = {{display: 'flex', justifyContent: 'center'}}>
-                        {(this.state.elemIndex >= elemIndices.two) ? 
-                            <IconButton
-                            children={<ArrowBackIosIcon/>}
-                            disabled={false}
-                            color="primary"
-                            variant="contained" 
-                            onClick={this.onPreviousSubmit} 
-                            style={{
-                                color: colors.soft_yellow,
-                                size: "small",
-                                backgroundColor: "transparent",
-                            }}
-                            /> :  <IconButton
-                            children={<ArrowBackIosIcon/>}
-                            disabled={true}
-                            color="primary"
-                            variant="contained" 
-                            onClick={this.onPreviousSubmit} 
-                            style={{
-                                color: "transparent",
-                                size: "small",
-                                backgroundColor: "transparent",
-                            }}
-                            />}
+                    {(this.state.elemIndex >= elemIndices.two) ? 
+                            <IconButton 
+                                className="click" 
+                                style={{fontSize:"20px", color:colors.soft_yellow, backgroundColor: "transparent"}} 
+                                onClick={this.onPreviousSubmit}>
+                                {this.buttonChildrenRTL("")}
+                            </IconButton> : 
+                            <IconButton 
+                                className="click" 
+                                disabled={true}
+                                style={{fontSize:"20px", color:"transparent", backgroundColor: "transparent"}} 
+                                onClick={this.onPreviousSubmit}>
+                                {this.buttonChildrenRTL("")}
+                            </IconButton>}
                         {(this.state.elemIndex <= elemIndices.ten) ? 
-                            <IconButton
-                            children={<ArrowForwardIosIcon/>}
-                            disabled={false}
-                            color="primary"
-                            variant="contained" 
-                            onClick={this.onNextSubmit} 
-                            style={{
-                                color: colors.soft_yellow,
-                                size: "small",
-                                backgroundColor: "transparent",
-                            }}
-                            /> : <IconButton
-                            children={<ArrowForwardIosIcon/>}
-                            disabled={true}
-                            color="primary"
-                            variant="contained" 
-                            onClick={this.onNextSubmit} 
-                            style={{
-                                color: "transparent",
-                                size: "small",
-                                backgroundColor: "transparent",
-                            }}
-                            />}
+                            <IconButton 
+                                className="click" 
+                                style={{fontSize:"20px", color:colors.soft_yellow, backgroundColor: "transparent"}} 
+                                onClick={this.onNextSubmit}>
+                                {this.buttonChildrenLTR("")}
+                            </IconButton> : 
+                            <IconButton 
+                                className="click" 
+                                disabled={true}
+                                style={{fontSize:"20px", color:"transparent", backgroundColor: "transparent"}} 
+                                onClick={this.onNextSubmit}>
+                                {this.buttonChildrenLTR("")}
+                            </IconButton>}
                     </div>
                     {/* Home and Visualization Buttons */}
                     <div style={{marginTop:'20px'}}>
                         <div style = {{display: 'flex', justifyContent: 'space-between'}}>
                             <div style = {{display: 'flex'}}>
-                                <IconButton
-                                children={<ArrowBackIosIcon/>}
-                                color="primary"
-                                variant="contained" 
-                                onClick={this.onHomeSubmit} 
-                                style={{
-                                    color: colors.soft_purple,
-                                    size: "small",
-                                    backgroundColor: "transparent",
-                                }}
-                                />
-                                <div style = {{fontSize:'20px', marginTop: '10px', color: colors.soft_purple}}>
-                                    Back Home
-                                </div>
+                                <IconButton 
+                                    className="click" 
+                                    style={{fontSize:"20px", color:colors.soft_purple, backgroundColor: "transparent"}} 
+                                    onClick={this.onHomeSubmit}>
+                                    {this.buttonChildrenRTL("Back Home")}
+                                </IconButton>
                             </div>
                             <div style = {{display: 'flex'}}>
-                                <div style = {{fontSize:'20px', marginTop: '10px', color: colors.soft_blue}}>
-                                    Let's Explore
-                                </div>
-                                <IconButton
-                                    children={<ArrowForwardIosIcon/>}
-                                    color="primary"
-                                    variant="contained" 
-                                    onClick={this.onSkipSubmit} 
-                                    style={{
-                                        color: colors.soft_blue,
-                                        size: "small",
-                                        backgroundColor: "transparent",
-                                    }}
-                                />
+                                <IconButton 
+                                    className="click" 
+                                    style={{fontSize:"20px", color:colors.soft_blue, backgroundColor: "transparent"}} 
+                                    onClick={this.onSkipSubmit}>
+                                    {this.buttonChildrenLTR("Let's Explore")}
+                                </IconButton>
                             </div>
                         </div>
                     </div>

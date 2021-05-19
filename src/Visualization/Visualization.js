@@ -86,6 +86,15 @@ class Visualization extends Component {
         return brandData.map((brandObj) => {return brandObj.name});
     }
 
+    buttonChildrenRTL = (text) => {
+        return (
+            <div style={{display: 'flex'}}>
+                <ArrowBackIosIcon/>
+                <div style={{fontSize:'20px'}}>{text}</div>
+            </div>
+        );
+    }
+
     render() {
         var filteredData = this.getFilteredData();
 
@@ -118,17 +127,12 @@ class Visualization extends Component {
                         </div>
                     </div>
                     <div style={{display: "flex", marginLeft: "20px", marginBottom: '5px', position: "absolute", bottom:"0", left:"0", height:"4vh"}}>
-                        <IconButton
-                            children={<ArrowBackIosIcon/>}
-                            color="primary"
-                            variant="contained" 
-                            onClick={this.onSubmit} 
-                            style={{
-                                color: colors.soft_purple,
-                                size: "small",
-                                backgroundColor: "transparent",}}
-                        />
-                        <div style={{fontSize:'20px', marginTop: '10px', color: colors.soft_purple}}>Back to Home</div>
+                        <IconButton 
+                            className="click" 
+                            style={{fontSize:"20px", color:colors.soft_purple, backgroundColor: "transparent"}} 
+                            onClick={this.onSubmit}>
+                            {this.buttonChildrenRTL("Back to Home")}
+                        </IconButton>
                     </div>    
                 </div>
             </div>

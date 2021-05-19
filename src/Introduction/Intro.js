@@ -8,6 +8,7 @@ import colors from './../constants/colors';
 import states from './../constants/states';
 import narratives from './../constants/narratives';
 
+import './../App.css';
 
 const summary = "With the continually increasing popularity of \"fast-fashion\" companies, it is becoming more and more important to understand the social and ethical context in which such companies operate, as well as the influence they have on the planet, animals, and people. After a curated narrative experience, we invite you to explore the policies several clothing companies have with respect to animal welfare, environmental responsibility, and workers' rights, within a visualization containing data gathered from ";
 const goodOnYouURL = "https://goodonyou.eco/";
@@ -37,6 +38,15 @@ class Intro extends Component {
         this.props.updateState(states.visualization);
     }
 
+    buttonChildrenLTR = (text) => {
+        return (
+            <div style={{display: 'flex'}}>
+                <div style={{fontSize:'20px'}}>{text}</div>
+                <ArrowForwardIosIcon/>
+            </div>
+        );
+    } 
+
     render() {
         return (
         <div>
@@ -51,58 +61,32 @@ class Intro extends Component {
             <div style={{ marginLeft:'40px'}} >
                 <h2>Narrative Experiences</h2>
                 <div style={{display: 'flex'}}>
-                    <div style={{fontSize:'20px', marginTop: '10px', color: colors.soft_green}}>Everlane</div>
-                    <IconButton
-                    children={<ArrowForwardIosIcon/>}
-                    color="primary"
-                    variant="contained" 
-                    onClick={this.onEverlaneSubmit} 
-                    style={{
-                        color: colors.soft_green,
-                        size: "small",
-                        backgroundColor: "transparent",}}
-                    />
+                    <IconButton 
+                        className="click" 
+                        style={{fontSize:"20px", color:colors.soft_green, backgroundColor: "transparent"}} 
+                        onClick={this.onEverlaneSubmit}>
+                        {this.buttonChildrenLTR("Everlane")}
+                    </IconButton>
+                    <IconButton 
+                        className="click" 
+                        style={{fontSize:"20px", color:colors.soft_pink, backgroundColor: "transparent"}} 
+                        onClick={this.onNikeSubmit}>
+                        {this.buttonChildrenLTR("Nike")}
+                    </IconButton>
+                    <IconButton 
+                        className="click" 
+                        style={{fontSize:"20px", color:colors.soft_yellow, backgroundColor: "transparent"}} 
+                        onClick={this.onHMSubmit}>
+                        {this.buttonChildrenLTR("H&M")}
+                    </IconButton>
                 </div>
                 <div style={{display: 'flex'}}>
-                    <div style={{fontSize:'20px', marginTop: '10px', color: colors.soft_pink}}>Nike</div>
-                    <IconButton
-                    children={<ArrowForwardIosIcon/>}
-                    color="primary"
-                    variant="contained" 
-                    onClick={this.onNikeSubmit} 
-                    style={{
-                        color: colors.soft_pink,
-                        size: "small",
-                        backgroundColor: "transparent",}}
-                    />
-                </div>
-                <div style={{display: 'flex'}}>
-                    <div style={{fontSize:'20px', marginTop: '10px', color: colors.soft_yellow}}>H&M</div>
-                    <IconButton
-                    children={<ArrowForwardIosIcon/>}
-                    color="primary"
-                    variant="contained" 
-                    onClick={this.onHMSubmit} 
-                    style={{
-                        color: colors.soft_yellow,
-                        size: "small",
-                        backgroundColor: "transparent",}}
-                    />
-                </div>
-                <div style={{display: 'flex'}}>
-                    <div style={{fontSize:'20px', marginTop: '10px', color: colors.soft_blue}}>
-                        No Thanks, Let's Explore
-                    </div>
-                    <IconButton
-                    children={<ArrowForwardIosIcon/>}
-                    color="primary"
-                    variant="contained" 
-                    onClick={this.onVisualizationSubmit} 
-                    style={{
-                        color: colors.soft_blue,
-                        size: "small",
-                        backgroundColor: "transparent",}}
-                    />
+                    <IconButton 
+                        className="click" 
+                        style={{fontSize:"20px", color:colors.soft_blue, backgroundColor: "transparent"}} 
+                        onClick={this.onVisualizationSubmit}>
+                        {this.buttonChildrenLTR("No Thanks, Let's Explore")}
+                    </IconButton>
                 </div>
             </div>
             
