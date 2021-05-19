@@ -28,6 +28,8 @@ import LaunchIcon from '@material-ui/icons/Launch';
 
 import {Typography, Paper} from "@material-ui/core";
 
+const brandListRef = React.createRef();
+
 const RATINGS = ['We avoid', 'Not good enough', 'It\'s a start', 'Good', 'Great'];
 const PRICINGS = ["", "$", "$$", "$$$"];
 
@@ -103,6 +105,12 @@ class BrandTable extends React.Component {
         })
     }
 
+    componentWillUnmount() {
+        if (brandListRef.current != null) {
+            brandListRef.current.onAllSelected(false);
+        }
+    }
+
     render() {
         return (
             <Paper elevation={2} style={{margin: "2vw 1vw 2vw 2vw", width: "57vw", maxHeight: "80vh", overflow: "auto"}}>
@@ -112,6 +120,7 @@ class BrandTable extends React.Component {
                 </div>
                 <ThemeProvider theme={theme}>
                     <MaterialTable
+                        tableRef={brandListRef}
                         icons={tableIcons}
                         columns={[
                             {

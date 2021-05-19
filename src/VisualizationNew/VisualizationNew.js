@@ -37,6 +37,9 @@ class VisualizationNew extends React.Component {
 
     onSubmit = () => {
         this.props.updateState(states.introduction);
+        this.setState({
+            selectedCompanies: [],
+        })
     }
 
     switchViz = (value) => {

@@ -72,8 +72,6 @@ export default class RatingChart extends Component {
       brandObj.ratingNum = RATINGS.indexOf(brandObj.rating) + 1;
       return brandObj;
     })
-
-    console.log(fixedSelected);
     
     this.setState({
       selected: fixedSelected,
