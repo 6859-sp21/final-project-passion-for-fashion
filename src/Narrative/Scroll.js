@@ -64,12 +64,12 @@ const scrollItemCenterTextOnly = (texts, mapping, source) => {
 
 const scrollItemCenterTitle = (titleText, subtitleText) => (
     <div>
-        <div style = {{fontSize: '80px', fontFamily: 'sans-serif', textAlign: 'center'}}>
+        <div style = {{fontSize: '100px', fontFamily: 'sans-serif', textAlign: 'center'}}>
             {titleText} 
         </div>
-        <div style = {{fontSize: '20px', fontFamily: 'sans-serif', color: colors.medium_grey, textAlign: 'center'}} >
+        <i style = {{fontSize: '40px', fontFamily: 'sans-serif', color: colors.medium_grey, textAlign: 'center'}} >
             {subtitleText}
-        </div>
+        </i>
     </div>
 );
 

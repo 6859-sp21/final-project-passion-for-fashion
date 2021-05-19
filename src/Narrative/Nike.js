@@ -25,7 +25,7 @@ import sourcing from './Images/Nike/nike_sourcing.jpeg'
 
 // labels
 const title = "Nike";
-const subtitle = "Considering the Planet and People. [TBD]"
+const subtitle = "The Potential for Growth"
 
 // text
 const sweatshop1 = "In 1991, American labour activist Jeffrey Ballinger published a report on Nike’s factory practices in Indonesia, exposing a scandal: below-minimum wages, child labour and appalling conditions likened to a sweatshop – a factory or workshop where employees work long hours for low money in conditions that are hazardous to health."

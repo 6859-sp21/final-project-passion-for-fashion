@@ -27,7 +27,7 @@ import washing from './Images/HM/washhm.jpeg'
 
 // titles
 const title = "H&M";
-const subtitle = "Considering the Planet and People. [TBD]"
+const subtitle = "Turning a Blind Eye"
 
 // text
 const susEarth = "H&M has been criticised over its plans to start making clothes from Circulose, a sustainable fabric made from up-cycled clothing and fashion waste."
