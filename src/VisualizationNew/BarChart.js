@@ -36,7 +36,7 @@ const APPAREL_TYPES = [
 const ITEMS = [
   {
     title: '0 (Insufficient Info)',
-    color: colors.dark_grey,
+    color: colors.medium_grey,
   },
   {
     title: '1 (We avoid)',
@@ -64,7 +64,7 @@ const RATING_NUMS = [0, 1, 2, 3, 4, 5];
 const RATINGS = ['We avoid', 'Not good enough', 'It\'s a start', 'Good', 'Great'];
 const RATING_TYPES = ['people', 'planet', 'animals'];
 const RATING_TO_COLOR = {
-  0: colors.dark_grey,
+  0: colors.medium_grey,
   1: colors.bold_pink,
   2: colors.bold_yellow,
   3: colors.bold_green,
@@ -163,7 +163,7 @@ export default class BarChart extends Component {
   render() {
     console.log(this.state);
     return (
-      <Paper elevation={2} style={{margin: "2vw 2vw 2vw 1vw", width: "37vw", height:"85vh", display: 'flex', flexDirection: 'column', alignItems: 'left', justifyContent: 'flex-start'}}>
+      <Paper elevation={2} style={{margin: "2vw 2vw 2vw 1vw", width: "37vw", height:"84vh", display: 'flex', flexDirection: 'column', alignItems: 'left', justifyContent: 'flex-start'}}>
         <Typography variant="h4" style={{padding: "1vw", color: colors.bold_blue}}>Apparel Types</Typography>
         <div style={{margin: "0vw 1vw 1vw"}}>
           Explore how each apparel type is typically rated for People, Planet and Animals (in ascending order per cluster) across all companies.
