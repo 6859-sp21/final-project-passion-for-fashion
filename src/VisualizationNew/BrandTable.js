@@ -64,6 +64,7 @@ class BrandTable extends React.Component {
     componentDidMount() {
         const fixedBrandData = brandData.map((brandObj) => {
             brandObj.ratingFixed = ((RATINGS.indexOf(brandObj.rating) + 1).toString() + "/5 (" + brandObj.rating + ")");
+            brandObj.priceFixed = (brandObj.price == null) ? "N/A" : brandObj.price;
             return brandObj;
         })
         
@@ -87,13 +88,22 @@ class BrandTable extends React.Component {
                         },
                         {
                             title: 'Rating', 
-                            field: 'ratingFixed',
-                            width: "20%"
+                            field: 'rating',
+                            width: "20%",
                         },
                         {
                             title: 'Price', 
-                            field: 'price',
-                            width: "20%"
+                            field: 'priceFixed',
+                            width: "20%",
+                            customFilterAndSearch: (value, rowData) => {
+                                console.log(value);
+                                console.log(rowData.price);
+                                if (rowData.priceFixed.includes(value) && rowData.priceFixed == "N/A") {
+                                    return true;
+                                } 
+
+                                return rowData.priceFixed === value;
+                            }
                         },
                         {
                             title: 'Location', 
@@ -104,8 +114,8 @@ class BrandTable extends React.Component {
                     data={this.state.data}
                     title="Brand List"
                     options={{
-                        pageSize: 5,
-                        pageSizeOptions: [5],
+                        pageSize: 8,
+                        pageSizeOptions: [8],
                         search: true,
                         sorting: true,
                         filtering: true,
@@ -128,14 +138,14 @@ class BrandTable extends React.Component {
                         }
                     ]}
                     onSelectionChange={(rows) => this.setState({selectedBrands: rows})}
-                    actions={[
-                        {
-                            icon: () => (<LaunchIcon style={{color: "rgba(0, 0, 0, 0.54)"}}/>),
-                            tooltip: 'Read More',
-                            onClick: (event, rowData) => {window.open(rowData.brand_url, '_blank').focus();},
-                            position: "row",
-                        }
-                    ]}
+                    // actions={[
+                    //     {
+                    //         icon: () => (<LaunchIcon style={{color: "rgba(0, 0, 0, 0.54)"}}/>),
+                    //         tooltip: 'Read More',
+                    //         onClick: (event, rowData) => {window.open(rowData.brand_url, '_blank').focus();},
+                    //         position: "row",
+                    //     }
+                    // ]}
                 />
             </Paper>
         );
