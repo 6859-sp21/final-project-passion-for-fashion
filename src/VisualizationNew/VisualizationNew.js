@@ -12,6 +12,9 @@ import './../App.css';
 import BrandTable from "./BrandTable";
 import RatingChart from "./RatingChart";
 import BarChart from "./BarChart";
+import SankeyChart from "./SankeyChart";
+import Map from "./Map";
+import { Sankey } from "react-vis";
 
 const MAX_VIZ_INDEX = 3; // 4 total
 
@@ -78,10 +81,10 @@ class VisualizationNew extends React.Component {
                         <BarChart/>
                     )}
                     {(this.state.vizIndex == 2) && (
-                        <div>vizIndex = 2</div>
+                        <SankeyChart/>
                     )}
                     {(this.state.vizIndex == 3) && (
-                        <div>vizIndex = 3</div>
+                        <Map/>
                     )}
                 </div>
                 <div style={{margin: '1vh 2vh', display: 'flex', flexDirection: 'row', justifyContent: 'space-between'}}>
