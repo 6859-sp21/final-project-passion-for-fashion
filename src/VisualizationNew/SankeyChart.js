@@ -1,4 +1,4 @@
-import {Hint, RadarChart} from 'react-vis';
+import {Sankey} from 'react-vis';
 
 import React, {Component} from 'react';
 import {format} from 'd3-format';

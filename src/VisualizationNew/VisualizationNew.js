@@ -66,7 +66,7 @@ class VisualizationNew extends React.Component {
 
     switchViz = (value) => {
         // don't go out of range
-        if (value <= 3 && value >= 0) {
+        if (value <= 1 && value >= 0) {
             this.setState({
                 vizIndex: value,
             })
@@ -134,7 +134,7 @@ class VisualizationNew extends React.Component {
                                     >
                                     {this.previousButton("")}
                                 </IconButton>}
-                            {(this.state.vizIndex <= 2) ? 
+                            {(this.state.vizIndex <= 0) ? 
                                 <IconButton 
                                     className="click" 
                                     style={{fontSize:"20px", color:colors.soft_blue, backgroundColor: "transparent"}} 
