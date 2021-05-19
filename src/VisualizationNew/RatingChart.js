@@ -14,7 +14,7 @@ const basicFormat = format('.1r');
 const wideFormat = format('.3r');
 
 const WIDTH= document.documentElement.clientWidth * 0.30;
-const HEIGHT= document.documentElement.clientHeight * 0.35;
+const HEIGHT= document.documentElement.clientHeight * 0.5;
 
 const tipStyle = {
   display: 'flex',

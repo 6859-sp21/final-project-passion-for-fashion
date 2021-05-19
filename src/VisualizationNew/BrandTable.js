@@ -1,4 +1,6 @@
 import React from "react";
+
+import { createMuiTheme, makeStyles, ThemeProvider } from '@material-ui/core/styles';
 import * as ReactVis from 'react-vis';
 import MaterialTable from 'material-table';
 
@@ -64,6 +66,18 @@ function shuffleArray(array) {
     return array;
 }
 
+const theme = createMuiTheme({
+    palette: {
+      primary: {
+        main: colors.soft_blue,
+      },
+      secondary: {
+        main: colors.soft_blue,
+      },
+    },
+
+});
+
 class BrandTable extends React.Component {
 
     constructor(props) {
@@ -96,73 +110,80 @@ class BrandTable extends React.Component {
                 <div style={{margin: "0vw 1vw 1vw"}}>
                     Click on the arrow button next to each row to read Good On You's detailed evaluation of the brand's policies. The initial order is random.
                 </div>
-                <MaterialTable
-                    icons={tableIcons}
-                    columns={[
-                        {
-                            title: 'Name', 
-                            field: 'name',
-                            width: "20%"
-                        },
-                        {
-                            title: 'Rating (out of 5)', 
-                            field: 'ratingFixed',
-                            width: "20%",
-                        },
-                        {
-                            title: 'Price ($-$$$)', 
-                            field: 'priceFixed',
-                            width: "20%",
-                            customFilterAndSearch: (value, rowData) => {
-                                console.log(value);
-                                console.log(rowData.price);
-                                if (rowData.priceFixed.includes(value) && rowData.priceFixed == "N/A") {
-                                    return true;
-                                } 
+                <ThemeProvider theme={theme}>
+                    <MaterialTable
+                        icons={tableIcons}
+                        columns={[
+                            {
+                                title: 'Name', 
+                                field: 'name',
+                                width: "20%"
+                            },
+                            {
+                                title: 'Rating (out of 5)', 
+                                field: 'ratingFixed',
+                                width: "20%",
+                            },
+                            {
+                                title: 'Price ($-$$$)', 
+                                field: 'priceFixed',
+                                width: "20%",
+                                customFilterAndSearch: (value, rowData) => {
+                                    console.log(value);
+                                    console.log(rowData.price);
+                                    if (rowData.priceFixed.includes(value) && rowData.priceFixed == "N/A") {
+                                        return true;
+                                    } 
 
-                                return rowData.priceFixed === value;
+                                    return rowData.priceFixed === value;
+                                }
+                            },
+                            {
+                                title: 'Location', 
+                                field: 'locationFixed',
+                                width: "20%"
+                            },
+                        ]}
+                        data={this.state.data}
+                        title="Brand List"
+                        options={{
+                            toolbar: false,
+                            pageSize: 5,
+                            pageSizeOptions: [5],
+                            search: true,
+                            sorting: true,
+                            filtering: true,
+                            selection: true,
+                            selectionProps: (rowData) => {
+                                return ({
+                                    disabled: this.state.selectedBrands.length >= 5 && !rowData.tableData.checked,
+                                });
+                            },
+                            actionsColumnIndex: -1,
+                            rowStyle: {
+                                ".MuiCheckbox-colorSecondary.Mui-checked" : {
+                                    color: colors.soft_blue,
+                                }
                             }
-                        },
-                        {
-                            title: 'Location', 
-                            field: 'locationFixed',
-                            width: "20%"
-                        },
-                    ]}
-                    data={this.state.data}
-                    title="Brand List"
-                    options={{
-                        toolbar: false,
-                        pageSize: 5,
-                        pageSizeOptions: [5],
-                        search: true,
-                        sorting: true,
-                        filtering: true,
-                        selection: true,
-                        selectionProps: (rowData) => {
-                            return ({
-                                disabled: this.state.selectedBrands.length >= 5 && !rowData.tableData.checked,
-                            });
-                        },
-                        actionsColumnIndex: -1
-                    }}
-                    detailPanel={[
-                        {
-                            tooltip: 'Show Evaluation',
-                            render: rowData => {
-                                return (
-                                    <Typography style={{padding: "1vw"}}>
-                                        {rowData.explanation}
-                                    </Typography>
-                                );
+                        }}
+                        detailPanel={[
+                            {
+                                tooltip: 'Show Evaluation',
+                                render: rowData => {
+                                    return (
+                                        <Typography style={{padding: "1vw"}}>
+                                            {rowData.explanation}
+                                        </Typography>
+                                    );
+                                }
                             }
-                        }
-                    ]}
-                    onSelectionChange={(rows) => {
-                        this.setState({selectedBrands: rows});
-                        this.props.setSelectedBrands(rows);
-                    }}
-                />
+                        ]}
+                        onSelectionChange={(rows) => {
+                            this.setState({selectedBrands: rows});
+                            this.props.setSelectedBrands(rows);
+                        }}
+                    />
+                </ThemeProvider>
             </Paper>
         );
     }
