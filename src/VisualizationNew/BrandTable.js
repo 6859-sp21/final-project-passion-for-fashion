@@ -56,14 +56,14 @@ class BrandTable extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            selectedBrands: [], // max 3 selected at any time
+            selectedBrands: [], // max 5 selected at any time
             data: null,
         }
     }
 
     componentDidMount() {
         const fixedBrandData = brandData.map((brandObj) => {
-            brandObj.ratingFixed = ((RATINGS.indexOf(brandObj.rating) + 1).toString() + "/5 (" + brandObj.rating + ")");
+            brandObj.ratingFixed = ((RATINGS.indexOf(brandObj.rating) + 1).toString() + " (" + brandObj.rating + ")");
             brandObj.priceFixed = (brandObj.price == null) ? "N/A" : brandObj.price;
             return brandObj;
         })
@@ -77,7 +77,11 @@ class BrandTable extends React.Component {
 
     render() {
         return (
-            <Paper elevation={3} style={{width: "60vw", maxHeight: "90vh", overflow: "auto"}}>
+            <Paper elevation={2} style={{margin: "2vw 1vw 2vw 2vw", width: "57vw", maxHeight: "85vh", overflow: "auto"}}>
+                <Typography variant="h4" style={{padding: "1vw"}}>Explore All Brands</Typography>
+                <div style={{margin: "0vw 1vw 1vw"}}>
+                    Click on the arrow button next to each row to read a detailed evaluation of the brand's policies.
+                </div>
                 <MaterialTable
                     icons={tableIcons}
                     columns={[
@@ -87,12 +91,12 @@ class BrandTable extends React.Component {
                             width: "20%"
                         },
                         {
-                            title: 'Rating', 
-                            field: 'rating',
+                            title: 'Rating (out of 5)', 
+                            field: 'ratingFixed',
                             width: "20%",
                         },
                         {
-                            title: 'Price', 
+                            title: 'Price ($-$$$)', 
                             field: 'priceFixed',
                             width: "20%",
                             customFilterAndSearch: (value, rowData) => {
@@ -114,6 +118,7 @@ class BrandTable extends React.Component {
                     data={this.state.data}
                     title="Brand List"
                     options={{
+                        toolbar: false,
                         pageSize: 8,
                         pageSizeOptions: [8],
                         search: true,
@@ -121,7 +126,7 @@ class BrandTable extends React.Component {
                         filtering: true,
                         selection: true,
                         selectionProps: rowData => ({
-                            disabled: this.state.selectedBrands.length >= 3,
+                            disabled: this.state.selectedBrands.length >= 5,
                         }),
                         actionsColumnIndex: -1
                     }}
@@ -137,7 +142,10 @@ class BrandTable extends React.Component {
                             }
                         }
                     ]}
-                    onSelectionChange={(rows) => this.setState({selectedBrands: rows})}
+                    onSelectionChange={(rows) => {
+                        this.setState({selectedBrands: rows});
+                        this.props.setSelectedBrands(rows);
+                    }}
                     // actions={[
                     //     {
                     //         icon: () => (<LaunchIcon style={{color: "rgba(0, 0, 0, 0.54)"}}/>),
