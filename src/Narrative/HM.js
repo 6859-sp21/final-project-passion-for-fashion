@@ -62,7 +62,7 @@ const elemIndices = {
     'eleven': 11,
 }
 
-const elemOne = scrollItemCenterTitle(title, subtitle);
+const elemOne = scrollItemCenterTitle(title, subtitle, colors.bold_yellow, colors.soft_yellow);
 const elemTwo = scrollItemCenterImageOnly(concious2, hm);
 const elemThree = scrollItemCenterImageOnly(concious1, hm);
 const elemFour = scrollItemCenterTextOnly([susEarth2, susEarth3], [mappings.reg, mappings.reg], susfashion)

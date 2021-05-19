@@ -101,7 +101,7 @@ const elemIndices = {
     'eleven': 11,
 }
 
-const elemOne = scrollItemCenterTitle(title, subtitle);
+const elemOne = scrollItemCenterTitle(title, subtitle, colors.bold_green, colors.soft_green);
 const elemTwo = scrollItemCenter(intro, [introText1, introText2, introText3, introText4, introText5], [mappings.reg, mappings.bold, mappings.reg, mappings.bold, mappings.reg], everlane);
 const elemThree = scrollItemLTR(promise, [customerPraise1, customerPraise2, customerPraise3, customerPraise4, customerPraise5], [mappings.reg, mappings.bold, mappings.reg, mappings.bold, mappings.reg], everlane, nicole);
 const elemFour = scrollItemRTL(about, [factoryText1, factoryText2], [mappings.reg, mappings.bold], everlane, everlane);

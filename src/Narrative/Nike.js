@@ -118,7 +118,7 @@ const elemIndices = {
     'thirteen': 13,
 }
 
-const elemOne = scrollItemCenterTitle(title, subtitle);
+const elemOne = scrollItemCenterTitle(title, subtitle, colors.bold_pink, colors.soft_pink);
 const elemTwo = scrollItemCenterTextOnly([sweatshop11, sweatshop12, sweatshop13], [mappings.reg, mappings.bold, mappings.reg], newidea);
 const elemThree = scrollItemLTR(sweatshopIm, [sweatshop21, sweatshops22, sweatshops23, sweatshops24], [mappings.reg, mappings.bold, mappings.reg, mappings.bold], newidea, newidea);
 const elemFour = scrollItemCenterTextOnly([expose21, expose22, expose23], [mappings.bold, mappings.reg, mappings.bold], business);

@@ -17,7 +17,7 @@ const scrollItemCenter = (image, texts, mapping, source) => {
     return (
         <div style={{margin: 'auto', width:'80%'}}>
             <img alt="" src={image} width="100%" height="100%" /> 
-            <div style={{marginTop: '20px'}}>
+            <div style={{marginTop: '20px', color: colors.dark_grey}}>
                 <div display= 'flex' id='centerContainer'>
                     {items}
                 </div>
@@ -32,7 +32,7 @@ const scrollItemCenter = (image, texts, mapping, source) => {
 const scrollItemCenterImageOnly = (image, source) => (
     <div style={{margin: 'auto', width:'70%'}}>
         <img alt="" src={image} width="100%" height="100%" /> 
-        <i style={{marginLeft: '50px'}}>
+        <i style={{marginLeft: '50px', color: colors.dark_grey}}>
                 - {source}
         </i>
     </div>
@@ -51,7 +51,7 @@ const scrollItemCenterTextOnly = (texts, mapping, source) => {
     }
     
     return (
-        <div style={{margin: 'auto', width:'80%'}}>
+        <div style={{margin: 'auto', width:'80%', color: colors.dark_grey}}>
             <div>
                 {items} 
             </div>
@@ -62,12 +62,12 @@ const scrollItemCenterTextOnly = (texts, mapping, source) => {
         );
 }
 
-const scrollItemCenterTitle = (titleText, subtitleText) => (
+const scrollItemCenterTitle = (titleText, subtitleText, titleColor, subtitleColor) => (
     <div>
-        <div style = {{fontSize: '100px', fontFamily: 'sans-serif', textAlign: 'center'}}>
+        <div style = {{fontSize: '100px', fontFamily: 'sans-serif', textAlign: 'center', color: titleColor}}>
             {titleText} 
         </div>
-        <i style = {{fontSize: '40px', fontFamily: 'sans-serif', color: colors.medium_grey, textAlign: 'center'}} >
+        <i style = {{fontSize: '40px', fontFamily: 'sans-serif', color: subtitleColor, textAlign: 'center'}} >
             {subtitleText}
         </i>
     </div>
@@ -87,13 +87,13 @@ const scrollItemLTR = (image, texts, mapping, imageSource, textSource) => {
 
     return (
         <div style={{display: 'flex', width:'100%'}}>
-            <div style={{ width:'50%', marginRight: '10px'}}>
+            <div style={{ width:'50%', marginRight: '10px', color: colors.dark_grey}}>
                 <img alt="" src={image} width="100%" height="100%" /> 
                 <i style={{marginLeft: '50px'}}>
                     - {imageSource}
                 </i>
             </div>
-            <div style={{ width:'50%', marginTop: '8%', marginLeft: '10px'}}>
+            <div style={{ width:'50%', marginTop: '8%', marginLeft: '10px', color: colors.dark_grey}}>
                 <div>
                     {items}
                 </div>
@@ -121,7 +121,7 @@ const scrollItemRTL = (image, texts, mapping, imageSource, textSource) => {
     
     return (
         <div style={{display: 'flex', width:'100%'}}>
-            <div style={{ width:'50%', marginTop: '8%', marginRight: '10px'}}>
+            <div style={{ width:'50%', marginTop: '8%', marginRight: '10px', color: colors.dark_grey}}>
                 <div>
                    {items}
                 </div>
@@ -129,7 +129,7 @@ const scrollItemRTL = (image, texts, mapping, imageSource, textSource) => {
                     - {textSource}
                 </i> 
             </div>
-            <div style={{ width:'50%', marginLeft: '10px'}}>
+            <div style={{ width:'50%', marginLeft: '10px', color: colors.dark_grey}}>
                 <img alt="" src={image} width="100%" height="100%" /> 
                 <i style={{marginLeft: '50px'}}>
                     - {imageSource}
@@ -164,7 +164,7 @@ const scrollItemRTLTextOnly = (texts1, texts2, mapping1, mapping2, textSource1, 
     }
 
     return (
-        <div style={{ display: 'flex', width:'100%'}}>
+        <div style={{ display: 'flex', width:'100%', color: colors.dark_grey}}>
             <div style={{ width:'50%', marginRight: '10px'}}>
                 <div>
                     {items1}
@@ -186,7 +186,7 @@ const scrollItemRTLTextOnly = (texts1, texts2, mapping1, mapping2, textSource1, 
 }
 
 const scrollItemLTRImageOnly = (image1, image2, imageSource1, imageSource2) => (
-        <div style={{display: 'flex', width:'100%'}}>
+        <div style={{display: 'flex', width:'100%', color: colors.dark_grey}}>
             <div style={{ width:'50%', marginRight: '10px'}}>
                 <img src={image1} width="100%" height="100%" /> 
                 <i style={{marginLeft: '50px'}}>
