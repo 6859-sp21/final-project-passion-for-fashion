@@ -15,7 +15,7 @@ const scrollItemCenter = (image, texts, mapping, source) => {
     }
   
     return (
-        <div style={{margin: 'auto', width:'50%'}}>
+        <div style={{margin: 'auto', width:'80%'}}>
             <img alt="" src={image} width="100%" height="100%" /> 
             <div style={{marginTop: '20px'}}>
                 <div display= 'flex' id='centerContainer'>
@@ -30,7 +30,7 @@ const scrollItemCenter = (image, texts, mapping, source) => {
 }
 
 const scrollItemCenterImageOnly = (image, source) => (
-    <div style={{margin: 'auto', width:'50%'}}>
+    <div style={{margin: 'auto', width:'70%'}}>
         <img alt="" src={image} width="100%" height="100%" /> 
         <i style={{marginLeft: '50px'}}>
                 - {source}
@@ -51,7 +51,7 @@ const scrollItemCenterTextOnly = (texts, mapping, source) => {
     }
     
     return (
-        <div style={{margin: 'auto', width:'50%'}}>
+        <div style={{margin: 'auto', width:'80%'}}>
             <div>
                 {items} 
             </div>
