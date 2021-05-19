@@ -18,6 +18,7 @@ import hm from './Images/hm_logo.png';
 const summary = "With the continually increasing popularity of \"fast-fashion\" companies, it is becoming more and more important to understand the social and ethical context in which such companies operate, as well as the influence they have on the planet, animals, and people. After a curated narrative experience, we invite you to explore the policies several clothing companies have with respect to animal welfare, environmental responsibility, and workers' rights, within a visualization containing data gathered from ";
 const goodOnYouURL = "https://goodonyou.eco/";
 const githubURL = "https://github.com/6859-sp21/final-project-passion-for-fashion";
+const linkTreeURL = "https://linktr.ee/passionforfashion";
 
 const narrative_summary = "Click on a company's logo to learn more about their ethical fashion policies through a step-through narrative experience. You may navigate the narrative by clicking the left and right buttons or arrow keys. If you wish to skip ahead to the main visualization, click the \"No Thanks, Let's Explore\" button down below."
 
@@ -119,9 +120,16 @@ class Intro extends Component {
                         <div style={{fontStyle:'italic', fontFamily:'sans-serif', color:colors.light_grey}}>
                         Spring 2021 6.859 Final Project
                         </div>
-                        <a href = {githubURL} target="_blank" style={{color:colors.soft_blue, fontStyle:'italic', fontFamily:'sans-serif'}} rel="noreferrer">
-                            Project Github
+                        <div>
+                            <a href = {githubURL} target="_blank" style={{color:colors.soft_blue, fontStyle:'italic', fontFamily:'sans-serif'}} rel="noreferrer">
+                                Project Github
+                            </a>
+                        </div>
+                        <div>
+                            <a href = {linkTreeURL} target="_blank" style={{color:colors.soft_blue, fontStyle:'italic', fontFamily:'sans-serif'}} rel="noreferrer">
+                            Narrative Sources
                         </a>
+                        </div>
                     </div>
                     <IconButton 
                         className="click" 
