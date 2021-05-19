@@ -101,7 +101,7 @@ const elemIndices = {
     'eleven': 11,
 }
 
-const elemOne = scrollItemCenterTitle(title, subtitle, colors.bold_green, colors.soft_green);
+const elemOne = scrollItemCenterTitle(title, subtitle, colors.dark_grey, colors.medium_grey);
 const elemTwo = scrollItemCenter(intro, [introText1, introText2, introText3, introText4, introText5], [mappings.reg, mappings.bold, mappings.reg, mappings.bold, mappings.reg], everlane);
 const elemThree = scrollItemLTR(promise, [customerPraise1, customerPraise2, customerPraise3, customerPraise4, customerPraise5], [mappings.reg, mappings.bold, mappings.reg, mappings.bold, mappings.reg], everlane, nicole);
 const elemFour = scrollItemRTL(about, [factoryText1, factoryText2], [mappings.reg, mappings.bold], everlane, everlane);
@@ -133,7 +133,7 @@ class Everlane extends Component {
         super(props);
         this.state = {
             transitionStyle: {
-                opacity: '0'
+                opacity: '0',
             },
             elemIndex: elemIndices.one,
             elem: elemOne,
@@ -168,14 +168,14 @@ class Everlane extends Component {
     handleTransition = () => {
         this.setState({
             transitionStyle: {
-                opacity: '0'
+                opacity: '0',
             },
         });
 
         setTimeout(() => this.setState({
                 transitionStyle: {
                     transition: 'opacity 2.5s',
-                    opacity: '1'
+                    opacity: '1',
                 }
             }), 3);
     }
@@ -262,13 +262,13 @@ class Everlane extends Component {
                 {/* Overall Container */}
                 <div style={{marginTop: '20px', marginLeft:'40px', marginRight:'40px', marginBottom:'20px'}}>
                     {/* Narrative Viewbox */}
-                    <div style={{marginTop: '100px', marginLeft:'20px', marginRight:'20px', display: 'flex', alignItems: 'center', justifyContent: 'center', height:'70vh', width: '88vw'}}>
+                    <div style={{borderRadius:'35px', padding: '10px', marginTop: '100px', marginLeft:'20px', marginRight:'20px', display: 'flex', alignItems: 'center', justifyContent: 'center', height:'70vh', width: '88vw', backgroundColor: colors.softest_green}}>
                         <div style={this.state.transitionStyle} id="element">
                             {this.state.elem}
                         </div>
                     </div>   
                     {/* Navigation Buttons */}
-                    <div style = {{display: 'flex', justifyContent: 'center'}}>
+                    <div style = {{marginTop:'10px', display: 'flex', justifyContent: 'center'}}>
                         {(this.state.elemIndex >= elemIndices.two) ? 
                             <IconButton 
                                 className="click" 

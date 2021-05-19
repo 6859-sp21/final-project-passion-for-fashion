@@ -85,7 +85,7 @@ const elemIndices = {
     'nine': 9,
 }
 
-const elemOne = scrollItemCenterTitle(title, subtitle, colors.bold_yellow, colors.soft_yellow);
+const elemOne = scrollItemCenterTitle(title, subtitle, colors.dark_grey, colors.medium_grey);
 const elemTwo = scrollItemCenterImageOnly(concious1, hm);
 const elemThree = scrollItemCenterTextOnly([susEarth21, susEarth22, susEarth23, susEarth31, susEarth32, susEarth33], [mappings.reg, mappings.bold, mappings.reg, mappings.bold, mappings.reg, mappings.bold], susfashion);
 const elemFour = scrollItemCenterImageOnly(concious2, hm);
@@ -239,13 +239,13 @@ class HM extends Component {
                 {/* Overall Container */}
                 <div style={{marginTop: '20px', marginLeft:'40px', marginRight:'40px', marginBottom:'20px'}}>
                     {/* Narrative Viewbox */}
-                    <div style={{marginTop: '100px', marginLeft:'20px', marginRight:'20px', display: 'flex', alignItems: 'center', justifyContent: 'center', height:'70vh', width: '88vw'}}>
+                    <div style={{borderRadius:'35px', padding: '10px', marginTop: '100px', marginLeft:'20px', marginRight:'20px', display: 'flex', alignItems: 'center', justifyContent: 'center', height:'70vh', width: '88vw', backgroundColor: colors.softest_yellow}}>
                         <div style={this.state.transitionStyle} id="element">
                             {this.state.elem}
                         </div>
                     </div>   
                     {/* Navigation Buttons */}
-                    <div style = {{display: 'flex', justifyContent: 'center'}}>
+                    <div style = {{marginTop:'10px', display: 'flex', justifyContent: 'center'}}>
                     {(this.state.elemIndex >= elemIndices.two) ? 
                             <IconButton 
                                 className="click" 

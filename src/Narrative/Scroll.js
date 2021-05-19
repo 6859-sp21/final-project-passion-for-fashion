@@ -15,16 +15,19 @@ const scrollItemCenter = (image, texts, mapping, source) => {
     }
   
     return (
-        <div style={{margin: 'auto', width:'80%'}}>
-            <img alt="" src={image} width="100%" height="100%" /> 
-            <div style={{marginTop: '20px', color: colors.dark_grey}}>
-                <div display= 'flex' id='centerContainer'>
-                    {items}
+        <div style={{margin: 'auto', width: '80%'}}>
+                <div style={{width:'100%', display: 'flex', justifyContent: 'center'}}>
+                    <img alt="" src={image} width="60%" height="60%"/> 
                 </div>
-                <i style={{marginLeft: '20px'}}>
-                    - {source}
-                </i>
-            </div>
+
+                <div style={{marginTop: '20px', color: colors.dark_grey}}>
+                    <div display= 'flex' id='centerContainer'>
+                        {items}
+                    </div>
+                    <i style={{marginLeft: '20px'}}>
+                        - {source}
+                    </i>
+                </div>
         </div>
     );
 }
