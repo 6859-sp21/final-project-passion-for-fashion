@@ -27,7 +27,7 @@ import protest from './Images/Nike/protest.jpeg';
 
 // labels
 const title = "Nike";
-const subtitle = "The Potential for Growth";
+const subtitle = "The Potential for Change";
 
 // text
 const sweatshop11 = "In 1991, American labour activist Jeffrey Ballinger published a report on Nike’s factory practices in Indonesia, exposing a scandal: ";

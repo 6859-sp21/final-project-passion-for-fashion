@@ -50,7 +50,7 @@ export default class BarChart extends Component {
 
   render() {
     return (
-      <Paper elevation={2} style={{margin: "2vw 2vw 2vw 1vw", width: "37vw", height:"80vh", display: 'flex', flexDirection: 'column', alignItems: 'left', justifyContent: 'flex-start'}}>
+      <Paper elevation={2} style={{margin: "2vw 2vw 2vw 1vw", width: "37vw", height:"85vh", display: 'flex', flexDirection: 'column', alignItems: 'left', justifyContent: 'flex-start'}}>
         <Typography variant="h4" style={{padding: "1vw", color: colors.bold_blue}}>Apparel Types</Typography>
         <div style={{margin: "0vw 1vw 1vw"}}>
           Select at most 5 brands on the left to explore their apparel types and the ratings that these categories typically receive.
