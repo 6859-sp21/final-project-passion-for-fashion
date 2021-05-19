@@ -4,6 +4,8 @@ import { IconButton } from '@material-ui/core';
 import colors from './../constants/colors';
 import states from './../constants/states';
 
+import './../App.css';
+
 import brandData from './brand_page_info.json';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';

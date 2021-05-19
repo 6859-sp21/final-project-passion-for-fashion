@@ -7,6 +7,8 @@ import { IconButton } from '@material-ui/core';
 import colors from './../constants/colors';
 import states from './../constants/states';
 
+import './../App.css';
+
 import BrandTable from "./BrandTable";
 
 class VisualizationNew extends React.Component {
@@ -25,22 +27,26 @@ class VisualizationNew extends React.Component {
         this.props.updateState(states.introduction);
     }
 
+    buttonChildrenRTL = (text) => {
+        return (
+            <div style={{display: 'flex'}}>
+                <ArrowBackIosIcon/>
+                <div style={{fontSize:'20px'}}>{text}</div>
+            </div>
+        );
+    }
+
     render() {
         return (
             <div>
                 <BrandTable/>
                 <div style={{margin: '1vh 2vh', display: 'flex', flexDirection: 'row', justifyContent: 'left'}}>
-                    <IconButton
-                        children={<ArrowBackIosIcon/>}
-                        color="primary"
-                        variant="contained" 
-                        onClick={this.onSubmit} 
-                        style={{
-                            color: colors.soft_purple,
-                            size: "small",
-                            backgroundColor: "transparent",}}
-                    />
-                    <div style={{fontSize:'20px', marginTop: '10px', color: colors.soft_purple}}>Back to Home</div>
+                    <IconButton 
+                        className="click" 
+                        style={{fontSize:"20px", color:colors.soft_purple, backgroundColor: "transparent"}} 
+                        onClick={this.onSubmit}>
+                        {this.buttonChildrenRTL("Back to Home")}
+                    </IconButton>
                 </div>
                 
             </div>
