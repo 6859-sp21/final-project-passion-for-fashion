@@ -1,4 +1,4 @@
-import {Hint, RadarChart} from 'react-vis';
+import {Hint, RadarChart, DiscreteColorLegend} from 'react-vis';
 
 import React, {Component} from 'react';
 import {format} from 'd3-format';
@@ -14,7 +14,7 @@ const basicFormat = format('.1r');
 const wideFormat = format('.3r');
 
 const WIDTH= document.documentElement.clientWidth * 0.30;
-const HEIGHT= document.documentElement.clientHeight * 0.5;
+const HEIGHT= document.documentElement.clientHeight * 0.45;
 
 const tipStyle = {
   display: 'flex',
@@ -93,7 +93,7 @@ export default class RatingChart extends Component {
         <div style={{display: 'flex', flexDirection: "column", alignItems: 'center', justifyContent: 'center'}}>
           {this.state.selected.length > 0 && this.state.selected.length <= 5 && (
             <div>
-              <div style={{padding: "2vw"}}>
+              <div style={{padding: "1vh"}}>
                 <RadarChart
                   data={this.state.selected}
                   tickFormat={t => basicFormat(t)}
@@ -114,7 +114,7 @@ export default class RatingChart extends Component {
                 >
                 </RadarChart>
               </div>
-
+              <DiscreteColorLegend width={WIDTH*0.5} height={HEIGHT*0.5} items={this.state.selected.map((brand) => {return brand.name})} />
             </div>
           )}
         </div>
