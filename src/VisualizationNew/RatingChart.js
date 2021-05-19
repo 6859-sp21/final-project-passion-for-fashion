@@ -82,7 +82,7 @@ export default class RatingChart extends Component {
     const {hoveredCell} = this.state;
 
     return (
-      <Paper elevation={2} style={{margin: "2vw 2vw 2vw 1vw", width: "37vw", maxHeight:"80vh", display: 'flex', flexDirection: 'column', alignItems: 'left', justifyContent: 'flex-start'}}>
+      <Paper elevation={2} style={{margin: "2vw 2vw 2vw 1vw", width: "37vw", height:"80vh", display: 'flex', flexDirection: 'column', alignItems: 'left', justifyContent: 'flex-start'}}>
         <Typography variant="h4" style={{padding: "1vw", color: colors.bold_blue}}>Sub-Ratings</Typography>
         <div style={{margin: "0vw 1vw 1vw"}}>
           Select at most 5 brands on the left to compare their ratings across categories.

@@ -12,6 +12,9 @@ import './../App.css';
 import BrandTable from "./BrandTable";
 import RatingChart from "./RatingChart";
 import BarChart from "./BarChart";
+import SankeyChart from "./SankeyChart";
+import Map from "./Map";
+import { Sankey } from "react-vis";
 
 const MAX_VIZ_INDEX = 3; // 4 total
 
@@ -84,35 +87,47 @@ class VisualizationNew extends React.Component {
                             <div>vizIndex = 3</div>
                         )}
                         <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignContent: 'center'}}>
-                            {(this.state.vizIndex >= 1) ? 
-                                <IconButton 
-                                    className="click" 
-                                    style={{fontSize:"20px", color:colors.soft_green, backgroundColor: "transparent"}} 
-                                    onClick={() => this.switchViz(this.state.vizIndex - 1)}>
-                                    {this.previousButton("")}
-                                </IconButton> : 
-                                <IconButton 
-                                    className="click" 
-                                    disabled={true}
-                                    style={{fontSize:"20px", color:"transparent", backgroundColor: "transparent"}} 
-                                    onClick={() => this.switchViz(this.state.vizIndex - 1)}>
-                                    {this.previousButton("")}
-                                </IconButton>}
-                            {(this.state.vizIndex <= 2) ? 
-                                <IconButton 
-                                    className="click" 
-                                    style={{fontSize:"20px", color:colors.soft_green, backgroundColor: "transparent"}} 
-                                    onClick={() => this.switchViz(this.state.vizIndex + 1)}>
-                                    {this.nextButton("")}
-                                </IconButton> : 
-                                <IconButton 
-                                    className="click" 
-                                    disabled={true}
-                                    style={{fontSize:"20px", color:"transparent", backgroundColor: "transparent"}} 
-                                    onClick={() => this.switchViz(this.state.vizIndex + 1)}>
-                                    {this.nextButton("")}
-                                </IconButton>}
-                            </div>
+                        {(this.state.vizIndex >= 1) ? 
+                            <IconButton 
+                                className="click" 
+                                style={{fontSize:"20px", color:colors.soft_green, backgroundColor: "transparent"}} 
+                                onClick={() => this.switchViz(this.state.vizIndex - 1)}>
+                                {this.previousButton("")}
+                            </IconButton> : 
+                            <IconButton 
+                                className="click" 
+                                disabled={true}
+                                style={{fontSize:"20px", color:"transparent", backgroundColor: "transparent"}} 
+                                onClick={() => this.switchViz(this.state.vizIndex - 1)}>
+                                {this.previousButton("")}
+                            </IconButton>}
+                        {(this.state.vizIndex <= 2) ? 
+                            <IconButton 
+                                className="click" 
+                                style={{fontSize:"20px", color:colors.soft_green, backgroundColor: "transparent"}} 
+                                onClick={() => this.switchViz(this.state.vizIndex + 1)}>
+                                {this.nextButton("")}
+                            </IconButton> : 
+                            <IconButton 
+                                className="click" 
+                                disabled={true}
+                                style={{fontSize:"20px", color:"transparent", backgroundColor: "transparent"}} 
+                                onClick={() => this.switchViz(this.state.vizIndex + 1)}>
+                                {this.nextButton("")}
+                            </IconButton>}
+                        </div>
+                    {/* {(this.state.vizIndex == 0) && (
+                        <RatingChart selectedCompanies={this.state.selectedCompanies}/>
+                    )}
+                    {(this.state.vizIndex == 1) && (
+                        <BarChart/>
+                    )}
+                    {(this.state.vizIndex == 2) && (
+                        <SankeyChart/>
+                    )}
+                    {(this.state.vizIndex == 3) && (
+                        <Map/>
+                    )} */}
                 </div>
                 <div style={{margin: '1vh 2vh', display: 'flex', flexDirection: 'row', justifyContent: 'left'}}>
                         <IconButton 
