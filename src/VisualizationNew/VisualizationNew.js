@@ -104,7 +104,7 @@ class VisualizationNew extends React.Component {
                                 <BarChart/>
                             )}
                             {(this.state.vizIndex == 2) && (
-                                <Sankey/>
+                                <SankeyChart/>
                             )}
                             {(this.state.vizIndex == 3) && (
                                 <Map/>
