@@ -1,9 +1,19 @@
-import {Hint, RadarChart} from 'react-vis';
+import {
+  XYPlot,
+  XAxis,
+  YAxis,
+  VerticalGridLines,
+  HorizontalGridLines,
+  HorizontalBarSeries,
+  HorizontalBarSeriesCanvas
+} from 'react-vis';
 
 import React, {Component} from 'react';
 import {format} from 'd3-format';
 
 import colors from './../constants/colors';
+
+import brandData from '../Visualization/brand_page_info.json';
 
 import {Paper, Typography} from "@material-ui/core";
 
@@ -27,13 +37,7 @@ export default class BarChart extends Component {
   }
 
   componentDidMount() {
-    if (this.props.selectedCompanies == []){
-      this.setState({
-        selected: [],
-      })
-    } else {
-      this.runMountTasks();
-    }    
+
   }
 
   componentDidUpdate() {
@@ -52,7 +56,14 @@ export default class BarChart extends Component {
           Select at most 5 brands on the left to explore their apparel types and the ratings that these categories typically receive.
         </div>
         <div style={{display: 'flex', flexDirection: "column", alignItems: 'center', justifyContent: 'center'}}>
-          
+          <XYPlot width={300} height={300} stackBy="x">
+            <VerticalGridLines />
+            <HorizontalGridLines />
+            <XAxis />
+            <YAxis />
+            <HorizontalBarSeries data={[{y: 2, x: 10}, {y: 4, x: 5}, {y: 5, x: 15}]} />
+            <HorizontalBarSeries data={[{y: 2, x: 12}, {y: 4, x: 2}, {y: 5, x: 11}]} />
+          </XYPlot>
         </div>
       </Paper>
     );

@@ -81,10 +81,10 @@ class VisualizationNew extends React.Component {
                             <BarChart/>
                         )}
                         {(this.state.vizIndex == 2) && (
-                            <div>vizIndex = 2</div>
+                            <SankeyChart/>
                         )}
                         {(this.state.vizIndex == 3) && (
-                            <div>vizIndex = 3</div>
+                            <Map/>
                         )}
                 </div>
                 <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'flex-end', alignContent: 'center', margin: "0vw 16vw 0vw 0vw"}}>

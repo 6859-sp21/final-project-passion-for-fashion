@@ -102,7 +102,15 @@ class BrandTable extends React.Component {
 
         this.setState({
             data: fixedBrandData,
-        })
+            selectedBrands: fixedBrandData.slice(0, 3),
+        }, function() {
+            if (brandListRef.current == null) {return;};
+            this.props.setSelectedBrands(this.state.selectedBrands);
+            for (var i of [0, 1, 2]) {
+                brandListRef.current.dataManager.changeRowSelected(true, [i]);
+            }
+            
+        });
     }
 
     componentWillUnmount() {
