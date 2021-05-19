@@ -113,11 +113,11 @@ class Visualization extends Component {
                         </div>
                         <div style={{flexGrow: 1, float: 'right', height:"50vh"}}>
                             <h3>Explore Brand Locations</h3>
-                            {/* <Map
+                            <Map
                                 filteredData={filteredData}
                                 filterByCountry={this.handleFilterByCountry}
-                            /> */}
-                            <BarChart/>
+                            />
+                            {/* <BarChart/> */}
                         </div>
                     </div>
                     <div style={{display: "flex", marginLeft: "20px", marginBottom: '5px', position: "absolute", bottom:"0", left:"0", height:"4vh"}}>
