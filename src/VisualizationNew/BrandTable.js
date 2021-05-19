@@ -49,7 +49,19 @@ const tableIcons = {
     Launch: forwardRef((props, ref) => <LaunchIcon {...props} ref={ref}/>),
   };
 
-
+function shuffleArray(array) {
+    for (var i = array.length - 1; i > 0; i--) { 
+     
+        // Generate random number 
+        var j = Math.floor(Math.random() * (i + 1));
+                     
+        var temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
+         
+    return array;
+}
 
 class BrandTable extends React.Component {
 
@@ -62,14 +74,14 @@ class BrandTable extends React.Component {
     }
 
     componentDidMount() {
-        const fixedBrandData = brandData.map((brandObj) => {
+        const shuffledData = shuffleArray(brandData);
+
+        const fixedBrandData = shuffledData.map((brandObj) => {
             brandObj.ratingFixed = ((RATINGS.indexOf(brandObj.rating) + 1).toString() + " (" + brandObj.rating + ")");
             brandObj.priceFixed = (brandObj.price == null) ? "N/A" : brandObj.price;
             brandObj.locationFixed = (brandObj.location == null) ? "N/A" : brandObj.location;
             return brandObj;
         })
-        
-        console.log(fixedBrandData);
 
         this.setState({
             data: fixedBrandData,
@@ -78,10 +90,10 @@ class BrandTable extends React.Component {
 
     render() {
         return (
-            <Paper elevation={2} style={{margin: "2vw 1vw 2vw 2vw", width: "57vw", maxHeight: "85vh", overflow: "auto"}}>
+            <Paper elevation={2} style={{margin: "2vw 1vw 2vw 2vw", width: "57vw", maxHeight: "80vh", overflow: "auto"}}>
                 <Typography variant="h4" style={{padding: "1vw"}}>Explore All Brands</Typography>
                 <div style={{margin: "0vw 1vw 1vw"}}>
-                    Click on the arrow button next to each row to read Good On You's detailed evaluation of the brand's policies.
+                    Click on the arrow button next to each row to read Good On You's detailed evaluation of the brand's policies. The initial order is random.
                 </div>
                 <MaterialTable
                     icons={tableIcons}
@@ -120,15 +132,17 @@ class BrandTable extends React.Component {
                     title="Brand List"
                     options={{
                         toolbar: false,
-                        pageSize: 8,
-                        pageSizeOptions: [8],
+                        pageSize: 5,
+                        pageSizeOptions: [5],
                         search: true,
                         sorting: true,
                         filtering: true,
                         selection: true,
-                        selectionProps: rowData => ({
-                            disabled: this.state.selectedBrands.length >= 5,
-                        }),
+                        selectionProps: (rowData) => {
+                            return ({
+                                disabled: this.state.selectedBrands.length >= 5 && !rowData.tableData.checked,
+                            });
+                        },
                         actionsColumnIndex: -1
                     }}
                     detailPanel={[
@@ -147,14 +161,6 @@ class BrandTable extends React.Component {
                         this.setState({selectedBrands: rows});
                         this.props.setSelectedBrands(rows);
                     }}
-                    // actions={[
-                    //     {
-                    //         icon: () => (<LaunchIcon style={{color: "rgba(0, 0, 0, 0.54)"}}/>),
-                    //         tooltip: 'Read More',
-                    //         onClick: (event, rowData) => {window.open(rowData.brand_url, '_blank').focus();},
-                    //         position: "row",
-                    //     }
-                    // ]}
                 />
             </Paper>
         );
