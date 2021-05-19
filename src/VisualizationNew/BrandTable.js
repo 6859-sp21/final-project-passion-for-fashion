@@ -124,7 +124,7 @@ class BrandTable extends React.Component {
             <Paper elevation={2} style={{margin: "2vw 1vw 2vw 2vw", width: "57vw", height: "80vh"}}>
                 <Typography variant="h4" style={{padding: "1vw", color: colors.bold_blue}}>Explore All Brands</Typography>
                 <div style={{margin: "0vw 1vw 1vw"}}>
-                    Click on the arrow button next to each row to read Good On You's detailed evaluation of the brand's policies. The initial order is random.
+                    Click on the arrow button next to each row to read Good On You's detailed evaluation of the brand's policies. The initial order is randomized, and does not reflect any brand ranking.
                 </div>
                 <div style={{overflow: "auto", height: "65vh"}}>
                     <ThemeProvider theme={theme}>

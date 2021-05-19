@@ -13,6 +13,9 @@ const PRICINGS = ["", "$", "$$", "$$$"];
 const basicFormat = format('.1r');
 const wideFormat = format('.3r');
 
+const legendColors = [colors.soft_pink, colors.soft_purple, colors.soft_blue, colors.soft_green, colors.soft_yellow]
+const legendTextColors = [colors.bold_pink, colors.bold_purple, colors.bold_blue, colors.bold_green, colors.bold_yellow]
+
 const WIDTH= document.documentElement.clientWidth * 0.30;
 const HEIGHT= document.documentElement.clientHeight * 0.45;
 
@@ -78,6 +81,23 @@ export default class RatingChart extends Component {
     })
   }
 
+  // legendFunction = (value, index, array) => {
+  //   const titleText =
+  //   ( {this.state.name === value ? 
+  //     <div style={{color: legendTextColors[index]}}>
+  //       {value.name}
+  //     </div> : <div style={{color: legendTextColors[index]}}>
+  //       {value.name}
+  //     </div> }
+  //   );
+
+  //   return {
+  //     title: titleText,
+  //     strokeWidth: 0,
+  //     strokeHeight: 0,
+  //   };
+  // }
+
   render() {
     const {hoveredCell} = this.state;
 
@@ -86,18 +106,18 @@ export default class RatingChart extends Component {
         <Typography variant="h4" style={{padding: "1vw", color: colors.bold_blue}}>Sub-Ratings</Typography>
         <div style={{margin: "0vw 1vw 1vw"}}>
           Select at most 5 brands on the left to compare their ratings across categories.
-          Hovering over: {hoveredCell.name}
         </div>
         <div style={{display: 'flex', flexDirection: "column", alignItems: 'center', justifyContent: 'center'}}>
           {this.state.selected.length > 0 && this.state.selected.length <= 5 && (
             <div>
               <div style={{padding: "1vh"}}>
                 <RadarChart
+                  colorRange={legendColors}
                   data={this.state.selected}
                   tickFormat={t => basicFormat(t)}
                   startingAngle={0.8}
                   domains={[
-                    {name: 'Rating', domain: [0, 5], getValue: d => d.ratingNum},
+                    {name: 'Overall', domain: [0, 5], getValue: d => d.ratingNum},
                     {name: 'People', domain: [0, 5], getValue: d => d.people},
                     {name: 'Planet', domain: [0, 5], getValue: d => d.planet},
                     {name: 'Animals', domain: [0, 5], getValue: d => d.animals}
@@ -105,6 +125,7 @@ export default class RatingChart extends Component {
                   width={WIDTH}
                   height={HEIGHT}
                   onSeriesMouseOver={(data) => {
+                    console.log(data)
                     this.setState({hoveredCell: data.event[0]});
                   }}
                   onSeriesMouseOut={() => this.setState({hoveredCell: false})}
@@ -112,7 +133,22 @@ export default class RatingChart extends Component {
                 >
                 </RadarChart>
               </div>
-              <DiscreteColorLegend width={WIDTH*0.5} height={HEIGHT*0.5} items={this.state.selected.map((brand) => {return brand.name})} />
+              <DiscreteColorLegend 
+                colors={legendColors} 
+                width={WIDTH} 
+                height={HEIGHT*0.5} 
+                items={this.state.selected.map(
+                  (item, key) =>
+                  hoveredCell.name === item.name ? (
+                    <div style={{color: legendTextColors[key], fontSize:'20px'}}>
+                      {item.name}
+                    </div>
+                  ) : (
+                    <div style={{color: legendTextColors[key]}}>
+                      {item.name}
+                    </div>
+                  )
+                )}/>
             </div>
           )}
         </div>
