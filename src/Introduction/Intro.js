@@ -19,7 +19,7 @@ const summary = "With the continually increasing popularity of \"fast-fashion\" 
 const goodOnYouURL = "https://goodonyou.eco/about/";
 const githubURL = "https://github.com/6859-sp21/final-project-passion-for-fashion";
 const linkTreeURL = "https://linktr.ee/passionforfashion";
-const paperLink = "";
+const paperLink = "https://github.com/6859-sp21/final-project-passion-for-fashion/blob/main/final/6_859_Final_Project_Paper___Passion_for_Fashion.pdf";
 
 
 const narrative_summary = "Click on a company's logo to learn more about their ethical fashion policies through a step-through narrative experience. You may navigate the narrative by clicking the left and right buttons or using arrow keys. If you wish to skip ahead to the main visualization, click the \"No Thanks, Let's Explore\" button down below."
