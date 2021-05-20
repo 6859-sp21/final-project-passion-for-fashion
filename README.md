@@ -2,7 +2,7 @@
 # Passion for Fashion
 
 ### By Magdalena Price and Melody Phu 
-Check out the [live publication](https://6859-sp21.github.io/final-project-passion-for-fashion/) of this visualization, and take a look at our [project paper]().
+Check out the [live publication](https://6859-sp21.github.io/final-project-passion-for-fashion/) of this visualization, and take a look at our [project paper](https://github.com/6859-sp21/final-project-passion-for-fashion/blob/main/final/6_859_Final_Project_Paper___Passion_for_Fashion.pdf).
 
 ## About the Project
 
@@ -27,7 +27,7 @@ With respect to data collection and aggregation, the process was laborious and t
 
 ## Running Passion for Fashion Locally
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was created using with [Create React App](https://github.com/facebook/create-react-app).
 
 ### Required Scripts
 
@@ -41,8 +41,3 @@ In the project directory, run:
 Read more about using npm for installation [here](https://www.npmjs.com/get-npm), and open [http://localhost:3000](http://localhost:3000) to view the app in browser.
 
 The page will reload if you make edits. You will also see any lint errors in the console.
-
-## Extra 
-
-You can learn more about React Apps in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-To learn React, check out the [React documentation](https://reactjs.org/).
