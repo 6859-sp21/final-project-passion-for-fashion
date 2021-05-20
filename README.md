@@ -27,7 +27,7 @@ With respect to data collection and aggregation, the process was laborious and t
 
 ## Running Passion for Fashion Locally
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was created using with [Create React App](https://github.com/facebook/create-react-app).
 
 ### Required Scripts
 
