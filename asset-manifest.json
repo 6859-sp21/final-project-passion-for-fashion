@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/final-project-passion-for-fashion/static/css/main.4379a759.chunk.css",
-    "main.js": "/final-project-passion-for-fashion/static/js/main.6956ca64.chunk.js",
-    "main.js.map": "/final-project-passion-for-fashion/static/js/main.6956ca64.chunk.js.map",
-    "runtime-main.js": "/final-project-passion-for-fashion/static/js/runtime-main.e7626ff0.js",
-    "runtime-main.js.map": "/final-project-passion-for-fashion/static/js/runtime-main.e7626ff0.js.map",
-    "static/js/2.b5122f6a.chunk.js": "/final-project-passion-for-fashion/static/js/2.b5122f6a.chunk.js",
-    "static/js/2.b5122f6a.chunk.js.map": "/final-project-passion-for-fashion/static/js/2.b5122f6a.chunk.js.map",
-    "static/js/3.ddde2cf6.chunk.js": "/final-project-passion-for-fashion/static/js/3.ddde2cf6.chunk.js",
-    "static/js/3.ddde2cf6.chunk.js.map": "/final-project-passion-for-fashion/static/js/3.ddde2cf6.chunk.js.map",
+    "main.js": "/final-project-passion-for-fashion/static/js/main.49853368.chunk.js",
+    "main.js.map": "/final-project-passion-for-fashion/static/js/main.49853368.chunk.js.map",
+    "runtime-main.js": "/final-project-passion-for-fashion/static/js/runtime-main.f6d7bb57.js",
+    "runtime-main.js.map": "/final-project-passion-for-fashion/static/js/runtime-main.f6d7bb57.js.map",
+    "static/js/2.eb29db66.chunk.js": "/final-project-passion-for-fashion/static/js/2.eb29db66.chunk.js",
+    "static/js/2.eb29db66.chunk.js.map": "/final-project-passion-for-fashion/static/js/2.eb29db66.chunk.js.map",
+    "static/js/3.18e1f137.chunk.js": "/final-project-passion-for-fashion/static/js/3.18e1f137.chunk.js",
+    "static/js/3.18e1f137.chunk.js.map": "/final-project-passion-for-fashion/static/js/3.18e1f137.chunk.js.map",
     "static/js/4.2f3fa3f2.chunk.js": "/final-project-passion-for-fashion/static/js/4.2f3fa3f2.chunk.js",
     "static/js/4.2f3fa3f2.chunk.js.map": "/final-project-passion-for-fashion/static/js/4.2f3fa3f2.chunk.js.map",
     "static/js/5.4ae9917b.chunk.js": "/final-project-passion-for-fashion/static/js/5.4ae9917b.chunk.js",
@@ -17,8 +17,8 @@
     "static/js/6.a5d5ef9c.chunk.js.map": "/final-project-passion-for-fashion/static/js/6.a5d5ef9c.chunk.js.map",
     "index.html": "/final-project-passion-for-fashion/index.html",
     "static/css/main.4379a759.chunk.css.map": "/final-project-passion-for-fashion/static/css/main.4379a759.chunk.css.map",
-    "static/js/2.b5122f6a.chunk.js.LICENSE.txt": "/final-project-passion-for-fashion/static/js/2.b5122f6a.chunk.js.LICENSE.txt",
-    "static/js/3.ddde2cf6.chunk.js.LICENSE.txt": "/final-project-passion-for-fashion/static/js/3.ddde2cf6.chunk.js.LICENSE.txt",
+    "static/js/2.eb29db66.chunk.js.LICENSE.txt": "/final-project-passion-for-fashion/static/js/2.eb29db66.chunk.js.LICENSE.txt",
+    "static/js/3.18e1f137.chunk.js.LICENSE.txt": "/final-project-passion-for-fashion/static/js/3.18e1f137.chunk.js.LICENSE.txt",
     "static/js/4.2f3fa3f2.chunk.js.LICENSE.txt": "/final-project-passion-for-fashion/static/js/4.2f3fa3f2.chunk.js.LICENSE.txt",
     "static/js/5.4ae9917b.chunk.js.LICENSE.txt": "/final-project-passion-for-fashion/static/js/5.4ae9917b.chunk.js.LICENSE.txt",
     "static/media/Nike_Thailand.df81399b.jpeg": "/final-project-passion-for-fashion/static/media/Nike_Thailand.df81399b.jpeg",
@@ -37,9 +37,9 @@
     "static/media/washhm.53cddd94.jpeg": "/final-project-passion-for-fashion/static/media/washhm.53cddd94.jpeg"
   },
   "entrypoints": [
-    "static/js/runtime-main.e7626ff0.js",
-    "static/js/2.b5122f6a.chunk.js",
+    "static/js/runtime-main.f6d7bb57.js",
+    "static/js/2.eb29db66.chunk.js",
     "static/css/main.4379a759.chunk.css",
-    "static/js/main.6956ca64.chunk.js"
+    "static/js/main.49853368.chunk.js"
   ]
 }
