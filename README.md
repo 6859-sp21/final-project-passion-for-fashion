@@ -2,7 +2,7 @@
 # Passion for Fashion
 
 ### By Magdalena Price and Melody Phu 
-Check out the [live publication](https://6859-sp21.github.io/final-project-passion-for-fashion/) of this visualization, and take a look at our [project paper]().
+Check out the [live publication](https://6859-sp21.github.io/final-project-passion-for-fashion/) of this visualization, and take a look at our [project paper](https://github.com/6859-sp21/final-project-passion-for-fashion/blob/main/final/6_859_Final_Project_Paper___Passion_for_Fashion.pdf).
 
 ## About the Project
 
