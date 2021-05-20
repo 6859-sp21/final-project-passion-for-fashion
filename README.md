@@ -41,8 +41,3 @@ In the project directory, run:
 Read more about using npm for installation [here](https://www.npmjs.com/get-npm), and open [http://localhost:3000](http://localhost:3000) to view the app in browser.
 
 The page will reload if you make edits. You will also see any lint errors in the console.
-
-## Extra 
-
-You can learn more about React Apps in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-To learn React, check out the [React documentation](https://reactjs.org/).
