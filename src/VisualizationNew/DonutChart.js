@@ -15,6 +15,7 @@ const RATING_TYPES = ['Overall', 'People', 'Planet', 'Animals'];
 const possible_values = [1, 2, 3, 4, 5];
 
 const legendColors = [colors.soft_pink, colors.soft_purple, colors.soft_blue, colors.soft_green, colors.soft_yellow]
+const legendColorsJank = [colors.soft_yellow, colors.soft_pink, colors.soft_green, colors.soft_blue, colors.soft_purple];
 const legendTextColors = [colors.bold_pink, colors.bold_purple, colors.bold_blue, colors.bold_green, colors.bold_yellow]
 
 const basicFormat = format('.1r');
@@ -160,28 +161,43 @@ export default class DonutChart extends Component {
   }
 
   render() {
-    console.log(this.state.hovered);
-    console.log(this.state.ratingData);
+    // console.log(this.state.hovered);
+    // console.log(this.state.ratingData);
 
     return (
       <Paper elevation={2} style={{margin: "2vw 2vw 2vw 1vw", width: "37vw", height:"84vh", display: 'flex', flexDirection: 'column', alignItems: 'left', justifyContent: 'flex-start'}}>
         <Typography variant="h4" style={{padding: "1vw", color: colors.bold_blue}}>Rating Breakdown</Typography>
         <div style={{margin: "0vw 1vw 1vw"}}>
-          See how overall ratings typically break down into subcategories.
+          See the overall rating distribution across all companies.
         </div>
-        <div style={{display: 'flex', flexDirection: "row", alignItems: 'center', justifyContent: 'center', flexWrap: 'wrap'}}>
+        <div style={{display: 'flex', flexDirection: "column", alignItems: 'center', justifyContent: 'center'}}>
+          <div style={{display: 'flex', flexDirection: "row", alignItems: 'center', justifyContent: 'center', flexWrap: 'wrap'}}>
+          {RATING_TYPES.map((type, key) => {
+            return (
+              <div style={{margin: "0.5vw 1vw", display: 'flex', flexDirection: 'column', alignItems: 'center'}}> 
+                <div>{type}</div>
+                <br/>
+                <RadialChart
+                  data={this.state.ratingData[type]}
+                  width={WIDTH}
+                  height={WIDTH} 
+                  innerRadius={WIDTH/2*0.8}
+                  radius={WIDTH/2}
+                  padAngle={0.04}
+                  colorRange={legendColorsJank}
+                  onValueMouseOver={v => this.setState({hovered: v})}
+                  onSeriesMouseOut={v => this.setState({hovered: false})}
+                >
+                </RadialChart>
+              </div>
+            )
+          })}
+          </div>
           <div style={{padding: "1vw"}}>
             <DiscreteColorLegend 
               colors={legendTextColors} 
               width={WIDTH} 
               height={WIDTH} 
-              // items={ITEMS.map((item) => {
-              //   return (
-              //     <div style={{color: item.color}}>
-              //       {item.title}
-              //     </div>
-              //   );
-              // })} 
               items={ITEMS.map(
                 (item, key) =>
                 this.state.hovered.rating && this.state.hovered.rating === item.title ? (
@@ -195,26 +211,6 @@ export default class DonutChart extends Component {
                 )
               )}/>
           </div>
-          {RATING_TYPES.map((type) => {
-            return (
-              <div style={{margin: "0.5vw 1vw", display: 'flex', flexDirection: 'column', alignItems: 'center'}}> 
-                <div>{type}</div>
-                <br/>
-                <RadialChart
-                  data={this.state.ratingData[type]}
-                  width={WIDTH}
-                  height={WIDTH} 
-                  innerRadius={WIDTH/2*0.8}
-                  radius={WIDTH/2}
-                  padAngle={0.04}
-                  colorRange={legendColors}
-                  onValueMouseOver={v => this.setState({hovered: v})}
-                  onSeriesMouseOut={v => this.setState({hovered: false})}
-                >
-                </RadialChart>
-              </div>
-            )
-          })}
           
         </div>
       </Paper>
