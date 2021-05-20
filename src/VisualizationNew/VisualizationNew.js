@@ -13,9 +13,8 @@ import './../App.css';
 import BrandTable from "./BrandTable";
 import RatingChart from "./RatingChart";
 import BarChart from "./BarChart";
-import SankeyChart from "./SankeyChart";
+import DonutChart from "./DonutChart";
 import Map from "./Map";
-import { Sankey } from "react-vis";
 
 const MAX_VIZ_INDEX = 3; // 4 total
 
@@ -66,7 +65,7 @@ class VisualizationNew extends React.Component {
 
     switchViz = (value) => {
         // don't go out of range
-        if (value <= 1 && value >= 0) {
+        if (value <= 2 && value >= 0) {
             this.setState({
                 vizIndex: value,
             })
@@ -104,7 +103,7 @@ class VisualizationNew extends React.Component {
                                 <BarChart/>
                             )}
                             {(this.state.vizIndex == 2) && (
-                                <SankeyChart/>
+                                <DonutChart/>
                             )}
                             {(this.state.vizIndex == 3) && (
                                 <Map/>
@@ -134,7 +133,7 @@ class VisualizationNew extends React.Component {
                                     >
                                     {this.previousButton("")}
                                 </IconButton>}
-                            {(this.state.vizIndex <= 0) ? 
+                            {(this.state.vizIndex <= 1) ? 
                                 <IconButton 
                                     className="click" 
                                     style={{fontSize:"20px", color:colors.soft_blue, backgroundColor: "transparent"}} 
